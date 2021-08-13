@@ -1,0 +1,34 @@
+#polies {
+  position: absolute;
+  padding-left: 50px;
+}
+
+#polies2 {
+  position: absolute;
+  padding-left: 900px;
+}
+
+#Polygon-1,
+#Polygon-2,
+#Polygon-3,
+#Polygon-4,
+#Polygon-4,
+#Polygon-5 {
+  animation: float 1s infinite ease-in-out alternate;
+}
+
+#Polygon-2 {
+  animation-delay: .2s;
+}
+
+#Polygon-3 {
+  animation-delay: .4s;
+}
+
+#Polygon-4 {
+  animation-delay: .6s;
+}
+
+#Polygon-5 {
+  animation-delay: .8s;
+}
