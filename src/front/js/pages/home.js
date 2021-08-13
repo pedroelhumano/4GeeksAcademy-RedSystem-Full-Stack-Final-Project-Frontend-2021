@@ -1,24 +1,29 @@
-import React, { useContext } from "react";
+import React, { useState, useEffect, useContext } from "react";
+import { Link, useParams } from "react-router-dom";
 import { Context } from "../store/appContext";
-import rigoImageUrl from "../../img/rigo-baby.jpg";
-import "../../styles/home.scss";
+import "../../styles/app.scss";
+//Componentes importados
+import { Listatrabajo } from "../component/listatrabajo.js";
 
-export const Home = () => {
-	const { store, actions } = useContext(Context);
-
+export const Home = props => {
 	return (
-		<div className="text-center mt-5">
-			<h1>Hello Rigo!</h1>
-			<p>
-				<img src={rigoImageUrl} />
-			</p>
-			<div className="alert alert-info">{store.message || "Loading message from the backend..."}</div>
-			<p>
-				This boilerplate comes with lots of documentation:{" "}
-				<a href="https://github.com/4GeeksAcademy/react-flask-hello/tree/95e0540bd1422249c3004f149825285118594325/docs">
-					Read documentation
-				</a>
-			</p>
+		<div className="container">
+			<ul className="list-group container-fluid">
+				<Listatrabajo id_nombre="VTR-919301" url_info="datos_contrato" url_orden="ordenes" />
+				<Listatrabajo id_nombre="VTR-919301" url_info="verdatoscontrato" url_orden="ordenes" />
+				<Listatrabajo id_nombre="VTR-919301" url_info="verdatoscontrato" url_orden="ordenes" />
+				<Listatrabajo id_nombre="VTR-919301" url_info="verdatoscontrato" url_orden="ordenes" />
+				<Listatrabajo id_nombre="VTR-919301" url_info="verdatoscontrato" url_orden="ordenes" />
+				<Listatrabajo id_nombre="VTR-919301" url_info="verdatoscontrato" url_orden="ordenes" />
+				<Listatrabajo id_nombre="VTR-919301" url_info="verdatoscontrato" url_orden="ordenes" />
+				<Listatrabajo id_nombre="VTR-919301" url_info="verdatoscontrato" url_orden="ordenes" />
+				<Listatrabajo id_nombre="VTR-919301" url_info="verdatoscontrato" url_orden="ordenes" />
+			</ul>
+			<div className="row">
+				<button type="button" className="btn btn-secondary mx-auto mt-4">
+					Crear Contrato
+				</button>
+			</div>
 		</div>
 	);
 };

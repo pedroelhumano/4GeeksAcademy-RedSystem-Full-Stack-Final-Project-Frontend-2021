@@ -1,10 +1,23 @@
 import React, { Component } from "react";
+import { Link, useParams } from "react-router-dom";
 
 export const Footer = () => (
-	<footer className="footer mt-auto py-3 text-center">
-		<p>
-			Made with <i className="fa fa-heart text-danger" /> by{" "}
-			<a href="http://www.4geeksacademy.com">4Geeks Academy</a>
-		</p>
+	<footer className="footer py-3 mt-auto bg-info text-dark">
+		<div className="footer-copyright text-center">
+			© 2021 Copyright:{" "}
+			<Link to="login">
+				<a className="text-white" href="">
+					{" "}
+					RedSystem.com
+				</a>
+			</Link>
+			{" · "}
+			<Link to="demo">
+				<a className="text-white" href="">
+					{" "}
+					Contáctenos
+				</a>
+			</Link>
+		</div>
 	</footer>
 );

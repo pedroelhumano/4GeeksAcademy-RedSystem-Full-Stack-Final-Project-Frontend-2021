@@ -3,12 +3,21 @@ import { BrowserRouter, Route, Switch } from "react-router-dom";
 import ScrollToTop from "./component/scrollToTop";
 
 import { Home } from "./pages/home";
+import { Login } from "./pages/login";
 import { Demo } from "./pages/demo";
 import { Single } from "./pages/single";
 import injectContext from "./store/appContext";
 
 import { Navbar } from "./component/navbar";
 import { Footer } from "./component/footer";
+
+//Nuestras paginas importadas
+import { Datos_contrato } from "./pages/datos_contrato";
+import { Ordenes } from "./pages/ordenes";
+import { Datos_orden } from "./pages/datos_orden";
+
+//Nuestros componentes importados
+//import { Listatrabajo } from "./component/listatrabajo";
 
 //create your first component
 const Layout = () => {
@@ -25,14 +34,27 @@ const Layout = () => {
 						<Route exact path="/">
 							<Home />
 						</Route>
+						<Route exact path="/login">
+							<Login />
+						</Route>
 						<Route exact path="/demo">
 							<Demo />
 						</Route>
 						<Route exact path="/single/:theid">
 							<Single />
 						</Route>
+						{/* NUESTRAS RUTAS */}
+						<Route exact path="/datos_contrato">
+							<Datos_contrato />
+						</Route>
+						<Route exact path="/ordenes">
+							<Ordenes />
+						</Route>
+						<Route exact path="/datos_orden">
+							<Datos_orden />
+						</Route>
 						<Route>
-							<h1>Not found!</h1>
+							<Login />
 						</Route>
 					</Switch>
 					<Footer />
