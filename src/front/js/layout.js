@@ -15,6 +15,7 @@ import { Footer } from "./component/footer";
 import { Datos_contrato } from "./pages/datos_contrato";
 import { Ordenes } from "./pages/ordenes";
 import { Datos_orden } from "./pages/datos_orden";
+import { Cuatrocerocuatro } from "./pages/404";
 
 //Nuestros componentes importados
 //import { Listatrabajo } from "./component/listatrabajo";
@@ -54,7 +55,7 @@ const Layout = () => {
 							<Datos_orden />
 						</Route>
 						<Route>
-							<Login />
+							<Cuatrocerocuatro />
 						</Route>
 					</Switch>
 					<Footer />
