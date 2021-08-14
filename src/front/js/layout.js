@@ -16,6 +16,7 @@ import { Datos_contrato } from "./pages/datos_contrato";
 import { Ordenes } from "./pages/ordenes";
 import { Datos_orden } from "./pages/datos_orden";
 import { Cuatrocerocuatro } from "./pages/404";
+import { Contactenos } from "./pages/contactanos";
 import { RestablecerContrasena } from "./pages/restablecer_contrasena";
 import { CambiarContrasena } from "./pages/cambiar_contrasena";
 import { VerFotosOrden } from "./pages/ver_fotos_orden";
@@ -72,6 +73,9 @@ const Layout = () => {
 						<Route exact path="/ver_fotos_orden">
 							<Navbar />
 							<VerFotosOrden />
+						<Route exact path="/contacto">
+							<Navbar />
+							<Contactenos />
 						</Route>
 						<Route>
 							<Cuatrocerocuatro />
