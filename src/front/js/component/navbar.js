@@ -55,6 +55,11 @@ export const Navbar = () => {
 							Configuracion
 						</Link>
 					</li>
+					<li className="nav-item">
+						<Link className="nav-link" to="cambiar_contrasena">
+							Cambiar Contraseña
+						</Link>
+					</li>
 				</ul>
 				<Link to="login">
 					<button className="btn btn-outline-success my-2 my-sm-0" type="link">
