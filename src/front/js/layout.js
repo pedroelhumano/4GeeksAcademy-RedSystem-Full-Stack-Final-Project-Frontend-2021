@@ -73,6 +73,7 @@ const Layout = () => {
 						<Route exact path="/ver_fotos_orden">
 							<Navbar />
 							<VerFotosOrden />
+						</Route>
 						<Route exact path="/contacto">
 							<Navbar />
 							<Contactenos />
