@@ -19,6 +19,7 @@ import { Cuatrocerocuatro } from "./pages/404";
 import { Contactenos } from "./pages/contactanos";
 import { RestablecerContrasena } from "./pages/restablecer_contrasena";
 import { CambiarContrasena } from "./pages/cambiar_contrasena";
+import { VerFotosOrden } from "./pages/ver_fotos_orden";
 
 //Nuestros componentes importados
 //import { Listatrabajo } from "./component/listatrabajo";
@@ -69,6 +70,9 @@ const Layout = () => {
 							<Navbar />
 							<Datos_orden />
 						</Route>
+						<Route exact path="/ver_fotos_orden">
+							<Navbar />
+							<VerFotosOrden />
 						<Route exact path="/contacto">
 							<Navbar />
 							<Contactenos />
