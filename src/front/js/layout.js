@@ -16,6 +16,7 @@ import { Datos_contrato } from "./pages/datos_contrato";
 import { Ordenes } from "./pages/ordenes";
 import { Datos_orden } from "./pages/datos_orden";
 import { Cuatrocerocuatro } from "./pages/404";
+import { Contactenos } from "./pages/contactanos";
 
 //Nuestros componentes importados
 //import { Listatrabajo } from "./component/listatrabajo";
@@ -30,7 +31,6 @@ const Layout = () => {
 		<div className="d-flex flex-column h-100">
 			<BrowserRouter basename={basename}>
 				<ScrollToTop>
-					<Navbar />
 					<Switch>
 						<Route exact path="/">
 							<Home />
@@ -53,6 +53,10 @@ const Layout = () => {
 						</Route>
 						<Route exact path="/datos_orden">
 							<Datos_orden />
+						</Route>
+						<Route exact path="/contacto">
+							<Navbar />
+							<Contactenos />
 						</Route>
 						<Route>
 							<Cuatrocerocuatro />
