@@ -66,9 +66,11 @@ export const Datos_contrato = props => {
 						<tr>
 							<td>Ver fotografias</td>
 							<td>
-								<button type="button" className="btn btn-secondary col-md-4 col-lg-2">
-									Acceder
-								</button>
+								<Link to="ver_fotos_orden">
+									<button type="button" className="btn btn-secondary">
+										Acceder
+									</button>
+								</Link>
 							</td>
 						</tr>
 						<tr>

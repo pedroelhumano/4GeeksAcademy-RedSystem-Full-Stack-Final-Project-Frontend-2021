@@ -10,67 +10,124 @@ export const VerFotosOrden = () => {
 	return (
 		<div className="container-fluid">
 			<div className="row container-fluid justify-content-center bg-white py-2 px-0 m-0">
-				<button type="submit" className="btn btn-success text-white m-2">
-					<i className="fas fa-arrow-left" /> Regresar
-				</button>
+				<Link to="datos_contrato">
+					<button type="submit" className="btn btn-success text-white m-2">
+						<i className="fas fa-arrow-left" /> Regresar
+					</button>
+				</Link>
 			</div>
 			<div className="row container-fluid tab-content fondocuerpo m-0 p-0">
 				<div id="collageView" className="tab-pane fade show active">
 					<div className="d-flex flex-wrap bg-white">
 						<img
-							className="img-fluid col-4 collageimg px-1 py-1"
-							src="https://estaticos.miarevista.es/uploads/images/gallery/58affd7e5bafe8653852efa1/akita.jpg"
-							alt="Foto de un perrito"
+							className="img-fluid col-4 col-sm-4 col-md-3 col-lg-2 collageimg px-1 py-1"
+							src="https://lanoticia.cl/wp-content/uploads/2021/03/SEC-OHIGGINS-FISCALIZA-QUE-TRABAJOS-DE-CGE-DURANTE-CORTE4.jpg"
+							alt=""
 						/>
 						<img
-							className="img-fluid col-4 collageimg px-1 py-1"
-							src="https://cuantoviven.org/wp-content/uploads/2021/02/gato.jpg"
-							alt="Foto de un gato"
+							className="img-fluid col-4 col-sm-4 col-md-3 col-lg-2 collageimg px-1 py-1"
+							src="https://img.freepik.com/free-photo/electrical-linemam-worker-climb-bamboo-ladder-repair-wire-telecom-engineer-installing-wire-internet_157563-15.jpg?size=626&ext=jpg"
+							alt=""
 						/>
 						<img
-							className="img-fluid col-4 collageimg px-1 py-1"
-							src="https://gameofhack.com/wp-content/uploads/2021/01/get-your-free-burp-suite.jpg"
-							alt="foto de macbook"
+							className="img-fluid col-4 col-sm-4 col-md-3 col-lg-2 collageimg px-1 py-1"
+							src="https://mk0nationaltodayijln.kinstacdn.com/wp-content/uploads/2020/04/national-lineman-appreciation-day-640x514.jpg"
+							alt=""
 						/>
 						<img
-							className="img-fluid col-4 collageimg px-1 py-1"
-							src="https://roboticsandautomationnews.com/wp-content/uploads/2018/08/Pizza-Hut-pizza.jpg"
-							alt="Foto de una pizza"
+							className="img-fluid col-4 col-sm-4 col-md-3 col-lg-2 collageimg px-1 py-1"
+							src="http://www.spw.cl/IMG/jpg/pe-mufa4.jpg"
+							alt=""
 						/>
 						<img
-							className="img-fluid col-4 collageimg px-1 py-1"
-							src="https://d3hnfqimznafg0.cloudfront.net/images/news/ImageForNews_26919_15786618897301054.png"
-							alt="Foto de paisaje"
+							className="img-fluid col-4 col-sm-4 col-md-3 col-lg-2 collageimg px-1 py-1"
+							src="http://static.tiempo.com.mx/uploads/imagen/imagen/329232/principal_choque%20poste%2002.jpg"
+							alt=""
 						/>
 						<img
-							className="img-fluid col-4 collageimg px-1 py-1"
-							src="https://i.pinimg.com/originals/f8/22/0a/f8220a35e0b2d9fdbb788f43c84faf18.jpg"
-							alt="Foto de living"
+							className="img-fluid col-4 col-sm-4 col-md-3 col-lg-2 collageimg px-1 py-1"
+							src="http://www.spw.cl/IMG/jpg/pe-mufa1.jpg"
+							alt=""
 						/>
 						<img
-							className="img-fluid col-4 collageimg px-1 py-1"
-							src="https://www.techspot.com/images2/news/bigimage/2020/03/2020-03-04-image-25.jpg"
-							alt="foto de amigos"
+							className="img-fluid col-4 col-sm-4 col-md-3 col-lg-2 collageimg px-1 py-1"
+							src="http://hmctec.pe/wp-content/uploads/2018/02/mufa-externa-punto-cero-1024x768.jpeg"
+							alt=""
 						/>
 						<img
-							className="img-fluid col-4 collageimg px-1 py-1"
-							src="https://naciondeportes.com/wp-content/uploads/2018/11/edwedwedwed.jpg"
-							alt="Foto de estadio"
+							className="img-fluid col-4 col-sm-4 col-md-3 col-lg-2 collageimg px-1 py-1"
+							src="http://www.spw.cl/IMG/jpg/pe-caja1-detalle.jpg"
+							alt=""
 						/>
 						<img
-							className="img-fluid col-4 collageimg px-1 py-1"
-							src="https://www.ecestaticos.com/image/clipping/1200/675/395fed4b3ecb09dd8f9352a23e105a76/la-protagonista-del-meme-de-disaster-girl-explica-como-surgio-la-foto-del-incendio.jpg"
-							alt="Foto de nina"
+							className="img-fluid col-4 col-sm-4 col-md-3 col-lg-2 collageimg px-1 py-1"
+							src="https://nextcable.com.br/wp-content/uploads/2020/05/RaekfNfCIJ.jpg"
+							alt=""
 						/>
 						<img
-							className="img-fluid col-4 collageimg px-1 py-1"
-							src="https://i.redd.it/rexwi5zdll531.jpg"
-							alt="Foto de meme"
+							className="img-fluid col-4 col-sm-4 col-md-3 col-lg-2 collageimg px-1 py-1"
+							src="https://i.imgur.com/2UCsnDr.jpeg"
+							alt=""
 						/>
 						<img
-							className="img-fluid col-4 collageimg px-1 py-1"
-							src="https://cdn.hobbyconsolas.com/sites/navi.axelspringer.es/public/media/image/2020/11/doctor-strange-bruja-escarlata-2131987.jpg"
-							alt="Foto de marvel"
+							className="img-fluid col-4 col-sm-4 col-md-3 col-lg-2 collageimg px-1 py-1"
+							src="https://thumbs.dreamstime.com/b/technician-wooden-ladder-installing-fiber-optic-internet-splitter-box-electric-pole-against-blue-sky-rear-view-197452160.jpg"
+							alt=""
+						/>
+						<img
+							className="img-fluid col-4 col-sm-4 col-md-3 col-lg-2 collageimg px-1 py-1"
+							src="https://lanoticia.cl/wp-content/uploads/2021/03/SEC-OHIGGINS-FISCALIZA-QUE-TRABAJOS-DE-CGE-DURANTE-CORTE4.jpg"
+							alt=""
+						/>
+						<img
+							className="img-fluid col-4 col-sm-4 col-md-3 col-lg-2 collageimg px-1 py-1"
+							src="https://img.freepik.com/free-photo/electrical-linemam-worker-climb-bamboo-ladder-repair-wire-telecom-engineer-installing-wire-internet_157563-15.jpg?size=626&ext=jpg"
+							alt=""
+						/>
+						<img
+							className="img-fluid col-4 col-sm-4 col-md-3 col-lg-2 collageimg px-1 py-1"
+							src="https://mk0nationaltodayijln.kinstacdn.com/wp-content/uploads/2020/04/national-lineman-appreciation-day-640x514.jpg"
+							alt=""
+						/>
+						<img
+							className="img-fluid col-4 col-sm-4 col-md-3 col-lg-2 collageimg px-1 py-1"
+							src="http://www.spw.cl/IMG/jpg/pe-mufa4.jpg"
+							alt=""
+						/>
+						<img
+							className="img-fluid col-4 col-sm-4 col-md-3 col-lg-2 collageimg px-1 py-1"
+							src="http://static.tiempo.com.mx/uploads/imagen/imagen/329232/principal_choque%20poste%2002.jpg"
+							alt=""
+						/>
+						<img
+							className="img-fluid col-4 col-sm-4 col-md-3 col-lg-2 collageimg px-1 py-1"
+							src="http://www.spw.cl/IMG/jpg/pe-mufa1.jpg"
+							alt=""
+						/>
+						<img
+							className="img-fluid col-4 col-sm-4 col-md-3 col-lg-2 collageimg px-1 py-1"
+							src="http://hmctec.pe/wp-content/uploads/2018/02/mufa-externa-punto-cero-1024x768.jpeg"
+							alt=""
+						/>
+						<img
+							className="img-fluid col-4 col-sm-4 col-md-3 col-lg-2 collageimg px-1 py-1"
+							src="http://www.spw.cl/IMG/jpg/pe-caja1-detalle.jpg"
+							alt=""
+						/>
+						<img
+							className="img-fluid col-4 col-sm-4 col-md-3 col-lg-2 collageimg px-1 py-1"
+							src="https://nextcable.com.br/wp-content/uploads/2020/05/RaekfNfCIJ.jpg"
+							alt=""
+						/>
+						<img
+							className="img-fluid col-4 col-sm-4 col-md-3 col-lg-2 collageimg px-1 py-1"
+							src="https://i.imgur.com/2UCsnDr.jpeg"
+							alt=""
+						/>
+						<img
+							className="img-fluid col-4 col-sm-4 col-md-3 col-lg-2 collageimg px-1 py-1"
+							src="https://thumbs.dreamstime.com/b/technician-wooden-ladder-installing-fiber-optic-internet-splitter-box-electric-pole-against-blue-sky-rear-view-197452160.jpg"
+							alt=""
 						/>
 					</div>
 				</div>
