@@ -3,6 +3,7 @@ import { Context } from "../store/appContext";
 import redSystemLogo from "../../img/red-system-logo.png";
 import "../../styles/login.scss";
 import { InputGroup } from "../component/inputGroup";
+import { Link, useParams } from "react-router-dom";
 
 export const Login = () => {
 	const { store, actions } = useContext(Context);
@@ -12,7 +13,7 @@ export const Login = () => {
 	if (!recuperar) {
 		return (
 			<div className="container d-flex flex-column align-items-center justify-content-center w-100 fadeInDown pt-5">
-				<div id="formContent" className="mb-3">
+				<div id="formContent" className="my-3">
 					<div className="fadeIn first container d-flex justify-content-center align-items-center my-4">
 						<img src={redSystemLogo} id="icon" alt="Business icon" />
 						<h1 className="align-self-center mb-0">RedSystem</h1>
@@ -85,14 +86,16 @@ export const Login = () => {
 								onClick={() => setRecuperar(false)}>
 								<i className="fas fa-undo" /> Volver al inicio de sesión
 							</button>
-							<button
-								type="submit"
-								className="btn bg-success text-white btn-sm mb-4 mt-0"
-								onClick={() => setRecuperar(false)}>
-								{" "}
-								{/* Aquí debería ir la conexión a la API para mandar correo electrónico de recuperación de contraseña */}
-								ENVIAR
-							</button>
+							<Link to="restablecer_contrasena">
+								<button
+									/* type="submit" */
+									type="link"
+									className="btn bg-success text-white btn-sm mb-4 mt-0">
+									{" "}
+									{/* Aquí debería ir la conexión a la API para mandar correo electrónico de recuperación de contraseña */}
+									ENVIAR
+								</button>
+							</Link>
 						</div>
 					</form>
 					<div id="formFooter" className="p-3">

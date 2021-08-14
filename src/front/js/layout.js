@@ -16,6 +16,8 @@ import { Datos_contrato } from "./pages/datos_contrato";
 import { Ordenes } from "./pages/ordenes";
 import { Datos_orden } from "./pages/datos_orden";
 import { Cuatrocerocuatro } from "./pages/404";
+import { RestablecerContrasena } from "./pages/restablecer_contrasena";
+import { CambiarContrasena } from "./pages/cambiar_contrasena";
 
 //Nuestros componentes importados
 //import { Listatrabajo } from "./component/listatrabajo";
@@ -30,28 +32,40 @@ const Layout = () => {
 		<div className="d-flex flex-column h-100">
 			<BrowserRouter basename={basename}>
 				<ScrollToTop>
-					<Navbar />
 					<Switch>
 						<Route exact path="/">
+							<Navbar />
 							<Home />
 						</Route>
-						<Route exact path="/login">
-							<Login />
-						</Route>
 						<Route exact path="/demo">
+							<Navbar />
 							<Demo />
 						</Route>
 						<Route exact path="/single/:theid">
+							<Navbar />
 							<Single />
 						</Route>
 						{/* NUESTRAS RUTAS */}
+						<Route exact path="/login">
+							<Login />
+						</Route>
+						<Route exact path="/restablecer_contrasena">
+							<RestablecerContrasena />
+						</Route>
+						<Route exact path="/cambiar_contrasena">
+							<Navbar />
+							<CambiarContrasena />
+						</Route>
 						<Route exact path="/datos_contrato">
+							<Navbar />
 							<Datos_contrato />
 						</Route>
 						<Route exact path="/ordenes">
+							<Navbar />
 							<Ordenes />
 						</Route>
 						<Route exact path="/datos_orden">
+							<Navbar />
 							<Datos_orden />
 						</Route>
 						<Route>
