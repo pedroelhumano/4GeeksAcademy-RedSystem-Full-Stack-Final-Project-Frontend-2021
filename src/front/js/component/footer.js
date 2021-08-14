@@ -12,7 +12,7 @@ export const Footer = () => (
 				</a>
 			</Link>
 			{" · "}
-			<Link to="demo">
+			<Link to="contacto">
 				<a className="text-white" href="">
 					{" "}
 					Contáctenos
