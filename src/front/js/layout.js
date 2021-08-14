@@ -18,6 +18,7 @@ import { Datos_orden } from "./pages/datos_orden";
 import { Cuatrocerocuatro } from "./pages/404";
 import { RestablecerContrasena } from "./pages/restablecer_contrasena";
 import { CambiarContrasena } from "./pages/cambiar_contrasena";
+import { VerFotosOrden } from "./pages/ver_fotos_orden";
 
 //Nuestros componentes importados
 //import { Listatrabajo } from "./component/listatrabajo";
@@ -67,6 +68,10 @@ const Layout = () => {
 						<Route exact path="/datos_orden">
 							<Navbar />
 							<Datos_orden />
+						</Route>
+						<Route exact path="/ver_fotos_orden">
+							<Navbar />
+							<VerFotosOrden />
 						</Route>
 						<Route>
 							<Cuatrocerocuatro />
