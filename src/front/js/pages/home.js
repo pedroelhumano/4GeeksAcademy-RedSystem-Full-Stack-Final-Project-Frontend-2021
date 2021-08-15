@@ -4,6 +4,7 @@ import { Context } from "../store/appContext";
 import "../../styles/app.scss";
 //Componentes importados
 import { Listatrabajo } from "../component/listatrabajo.js";
+import { ModalCrearContrato } from "../component/ModalCrearContrato.js";
 
 export const Home = props => {
 	return (
@@ -43,9 +44,7 @@ export const Home = props => {
 				<Listatrabajo status="bg-danger" id_nombre="VTR-919301" url_info="datos_contrato" url_orden="ordenes" />
 			</ul>
 			<div className="row">
-				<button type="button" className="btn btn-secondary mx-auto mt-4">
-					Crear Contrato
-				</button>
+				<ModalCrearContrato/>
 			</div>
 		</div>
 	);
