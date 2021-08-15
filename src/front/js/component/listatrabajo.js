@@ -6,7 +6,7 @@ import "../../styles/app.scss";
 export const Listatrabajo = props => {
 	return (
 		<li className="list-group-item row">
-			<div classsName="col">
+			<div className="col">
 				<div className="float-left circle bg-warning mx-1" />
 				<div className="float-left mx-1">{props.id_nombre}</div>
 			</div>
