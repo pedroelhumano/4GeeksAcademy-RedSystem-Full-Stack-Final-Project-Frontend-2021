@@ -9,15 +9,38 @@ export const Home = props => {
 	return (
 		<div className="container">
 			<ul className="list-group container-fluid">
-				<Listatrabajo id_nombre="VTR-919301" url_info="datos_contrato" url_orden="ordenes" />
-				<Listatrabajo id_nombre="VTR-919301" url_info="verdatoscontrato" url_orden="ordenes" />
-				<Listatrabajo id_nombre="VTR-919301" url_info="verdatoscontrato" url_orden="ordenes" />
-				<Listatrabajo id_nombre="VTR-919301" url_info="verdatoscontrato" url_orden="ordenes" />
-				<Listatrabajo id_nombre="VTR-919301" url_info="verdatoscontrato" url_orden="ordenes" />
-				<Listatrabajo id_nombre="VTR-919301" url_info="verdatoscontrato" url_orden="ordenes" />
-				<Listatrabajo id_nombre="VTR-919301" url_info="verdatoscontrato" url_orden="ordenes" />
-				<Listatrabajo id_nombre="VTR-919301" url_info="verdatoscontrato" url_orden="ordenes" />
-				<Listatrabajo id_nombre="VTR-919301" url_info="verdatoscontrato" url_orden="ordenes" />
+				<Listatrabajo
+					status="bg-warning"
+					id_nombre="VTR-919301"
+					url_info="datos_contrato"
+					url_orden="ordenes"
+				/>
+				<Listatrabajo
+					status="bg-warning"
+					id_nombre="VTR-919301"
+					url_info="datos_contrato"
+					url_orden="ordenes"
+				/>
+				<Listatrabajo
+					status="bg-warning"
+					id_nombre="VTR-919301"
+					url_info="datos_contrato"
+					url_orden="ordenes"
+				/>
+				<Listatrabajo
+					status="bg-warning"
+					id_nombre="VTR-919301"
+					url_info="datos_contrato"
+					url_orden="ordenes"
+				/>
+				<Listatrabajo
+					status="bg-success"
+					id_nombre="VTR-919301"
+					url_info="datos_contrato"
+					url_orden="ordenes"
+				/>
+				<Listatrabajo status="bg-info" id_nombre="VTR-919301" url_info="datos_contrato" url_orden="ordenes" />
+				<Listatrabajo status="bg-danger" id_nombre="VTR-919301" url_info="datos_contrato" url_orden="ordenes" />
 			</ul>
 			<div className="row">
 				<button type="button" className="btn btn-secondary mx-auto mt-4">
