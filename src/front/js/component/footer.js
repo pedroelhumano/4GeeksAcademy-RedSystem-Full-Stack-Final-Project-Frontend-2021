@@ -6,11 +6,11 @@ export const Footer = () => (
 		<div className="footer-copyright text-center">
 			© 2021 Copyright:{" "}
 			<Link to="login">
-				<div className="text-white"> RedSystem.com</div>
+				<div className="text-white">RedSystem.com</div>
 			</Link>
 			{" · "}
 			<Link to="contacto">
-				<div className="text-white"> Contáctenos</div>
+				<div className="text-white">Contáctenos</div>
 			</Link>
 		</div>
 	</footer>
