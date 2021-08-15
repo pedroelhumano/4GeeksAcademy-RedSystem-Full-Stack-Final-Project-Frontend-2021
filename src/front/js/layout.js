@@ -1,14 +1,14 @@
 import React from "react";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
-import ScrollToTop from "./component/scrollToTop";
+//import ScrollToTop from "./component/scrollToTop";
 
 import { Home } from "./pages/home";
 import { Login } from "./pages/login";
-import { Demo } from "./pages/demo";
+//import { Demo } from "./pages/demo";
 import { Single } from "./pages/single";
 import injectContext from "./store/appContext";
 
-import { Navbar } from "./component/navbar";
+import { Menusup } from "./component/Menusup";
 import { Footer } from "./component/footer";
 
 //Nuestras paginas importadas
@@ -33,57 +33,57 @@ const Layout = () => {
 	return (
 		<div className="d-flex flex-column h-100">
 			<BrowserRouter basename={basename}>
-				<ScrollToTop>
-					<Switch>
-						<Route exact path="/">
-							<Navbar />
-							<Home />
-						</Route>
-						<Route exact path="/demo">
-							<Navbar />
+				{/* <ScrollToTop> */}
+				<Switch>
+					<Route exact path="/">
+						<Menusup />
+						<Home />
+					</Route>
+					{/* <Route exact path="/demo">
+							<Menusup />
 							<Demo />
-						</Route>
-						<Route exact path="/single/:theid">
-							<Navbar />
-							<Single />
-						</Route>
-						{/* NUESTRAS RUTAS */}
-						<Route exact path="/login">
-							<Login />
-						</Route>
-						<Route exact path="/restablecer_contrasena">
-							<RestablecerContrasena />
-						</Route>
-						<Route exact path="/cambiar_contrasena">
-							<Navbar />
-							<CambiarContrasena />
-						</Route>
-						<Route exact path="/datos_contrato">
-							<Navbar />
-							<Datos_contrato />
-						</Route>
-						<Route exact path="/ordenes">
-							<Navbar />
-							<Ordenes />
-						</Route>
-						<Route exact path="/datos_orden">
-							<Navbar />
-							<Datos_orden />
-						</Route>
-						<Route exact path="/ver_fotos_orden">
-							<Navbar />
-							<VerFotosOrden />
-						</Route>
-						<Route exact path="/contacto">
-							<Navbar />
-							<Contactenos />
-						</Route>
-						<Route>
-							<Cuatrocerocuatro />
-						</Route>
-					</Switch>
-					<Footer />
-				</ScrollToTop>
+						</Route> */}
+					<Route exact path="/single/:theid">
+						<Menusup />
+						<Single />
+					</Route>
+					{/* NUESTRAS RUTAS */}
+					<Route exact path="/login">
+						<Login />
+					</Route>
+					<Route exact path="/restablecer_contrasena">
+						<RestablecerContrasena />
+					</Route>
+					<Route exact path="/cambiar_contrasena">
+						<Menusup />
+						<CambiarContrasena />
+					</Route>
+					<Route exact path="/datos_contrato">
+						<Menusup />
+						<Datos_contrato />
+					</Route>
+					<Route exact path="/ordenes">
+						<Menusup />
+						<Ordenes />
+					</Route>
+					<Route exact path="/datos_orden">
+						<Menusup />
+						<Datos_orden />
+					</Route>
+					<Route exact path="/ver_fotos_orden">
+						<Menusup />
+						<VerFotosOrden />
+					</Route>
+					<Route exact path="/contacto">
+						<Menusup />
+						<Contactenos />
+					</Route>
+					<Route>
+						<Cuatrocerocuatro />
+					</Route>
+				</Switch>
+				<Footer />
+				{/* </ScrollToTop> */}
 			</BrowserRouter>
 		</div>
 	);

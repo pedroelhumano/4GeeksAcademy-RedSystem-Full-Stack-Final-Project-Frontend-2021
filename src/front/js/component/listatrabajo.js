@@ -6,8 +6,8 @@ import "../../styles/app.scss";
 export const Listatrabajo = props => {
 	return (
 		<li className="list-group-item row">
-			<div classsName="col">
-				<div className="float-left circle bg-warning mx-1" />
+			<div className="col">
+				<div className={"float-left circle mx-1 " + props.status + ""} />
 				<div className="float-left mx-1">{props.id_nombre}</div>
 			</div>
 			<div className="float-right">
@@ -31,5 +31,6 @@ Listatrabajo.propTypes = {
 	//general
 	id_nombre: PropTypes.string,
 	url_info: PropTypes.string,
-	url_orden: PropTypes.string
+	url_orden: PropTypes.string,
+	status: PropTypes.string
 };
