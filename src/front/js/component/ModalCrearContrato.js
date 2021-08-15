@@ -1,13 +1,6 @@
-import React, { Component, useState } from "react";
-import { Link, useParams } from "react-router-dom";
+import React, { useState } from "react";
 import { Modal, Button } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
-
-// function Example() {
-// 	const [show, setShow] = useState(false);
-
-// 	const handleClose = () => setShow(false);
-// 	const handleShow = () => setShow(true);
 
 export const ModalCrearContrato = () => {
 	const [show, setShow] = useState(false);

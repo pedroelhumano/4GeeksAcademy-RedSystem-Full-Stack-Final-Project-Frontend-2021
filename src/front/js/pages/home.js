@@ -44,7 +44,7 @@ export const Home = props => {
 				<Listatrabajo status="bg-danger" id_nombre="VTR-919301" url_info="datos_contrato" url_orden="ordenes" />
 			</ul>
 			<div className="row">
-				<ModalCrearContrato/>
+				<ModalCrearContrato />
 			</div>
 		</div>
 	);
