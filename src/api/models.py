@@ -2,6 +2,21 @@ from flask_sqlalchemy import SQLAlchemy
 
 db = SQLAlchemy()
 
+class StatusOrden(db.Model):
+    __tablename__ = 'statusorden'
+    id = db.Column(db.Integer, primary_key=True)
+    inicio_fecha = db.Column(db.String(100), unique=False, nullable=False)
+    final_fecha = db.Column(db.String(100), unique=False, nullable=True)
+    status = db.Column(db.String(120), unique=False, nullable=False)
+    minutostrabajados = db.Column(db.String(120), unique=False, nullable=False) #tiempo que se tardo en hacer una aplicacion
+    url_foto_epp = db.Column(db.String(120), unique=False, nullable=False)
+    url_foto_referencia = db.Column(db.String(200), unique=False, nullable=False)
+    geo_latitud = db.Column(db.String(120), unique=False, nullable=False)
+    geo_longitud = db.Column(db.String(120), unique=False, nullable=False)
+    #IdForaneos
+    id_userorden = db.Column(db.Integer, db.ForeignKey('userorden.id'))
+    id_contrato = db.Column(db.Integer, db.ForeignKey('contrato.id'))
+
 class Contrato(db.Model):
     __tablename__ = 'contrato'
     id = db.Column(db.Integer, primary_key=True)
@@ -17,47 +32,46 @@ class Contrato(db.Model):
     hp = db.Column(db.Integer, unique=False, nullable=False)
     comentario = db.Column(db.String(120), unique=False, nullable=False)
     prioridad = db.Column(db.String(120), unique=False, nullable=False)
-
-class StatusOrden(db.Model):
-    __tablename__ = 'statusorden'
-    id = db.Column(db.Integer, primary_key=True)
-    #id_userorden = db.Column(db.Integer, db.ForeignKey('userorden.id'))
-    #id_contrato = db.Column(db.Integer, db.ForeignKey('contrato.id'))
-    inicio_fecha = db.Column(db.String(100), unique=False, nullable=False)
-    final_fecha = db.Column(db.String(100), unique=False, nullable=False)
-    status = db.Column(db.String(120), unique=False, nullable=False)
-    minutostrabajados = db.Column(db.String(120), unique=False, nullable=False) #tiempo que se tardo en hacer una aplicacion
-    url_foto_epp = db.Column(db.String(120), unique=False, nullable=False)
-    url_foto_referencia = db.Column(db.String(200), unique=False, nullable=False)
-    geo_latitud = db.Column(db.String(120), unique=False, nullable=False)
-    geo_longitud = db.Column(db.Integer, unique=False, nullable=False)
+    #Relaciones
+    statusOrden = db.relationship ('StatusOrden', backref="contrato", lazy=True)
+    ordenTrabajo = db.relationship ('OrdenTrabajo', backref="contrato", lazy=True)
 
 class OrdenTrabajo(db.Model):
     __tablename__ = 'ordentrabajo'
     id = db.Column(db.Integer, primary_key=True)
-    #id_contrato = db.Column(db.Integer, db.ForeignKey('contrato.id'))
     tipo = db.Column(db.String(100), unique=False, nullable=False)
     descripcion = db.Column(db.String(255), unique=False, nullable=False)
-
-class UserOrden(db.Model):
-    __tablename__ = 'userorden'
-    id = db.Column(db.Integer, primary_key=True)
-    #id_user = db.Column(db.Integer, db.ForeignKey('user.id'))
-    #id_orden = db.Column(db.Integer, db.ForeignKey('ordentrabajo.id'))
+    #IdForaneo
+    id_contrato = db.Column(db.Integer, db.ForeignKey('contrato.id'))
+    #Relaciones
+    detalleOrdenTrabajo = db.relationship ('DetalleOrdenTrabajo', backref="ordentrabajo", lazy=True)
+    userOrden = db.relationship ('UserOrden', backref="ordentrabajo", lazy=True)
 
 class DetalleOrdenTrabajo(db.Model):
     __tablename__ = 'detalleordentrabajo'
     id = db.Column(db.Integer, primary_key=True)
-    #id_ordentrabajo = db.Column(db.Integer, db.ForeignKey('ordentrabajo.id'))
     tipo = db.Column(db.String(100), unique=False, nullable=False)
     descripcion = db.Column(db.String(255), unique=False, nullable=False)
+    #idForaneo
+    id_ordentrabajo = db.Column(db.Integer, db.ForeignKey('ordentrabajo.id'))
+
+class UserOrden(db.Model):
+    __tablename__ = 'userorden'
+    id = db.Column(db.Integer, primary_key=True)
+    #IdForaneos
+    id_user = db.Column(db.Integer, db.ForeignKey('user.id'))
+    id_orden = db.Column(db.Integer, db.ForeignKey('ordentrabajo.id'))
+    #Relación
+    acreditacion = db.relationship ('Acreditacion', backref="userorden", lazy=True)
+    statusOrden = db.relationship ('StatusOrden', backref="userorden", lazy=True)
 
 class Acreditacion(db.Model):
     __tablename__ = 'acreditacion'
     id = db.Column(db.Integer, primary_key=True)
-    #id_userorden = db.Column(db.Integer, db.ForeignKey('userorden.id'))
     url_foto = db.Column(db.String(255), unique=False, nullable=False)
     descripcion = db.Column(db.String(255), unique=False, nullable=False)
+    #IdForeneo
+    id_userorden = db.Column(db.Integer, db.ForeignKey('userorden.id'))
 
 class User(db.Model):
     __tablename__ = 'user'
@@ -71,6 +85,8 @@ class User(db.Model):
     register = db.Column(db.String(120), unique=False, nullable=False)
     perfil = db.Column(db.String(120), unique=False, nullable=False)
     fecha_nacimiento = db.Column(db.String(200), unique=False, nullable=False)
+    #Relación
+    userOrden = db.relationship ('UserOrden', backref="user", lazy=True)
 
     #def __repr__(self):
         #return '<User %r>' % self.username
