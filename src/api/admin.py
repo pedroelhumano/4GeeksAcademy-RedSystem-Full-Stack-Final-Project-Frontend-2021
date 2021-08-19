@@ -1,7 +1,7 @@
   
 import os
 from flask_admin import Admin
-from .models import db, User, Contrato, StatusOrden, OrdenTrabajo, UserOrden, DetalleOrdenTrabajo, Acreditacion
+from .models import db, User, Contrato, StatusOrden, OrdenTrabajo, TipoOrdenTrabajo, Acreditacion
 from flask_admin.contrib.sqla import ModelView
 
 def setup_admin(app):
@@ -16,7 +16,7 @@ def setup_admin(app):
     admin.add_view(ModelView(StatusOrden, db.session))
     admin.add_view(ModelView(OrdenTrabajo, db.session))
     admin.add_view(ModelView(UserOrden, db.session))
-    admin.add_view(ModelView(DetalleOrdenTrabajo, db.session))
+    admin.add_view(ModelView(TipoOrdenTrabajo, db.session))
     admin.add_view(ModelView(Acreditacion, db.session))
 
     # You can duplicate that line to add mew models
