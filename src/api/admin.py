@@ -15,7 +15,6 @@ def setup_admin(app):
     admin.add_view(ModelView(Contrato, db.session))
     admin.add_view(ModelView(StatusOrden, db.session))
     admin.add_view(ModelView(OrdenTrabajo, db.session))
-    admin.add_view(ModelView(UserOrden, db.session))
     admin.add_view(ModelView(TipoOrdenTrabajo, db.session))
     admin.add_view(ModelView(Acreditacion, db.session))
 
