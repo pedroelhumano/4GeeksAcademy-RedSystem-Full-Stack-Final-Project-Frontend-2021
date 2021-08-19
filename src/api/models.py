@@ -11,8 +11,8 @@ class StatusOrden(db.Model):
     minutostrabajados = db.Column(db.String(120), unique=False, nullable=False) #tiempo que se tardo en hacer una aplicacion
     url_foto_epp = db.Column(db.String(120), unique=False, nullable=False)
     url_foto_referencia = db.Column(db.String(200), unique=False, nullable=False)
-    geo_latitud = db.Column(db.String(120), unique=False, nullable=False)
-    geo_longitud = db.Column(db.String(120), unique=False, nullable=False)
+    geo_lat = db.Column(db.String(120), unique=False, nullable=False)
+    geo_lon = db.Column(db.String(120), unique=False, nullable=False)
     #IdForaneos
     id_userorden = db.Column(db.Integer, db.ForeignKey('userorden.id'))
     id_contrato = db.Column(db.Integer, db.ForeignKey('contrato.id'))
