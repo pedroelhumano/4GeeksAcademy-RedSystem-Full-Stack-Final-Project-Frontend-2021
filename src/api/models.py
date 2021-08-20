@@ -17,6 +17,7 @@ class StatusOrden(db.Model):
     id_userorden = db.Column(db.Integer, db.ForeignKey('userorden.id'))
     id_contrato = db.Column(db.Integer, db.ForeignKey('contrato.id'))
 
+
 class Contrato(db.Model):
     __tablename__ = 'contrato'
     id = db.Column(db.Integer, primary_key=True)
@@ -29,7 +30,7 @@ class Contrato(db.Model):
     plano = db.Column(db.String(120), unique=False, nullable=False)
     obra_descripcion = db.Column(db.String(200), unique=False, nullable=False)
     planta_matriz = db.Column(db.String(120), unique=False, nullable=False)
-    hp = db.Column(db.Integer, unique=False, nullable=False)
+    hp = db.Column(db.String(60), unique=False, nullable=False)
     comentario = db.Column(db.String(120), unique=False, nullable=False)
     prioridad = db.Column(db.String(120), unique=False, nullable=False)
     #Relaciones
@@ -64,6 +65,7 @@ class UserOrden(db.Model):
     #Relación
     acreditacion = db.relationship ('Acreditacion', backref="userorden", lazy=True)
     statusOrden = db.relationship ('StatusOrden', backref="userorden", lazy=True)
+
 
 class Acreditacion(db.Model):
     __tablename__ = 'acreditacion'
