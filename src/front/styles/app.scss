@@ -7,3 +7,20 @@
 .collageimg {
     object-fit: cover;
 }
+
+//Para los placeholder esten a la izquierda
+::-webkit-input-placeholder { /* chrome, safari */
+    text-align: left;
+ }
+ 
+ :-moz-placeholder { /* Firefox 18- */
+    text-align: left;  
+ }
+ 
+ ::-moz-placeholder {  /* Firefox 19+ */
+    text-align: left;  
+ }
+ 
+ :-ms-input-placeholder {  /* Internet Explorer */
+    text-align: left; 
+ }
