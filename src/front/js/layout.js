@@ -5,13 +5,15 @@ import { BrowserRouter, Route, Switch } from "react-router-dom";
 import { Home } from "./pages/home";
 import { Login } from "./pages/login";
 //import { Demo } from "./pages/demo";
-import { Single } from "./pages/single";
+//import { Single } from "./pages/single";
 import injectContext from "./store/appContext";
 
+//Nuestros componentes importados
 import { Menusup } from "./component/Menusup";
 import { Footer } from "./component/footer";
 
 //Nuestras paginas importadas
+import { Crearcontrato } from "./pages/crear_contrato";
 import { Datos_contrato } from "./pages/datos_contrato";
 import { Ordenes } from "./pages/ordenes";
 import { Datos_orden } from "./pages/datos_orden";
@@ -43,10 +45,10 @@ const Layout = () => {
 							<Menusup />
 							<Demo />
 						</Route> */}
-					<Route exact path="/single/:theid">
+					{/* <Route exact path="/single/:theid">
 						<Menusup />
 						<Single />
-					</Route>
+					</Route> */}
 					{/* NUESTRAS RUTAS */}
 					<Route exact path="/login">
 						<Login />
@@ -57,6 +59,10 @@ const Layout = () => {
 					<Route exact path="/cambiar_contrasena">
 						<Menusup />
 						<CambiarContrasena />
+					</Route>
+					<Route exact path="/crear_contrato">
+						<Menusup />
+						<Crearcontrato />
 					</Route>
 					<Route exact path="/datos_contrato">
 						<Menusup />
