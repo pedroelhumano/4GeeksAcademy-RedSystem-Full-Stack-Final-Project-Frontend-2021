@@ -20,7 +20,7 @@ import { Contactenos } from "./pages/contactanos";
 import { RestablecerContrasena } from "./pages/restablecer_contrasena";
 import { CambiarContrasena } from "./pages/cambiar_contrasena";
 import { VerFotosOrden } from "./pages/ver_fotos_orden";
-
+import { Landing } from "./pages/landing";
 //Nuestros componentes importados
 //import { Listatrabajo } from "./component/listatrabajo";
 
@@ -77,6 +77,9 @@ const Layout = () => {
 					<Route exact path="/contacto">
 						<Menusup />
 						<Contactenos />
+					</Route>
+					<Route exact path="/landing">
+						<Landing />
 					</Route>
 					<Route>
 						<Cuatrocerocuatro />
