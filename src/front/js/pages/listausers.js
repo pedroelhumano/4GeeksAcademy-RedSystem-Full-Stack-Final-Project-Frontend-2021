@@ -17,32 +17,23 @@ export const Listausuarios = props => {
 					perfil="Admin"
 					url_info="configuracion"
 					textbutton2="Editar"
-					url_orden="ordenes"
+					url_orden="editar_user"
 				/>
 				<Listastotal
 					id_nombre="Luis Salgado"
 					perfil="Tecnico"
 					url_info="configuracion"
 					textbutton2="Editar"
-					url_orden="ordenes"
+					url_orden="editar_user"
 				/>
 				<Listastotal
 					id_nombre="Felipe"
 					perfil="Tecnico"
 					url_info="configuracion"
 					textbutton2="Editar"
-					url_orden="ordenes"
+					url_orden="editar_user"
 				/>
 			</ul>
-			<div className="row justify-content-md-center">
-				<div className="col-md-auto ">
-					<Button variant="primary">
-						<Link className="text-light" to="/crear_contrato">
-							Crear contrato
-						</Link>
-					</Button>{" "}
-				</div>
-			</div>
 		</div>
 	);
 };
