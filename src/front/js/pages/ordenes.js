@@ -5,6 +5,10 @@ import { Context } from "../store/appContext";
 import "../../styles/app.scss";
 import { Listastotal } from "../component/listastotal.js";
 
+//react-bootstrap
+import { Button } from "react-bootstrap";
+import "bootstrap/dist/css/bootstrap.min.css";
+
 export const Ordenes = props => {
 	return (
 		<div className="container">
@@ -45,6 +49,15 @@ export const Ordenes = props => {
 					url_orden="Editar"
 				/>
 			</ul>
+			<div className="row justify-content-md-center mt-3">
+				<div className="col-md-auto ">
+					<Button variant="primary">
+						<Link className="text-light" to="/crear_orden">
+							Crear Orden de trabajo
+						</Link>
+					</Button>{" "}
+				</div>
+			</div>
 		</div>
 	);
 };
