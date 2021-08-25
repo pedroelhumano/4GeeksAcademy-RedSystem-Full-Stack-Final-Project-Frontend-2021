@@ -1,6 +1,9 @@
 import React from "react";
 import { Link, useParams } from "react-router-dom";
 
+//Componentes importados
+import { Crearordeninv } from "../component/Crearordeninv.js";
+
 //react-bootstrap
 import { Container, Row, Col, Form, Button } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
@@ -117,6 +120,7 @@ export const Crearcontrato = () => {
 							<Form.Control as="textarea" rows={3} />
 						</Col>
 					</Row>
+					<Crearordeninv />
 					<Button className="my-3" variant="primary">
 						Crear
 					</Button>{" "}

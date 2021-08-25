@@ -22,6 +22,10 @@ import { Contactenos } from "./pages/contactanos";
 import { RestablecerContrasena } from "./pages/restablecer_contrasena";
 import { CambiarContrasena } from "./pages/cambiar_contrasena";
 import { VerFotosOrden } from "./pages/ver_fotos_orden";
+import { Listausuarios } from "./pages/listausers";
+import { Datosuser } from "./pages/Datosuser";
+import { Editaruser } from "./pages/edicionuser";
+import { Crearordentrabajo } from "./pages/crearordentrabajo";
 
 //Nuestros componentes importados
 //import { Listatrabajo } from "./component/listatrabajo";
@@ -60,6 +64,18 @@ const Layout = () => {
 						<Menusup />
 						<CambiarContrasena />
 					</Route>
+					<Route exact path="/usuarios">
+						<Menusup />
+						<Listausuarios />
+					</Route>
+					<Route exact path="/configuracion">
+						<Menusup />
+						<Datosuser />
+					</Route>
+					<Route exact path="/editar_user">
+						<Menusup />
+						<Editaruser />
+					</Route>
 					<Route exact path="/crear_contrato">
 						<Menusup />
 						<Crearcontrato />
@@ -67,6 +83,10 @@ const Layout = () => {
 					<Route exact path="/datos_contrato">
 						<Menusup />
 						<Datos_contrato />
+					</Route>
+					<Route exact path="/crear_orden">
+						<Menusup />
+						<Crearordentrabajo />
 					</Route>
 					<Route exact path="/ordenes">
 						<Menusup />
@@ -85,6 +105,7 @@ const Layout = () => {
 						<Contactenos />
 					</Route>
 					<Route>
+						<Menusup />
 						<Cuatrocerocuatro />
 					</Route>
 				</Switch>
