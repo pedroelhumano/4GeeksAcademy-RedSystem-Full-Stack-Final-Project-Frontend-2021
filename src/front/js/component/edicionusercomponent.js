@@ -49,10 +49,21 @@ export const EditaruserCompont = props => {
 						<Col lg={2} md={1} sm={2}>
 							<div>Email:</div>
 						</Col>
+
 						<Col lg={10} md={11} sm={10}>
 							<Form.Control className="text-left" type="text" placeholder={props.email} />
 						</Col>
 					</Row>
+					<Row>
+						<Col lg={2} md={1} sm={2}>
+							<div>Password:</div>
+						</Col>
+
+						<Col lg={10} md={11} sm={10}>
+							<Form.Control className="text-left" type="password" placeholder="Password" />
+						</Col>
+					</Row>
+
 					<Row>
 						<Col lg={2} md={1} sm={2}>
 							<div>Contact:</div>

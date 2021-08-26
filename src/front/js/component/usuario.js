@@ -1,7 +1,6 @@
-import React, { useState, useEffect, useContext } from "react";
+import React from "react";
 import PropTypes from "prop-types";
-import { Link, useParams } from "react-router-dom";
-import { Context } from "../store/appContext";
+import { Link } from "react-router-dom";
 import "../../styles/app.scss";
 
 //react-bootstrap
@@ -9,9 +8,6 @@ import { Container, Row, Col, Form, Button } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
 
 export const Usuario = props => {
-	const { store, actions } = useContext(Context);
-	const params = useParams();
-
 	return (
 		<Container className="mb-3">
 			<div className="border pl-3">
@@ -75,11 +71,6 @@ export const Usuario = props => {
 					</Col>
 				</Row>
 			</div>
-			<Button className="my-3" variant="primary">
-				<Link className="text-light" to="/editar_user">
-					Editar
-				</Link>
-			</Button>{" "}
 		</Container>
 	);
 };

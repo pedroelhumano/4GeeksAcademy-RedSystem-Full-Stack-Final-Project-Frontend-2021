@@ -54,6 +54,7 @@ const Layout = () => {
 						<Single />
 					</Route> */}
 					{/* NUESTRAS RUTAS */}
+					{/*Rutas generales */}
 					<Route exact path="/login">
 						<Login />
 					</Route>
@@ -64,6 +65,11 @@ const Layout = () => {
 						<Menusup />
 						<CambiarContrasena />
 					</Route>
+					<Route exact path="/contacto">
+						<Menusup />
+						<Contactenos />
+					</Route>
+					{/*Rutas admin*/}
 					<Route exact path="/usuarios">
 						<Menusup />
 						<Listausuarios />
@@ -72,7 +78,15 @@ const Layout = () => {
 						<Menusup />
 						<Datosuser />
 					</Route>
+					<Route exact path="/configuracion/:id">
+						<Menusup />
+						<Datosuser />
+					</Route>
 					<Route exact path="/editar_user">
+						<Menusup />
+						<Editaruser />
+					</Route>
+					<Route exact path="/editar_user/:id">
 						<Menusup />
 						<Editaruser />
 					</Route>
@@ -80,13 +94,14 @@ const Layout = () => {
 						<Menusup />
 						<Crearcontrato />
 					</Route>
-					<Route exact path="/datos_contrato">
-						<Menusup />
-						<Datos_contrato />
-					</Route>
 					<Route exact path="/crear_orden">
 						<Menusup />
 						<Crearordentrabajo />
+					</Route>
+					{/*Rutas solo tecnico*/}
+					<Route exact path="/datos_contrato">
+						<Menusup />
+						<Datos_contrato />
 					</Route>
 					<Route exact path="/ordenes">
 						<Menusup />
@@ -100,10 +115,7 @@ const Layout = () => {
 						<Menusup />
 						<VerFotosOrden />
 					</Route>
-					<Route exact path="/contacto">
-						<Menusup />
-						<Contactenos />
-					</Route>
+					{/*Ruta del 404*/}
 					<Route>
 						<Menusup />
 						<Cuatrocerocuatro />

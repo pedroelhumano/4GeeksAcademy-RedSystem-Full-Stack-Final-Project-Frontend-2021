@@ -1,5 +1,5 @@
 import React from "react";
-import { Link, useParams } from "react-router-dom";
+import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
 import "../../styles/app.scss";
 
@@ -7,7 +7,8 @@ export const Listastotal = props => {
 	return (
 		<li className="list-group-item row">
 			<div className="col">
-				<div className={"float-left circle mx-1 " + props.status + ""} />
+				{props.status && <div className={"float-left circle mx-1 " + props.status + ""} />}
+				{/* <div className={"float-left circle mx-1 " + props.status + ""} /> */}
 				<div className="float-left mx-1">{props.id_nombre}</div>
 				<div className="float-left mx-1">{props.perfil}</div>
 			</div>
