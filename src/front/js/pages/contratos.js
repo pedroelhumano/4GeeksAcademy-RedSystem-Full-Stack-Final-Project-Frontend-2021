@@ -11,7 +11,7 @@ import axios from "axios";
 
 const URL = "https://3001-aquamarine-junglefowl-vjqddwwz.ws-us15.gitpod.io/api/";
 
-export const Home = props => {
+export const Contratos = props => {
 	//Generamos primero el uso de useState
 	const [contratos, setContratos] = useState([]);
 
@@ -24,7 +24,7 @@ export const Home = props => {
 				setContratos(data.Lista_de_contratos);
 			} catch (error) {
 				console.error(error);
-				alert("Error en la api: No se pudo recibir la lista de usuarios");
+				alert("Error en la api: No se pudo recibir la lista de contratos");
 			}
 		},
 		[setContratos]
@@ -45,7 +45,7 @@ export const Home = props => {
 						<Listastotal
 							status="bg-warning"
 							id_nombre={contrato.id_project}
-							url_info="datos_contrato"
+							url_info={`datos_contrato/${contrato.id}`}
 							textbutton2="Ordenes de trabajo"
 							url_orden="ordenes"
 							key={contrato.id}
@@ -55,15 +55,6 @@ export const Home = props => {
 					<h2>Cargando...</h2>
 				)}
 			</ul>
-
-			{/* <Listastotal
-				id_nombre={`${user.name} ${user.lastname}`}
-				perfil={user.perfil}
-				url_info={`configuracion/${user.id}`}
-				textbutton2="Editar"
-				url_orden={`editar_user/${user.id}`}
-				key={user.id} //llave necesaria para que no se tumbe react y poder iterar
-			/> */}
 
 			<div className="row justify-content-md-center">
 				<div className="col-md-auto ">
