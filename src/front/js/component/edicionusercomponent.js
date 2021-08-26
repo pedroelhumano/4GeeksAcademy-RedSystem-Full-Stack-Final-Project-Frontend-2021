@@ -1,16 +1,12 @@
-import React, { useState, useEffect, useContext } from "react";
+import React from "react";
 import PropTypes from "prop-types";
-import { Link, useParams } from "react-router-dom";
-import { Context } from "../store/appContext";
 import "../../styles/app.scss";
 
 //react-bootstrap
-import { Container, Row, Col, Form, Button } from "react-bootstrap";
+import { Container, Row, Col, Form } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
 
 export const EditaruserCompont = props => {
-	const { store, actions } = useContext(Context);
-	const params = useParams();
 
 	return (
 		<Container className="mb-3">
@@ -49,10 +45,21 @@ export const EditaruserCompont = props => {
 						<Col lg={2} md={1} sm={2}>
 							<div>Email:</div>
 						</Col>
+
 						<Col lg={10} md={11} sm={10}>
 							<Form.Control className="text-left" type="text" placeholder={props.email} />
 						</Col>
 					</Row>
+					<Row>
+						<Col lg={2} md={1} sm={2}>
+							<div>Password:</div>
+						</Col>
+
+						<Col lg={10} md={11} sm={10}>
+							<Form.Control className="text-left" type="password" placeholder="Password" />
+						</Col>
+					</Row>
+
 					<Row>
 						<Col lg={2} md={1} sm={2}>
 							<div>Contact:</div>
