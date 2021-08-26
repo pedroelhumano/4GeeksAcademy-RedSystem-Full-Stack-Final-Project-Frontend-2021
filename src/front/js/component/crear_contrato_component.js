@@ -76,14 +76,6 @@ export const CrearcontratoComponent = props => {
 			</Row>
 			<Row>
 				<Col lg={2} md={1} sm={2}>
-					<Form.Label>Planta Matriz</Form.Label>
-				</Col>
-				<Col lg={10} md={11} sm={10}>
-					<Form.Control className="text-left" defaultValue={props.planta_matriz} type="text" />
-				</Col>
-			</Row>
-			<Row>
-				<Col lg={2} md={1} sm={2}>
 					<Form.Label>Comentario</Form.Label>
 				</Col>
 				<Col lg={10} md={11} sm={10}>
