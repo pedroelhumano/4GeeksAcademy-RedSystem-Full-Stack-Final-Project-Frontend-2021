@@ -7,7 +7,6 @@ import { Container, Row, Col, Form } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
 
 export const EditaruserCompont = props => {
-
 	return (
 		<Container className="mb-3">
 			<div className="border pl-3">
