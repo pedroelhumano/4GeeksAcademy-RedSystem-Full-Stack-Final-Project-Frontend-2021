@@ -20,9 +20,9 @@ import { Contactenos } from "./pages/pages_globales/contactanos";
 import { RestablecerContrasena } from "./pages/restablecer_contrasena";
 import { CambiarContrasena } from "./pages/pages_globales/cambiar_contrasena";
 import { VerFotosOrden } from "./pages/ver_fotos_orden";
-import { Listausuarios } from "./pages/listausers";
-import { Datosuser } from "./pages/Datosuser";
-import { Editaruser } from "./pages/edicionuser";
+import { Listausuarios } from "./pages/pages_usuarios/listausers";
+import { Datosuser } from "./pages/pages_usuarios/Datosuser";
+import { Editaruser } from "./pages/pages_usuarios/edicionuser";
 import { Crearordentrabajo } from "./pages/crearordentrabajo";
 import { Editarcontrato } from "./pages/editar_contrato";
 

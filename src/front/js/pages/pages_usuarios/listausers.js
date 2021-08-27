@@ -1,11 +1,11 @@
 import React, { useState, useEffect, useCallback } from "react";
-import "../../styles/app.scss";
+import "../../../styles/app.scss";
 //Componentes importados
-import { Listastotal } from "../component/listastotal.js";
+import { Listastotal } from "../../component/listastotal.js";
 //Importamos la libreria axios previamente instalada
 import axios from "axios";
 //Aqui colocar la URL de la API por favor
-import { URL } from "../config";
+import { URL } from "../../config";
 
 export const Listausuarios = () => {
 	//Generamos primero el uso de useState

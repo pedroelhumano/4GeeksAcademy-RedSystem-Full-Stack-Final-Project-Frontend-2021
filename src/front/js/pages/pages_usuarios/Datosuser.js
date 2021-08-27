@@ -1,32 +1,36 @@
 import React, { useState, useEffect, useCallback } from "react";
 import { useParams, Link } from "react-router-dom";
-import "../../styles/app.scss";
-//Importamos axios
+import "../../../styles/app.scss";
+//Importamos la libreria axios
 import axios from "axios";
-
-//Aqui colocar la URL de la API por favor
-import { URL } from "../config";
-
 //Componentes importados
-import { EditaruserCompont } from "../component/edicionusercomponent.js";
+import { Usuario } from "../../component/usuario.js";
+//Aqui colocar la URL de la API por favor
+import { URL } from "../../config";
 
 //react-bootstrap
 import { Container, Form, Button } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
 
-export const Editaruser = props => {
+export const Datosuser = () => {
 	const [user, setUser] = useState(null);
 	const { id } = useParams();
+
+	/**
+	 * Función para traernos la información del usuario mediante axios
+	 * Después de obtenerlo lo guardamos con la función setUser
+	 * que nos brinda useState
+	 */
 
 	const fetchUser = useCallback(
 		async () => {
 			try {
 				const { data } = await axios.get(`${URL}lista_users/${id}`);
-				// console.log("user", data);
 				setUser(data);
+				// console.log("user", data);
 			} catch (error) {
 				console.error(error);
-				alert("Error en la api: No pude traer los datos");
+				alert("Error en la api: No se pudo recibir la lista de usuarios");
 			}
 		},
 		[setUser]
@@ -34,6 +38,7 @@ export const Editaruser = props => {
 
 	useEffect(
 		() => {
+			// console.log("id", id);
 			fetchUser();
 		},
 		[fetchUser]
@@ -43,7 +48,8 @@ export const Editaruser = props => {
 		<>
 			{user ? (
 				<>
-					<EditaruserCompont
+					<Usuario
+						id={Number(id)}
 						perfil={user.perfil}
 						nombre={user.name}
 						apellido={user.lastname}
@@ -56,13 +62,15 @@ export const Editaruser = props => {
 					<Container>
 						<Form>
 							<Button className="my-3" variant="primary">
-								<Link className="text-light">Enviar</Link>
+								<Link className="text-light" to={`../editar_user/${Number(id)}`}>
+									Editar
+								</Link>
 							</Button>{" "}
 						</Form>
 					</Container>
 				</>
 			) : (
-				<h2>Cargando</h2>
+				<h2>Cargando...</h2>
 			)}
 		</>
 	);

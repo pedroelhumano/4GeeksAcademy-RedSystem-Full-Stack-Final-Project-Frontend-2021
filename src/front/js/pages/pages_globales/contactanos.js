@@ -1,6 +1,4 @@
-import React, { useState, useEffect, useContext } from "react";
-import { Link, useParams } from "react-router-dom";
-import { Context } from "../../store/appContext";
+import React from "react";
 //import figure from "react-bootstrap/figure";
 import pedroyanezIMG from "../../../img/pedroyanez.jpg";
 import luissalgado from "../../../img/luissalgado.jpg";
