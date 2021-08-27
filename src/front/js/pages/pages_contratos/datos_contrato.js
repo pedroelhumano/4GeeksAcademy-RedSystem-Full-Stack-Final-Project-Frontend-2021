@@ -50,6 +50,7 @@ export const Datos_contrato = props => {
 						planta_matriz={contrato.planta_matriz}
 						comentario={contrato.comentario}
 						fecha_registro={contrato.fecha_registro}
+						// ordenes=""
 						//tecnicos={contrato.tecnicos}
 					/>
 					<Container>

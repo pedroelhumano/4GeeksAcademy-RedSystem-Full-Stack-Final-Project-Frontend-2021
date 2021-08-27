@@ -16,7 +16,7 @@ export const Datos_contrato_component = props => {
 						<tr>
 							<th scope="row">Trabajos</th>
 							<td>
-								<Link to="ordenes">
+								<Link to={props.ordenes}>
 									<button type="button" className="btn btn-secondary">
 										Acceder
 									</button>
@@ -97,5 +97,6 @@ Datos_contrato_component.propTypes = {
 	planta_matriz: PropTypes.string,
 	tecnicos: PropTypes.string,
 	comentario: PropTypes.string,
-	fecha_registro: PropTypes.string
+	fecha_registro: PropTypes.string,
+	ordenes: PropTypes.string
 };
