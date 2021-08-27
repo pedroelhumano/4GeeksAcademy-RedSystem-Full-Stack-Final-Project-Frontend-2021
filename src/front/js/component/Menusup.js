@@ -45,17 +45,17 @@ export const Menusup = () => {
 							</Link>
 						</Nav>
 						<Nav>
-							<Link className="nav-link" to="/">
+							<Link className="nav-link" to="/crear_contrato">
 								Crear Contratos
 							</Link>
 						</Nav>
 						<Nav>
-							<Link className="nav-link" to="/">
+							<Link className="nav-link" to="/usuarios">
 								Administrar Usuarios
 							</Link>
 						</Nav>
 						<Nav>
-							<Link className="nav-link" to="/">
+							<Link className="nav-link" to="/configuracion">
 								Configuracion
 							</Link>
 						</Nav>
