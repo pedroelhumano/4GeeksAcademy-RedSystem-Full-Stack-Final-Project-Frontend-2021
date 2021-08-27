@@ -1,10 +1,15 @@
 import React from "react";
+import { Link, useParams } from "react-router-dom";
 import "../../styles/app.scss";
 //Componentes importados
 import { Container, Row, Col, Card, Button, CardGroup, Image } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
 import redSystemLogo from "../../img/red-system-logo.png";
 import Aplicacion from "../../img/Aplicacion.jpg";
+import Conexion from "../../img/Conexion.jpg";
+import Gestion from "../../img/Gestion.jpg";
+import Legal from "../../img/Legal.jpg";
+import Celuaplicacion from "../../img/Celuaplicacion.png";
 
 export const Landing = props => {
 	return (
@@ -21,14 +26,16 @@ export const Landing = props => {
 					</Row>
 					<Row className="justify-content-md-center pb-3">
 						<Col classname="col-md-auto" sm="6" md="5" lg="4" xl="3">
-							<Image src={Aplicacion} width="250" height="200" />
+							<Image src={Celuaplicacion} width="250" height="400" />
 						</Col>
 						<Col className="col-md-auto" md="6" lg="5" xl="4" sm="6">
 							<p className="h4">
 								Gestionas tus proyectos en Telecomunicaciones bajo los altos estandares de la industria.
 							</p>
 							<p>Aplicacion Web compatible con cualquier dispositivo. </p>
-							<Button href="#">Acceder</Button>{" "}
+							<Link className="btn btn-primary" to="login">
+								Acceder
+							</Link>
 						</Col>
 					</Row>
 				</Container>
@@ -48,20 +55,14 @@ export const Landing = props => {
 			<Container className="mt-4">
 				<CardGroup>
 					<Card>
-						<Card.Img
-							variant="top"
-							src="https://c8.alamy.com/compes/2aghcy8/un-angulo-bajo-la-foto-de-un-ingeniero-del-proveedor-de-servicio-domestico-la-instalacion-de-nuevos-cables-de-fibra-optica-en-un-hogar-residencial-trabajando-desde-escaleras-con-cinturon-de-herramientas-2aghcy8.jpg"
-						/>
+						<Card.Img variant="top" src={Conexion} />
 						<Card.Body>
 							<Card.Title>Conexion</Card.Title>
 							<Card.Text>La aplicacion funciona tanto en dispositivo movil como escritorio.</Card.Text>
 						</Card.Body>
 					</Card>
 					<Card className="mx-2">
-						<Card.Img
-							variant="top"
-							src="https://thumbs.dreamstime.com/z/trabajador-de-una-empresa-proveedora-telecomunicaciones-que-trabaja-en-la-implementaci%C3%B3n-cables-fibra-%C3%B3ptica-el-sistema-165577253.jpg"
-						/>
+						<Card.Img variant="top" src={Gestion} />
 						<Card.Body>
 							<Card.Title>Gestion de Redes</Card.Title>
 							<Card.Text>
@@ -70,7 +71,7 @@ export const Landing = props => {
 						</Card.Body>
 					</Card>
 					<Card>
-						<Card.Img variant="top" src="https://i.ytimg.com/vi/tjat-5d4LtE/hqdefault.jpg" />
+						<Card.Img variant="top" src={Legal} />
 						<Card.Body>
 							<Card.Title>Normativas Legales</Card.Title>
 							<Card.Text>Cumpliendo los estandares de seguridad requeridos por la industria.</Card.Text>
