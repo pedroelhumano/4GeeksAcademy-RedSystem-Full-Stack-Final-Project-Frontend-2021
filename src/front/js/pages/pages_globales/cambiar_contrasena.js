@@ -1,8 +1,8 @@
 import React, { useContext, useEffect, useState } from "react";
-import { Context } from "../store/appContext";
-import redSystemLogo from "../../img/red-system-logo.png";
-import "../../styles/login.scss";
-import { InputGroup } from "../component/inputGroup";
+import { Context } from "../../store/appContext";
+import redSystemLogo from "../../../img/red-system-logo.png";
+import "../../../styles/login.scss";
+import { InputGroup } from "../../component/inputGroup";
 import { Link, useParams } from "react-router-dom";
 
 export const CambiarContrasena = () => {
