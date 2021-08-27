@@ -5,7 +5,7 @@ import "../../styles/app.scss";
 import axios from "axios";
 
 //Aqui colocar la URL de la API por favor
-const URL = "https://3001-aquamarine-junglefowl-vjqddwwz.ws-us15.gitpod.io/api/";
+import { URL } from "../config";
 
 //Componentes importados
 import { EditaruserCompont } from "../component/edicionusercomponent.js";

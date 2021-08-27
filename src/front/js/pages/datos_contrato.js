@@ -6,9 +6,8 @@ import axios from "axios";
 //react-bootstrap
 import { Container, Form, Button } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
-
 //Aqui colocar la URL de la API por favor
-const URL = "https://3001-aquamarine-junglefowl-vjqddwwz.ws-us15.gitpod.io/api/";
+import { URL } from "../config";
 
 //Componente importado
 import { Datos_contrato_component } from "../component/Datos_contrato_component.js";

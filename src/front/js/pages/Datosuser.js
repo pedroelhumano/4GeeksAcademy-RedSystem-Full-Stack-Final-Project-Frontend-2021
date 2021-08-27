@@ -1,13 +1,12 @@
 import React, { useState, useEffect, useCallback } from "react";
 import { useParams, Link } from "react-router-dom";
 import "../../styles/app.scss";
-//Importamos la libreria axios previamente instalada
+//Importamos la libreria axios
 import axios from "axios";
 //Componentes importados
 import { Usuario } from "../component/usuario.js";
-
 //Aqui colocar la URL de la API por favor
-const URL = "https://3001-aquamarine-junglefowl-vjqddwwz.ws-us15.gitpod.io/api/";
+import { URL } from "../config";
 
 //react-bootstrap
 import { Container, Form, Button } from "react-bootstrap";

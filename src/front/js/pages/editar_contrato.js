@@ -9,7 +9,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import { CrearcontratoComponent } from "../component/crear_contrato_component";
 
 //Aqui colocar la URL de la API por favor
-const URL = "https://3001-aquamarine-junglefowl-vjqddwwz.ws-us15.gitpod.io/api/";
+import { URL } from "../config";
 
 export const Editarcontrato = () => {
 	const [contrato, setContrato] = useState(null);

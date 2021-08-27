@@ -8,8 +8,7 @@ import { Button } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
 //Importamos la libreria axios previamente instalada
 import axios from "axios";
-
-const URL = "https://3001-aquamarine-junglefowl-vjqddwwz.ws-us15.gitpod.io/api/";
+import { URL } from "../config";
 
 export const Contratos = props => {
 	//Generamos primero el uso de useState
@@ -47,7 +46,7 @@ export const Contratos = props => {
 							id_nombre={contrato.id_project}
 							url_info={`datos_contrato/${contrato.id}`}
 							textbutton2="Ordenes de trabajo"
-							url_orden="ordenes"
+							url_orden={`ordenes/${contrato.id}`}
 							key={contrato.id}
 						/>
 					))

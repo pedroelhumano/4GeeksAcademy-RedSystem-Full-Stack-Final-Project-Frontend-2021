@@ -1,8 +1,7 @@
-import React, { useState, useEffect, useContext } from "react";
-import { Link, useParams } from "react-router-dom";
-import { Context } from "../store/appContext";
-import "../../styles/app.scss";
-import "../../styles/404.scss";
+import React from "react";
+import { Link } from "react-router-dom";
+import "../../../styles/app.scss";
+import "../../../styles/404.scss";
 
 export const Cuatrocerocuatro = props => {
 	return (
