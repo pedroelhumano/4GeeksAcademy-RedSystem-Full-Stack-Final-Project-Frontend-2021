@@ -2,7 +2,7 @@ import React from "react";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 //import ScrollToTop from "./component/scrollToTop";
 
-import { Home } from "./pages/home";
+import { Contratos } from "./pages/contratos";
 import { Login } from "./pages/login";
 //import { Demo } from "./pages/demo";
 //import { Single } from "./pages/single";
@@ -26,6 +26,7 @@ import { Listausuarios } from "./pages/listausers";
 import { Datosuser } from "./pages/Datosuser";
 import { Editaruser } from "./pages/edicionuser";
 import { Crearordentrabajo } from "./pages/crearordentrabajo";
+import { Editarcontrato } from "./pages/editar_contrato";
 
 //Nuestros componentes importados
 //import { Listatrabajo } from "./component/listatrabajo";
@@ -43,8 +44,9 @@ const Layout = () => {
 				<Switch>
 					<Route exact path="/">
 						<Menusup />
-						<Home />
+						<Contratos />
 					</Route>
+
 					{/* <Route exact path="/demo">
 							<Menusup />
 							<Demo />
@@ -69,6 +71,10 @@ const Layout = () => {
 						<Menusup />
 						<Contactenos />
 					</Route>
+					<Route exact path="/contratos">
+						<Menusup />
+						<Contratos />
+					</Route>
 					{/*Rutas admin*/}
 					<Route exact path="/usuarios">
 						<Menusup />
@@ -90,6 +96,10 @@ const Layout = () => {
 						<Menusup />
 						<Editaruser />
 					</Route>
+					<Route exact path="/editar_contrato/:id">
+						<Menusup />
+						<Editarcontrato />
+					</Route>
 					<Route exact path="/crear_contrato">
 						<Menusup />
 						<Crearcontrato />
@@ -100,6 +110,10 @@ const Layout = () => {
 					</Route>
 					{/*Rutas solo tecnico*/}
 					<Route exact path="/datos_contrato">
+						<Menusup />
+						<Datos_contrato />
+					</Route>
+					<Route exact path="/datos_contrato/:id">
 						<Menusup />
 						<Datos_contrato />
 					</Route>
