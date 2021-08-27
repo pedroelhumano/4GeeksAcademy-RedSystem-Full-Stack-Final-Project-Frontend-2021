@@ -22,6 +22,7 @@ import { Contactenos } from "./pages/contactanos";
 import { RestablecerContrasena } from "./pages/restablecer_contrasena";
 import { CambiarContrasena } from "./pages/cambiar_contrasena";
 import { VerFotosOrden } from "./pages/ver_fotos_orden";
+import { Landing } from "./pages/landing";
 import { Listausuarios } from "./pages/listausers";
 import { Datosuser } from "./pages/Datosuser";
 import { Editaruser } from "./pages/edicionuser";
@@ -128,6 +129,13 @@ const Layout = () => {
 					<Route exact path="/ver_fotos_orden">
 						<Menusup />
 						<VerFotosOrden />
+					</Route>
+					<Route exact path="/contacto">
+						<Menusup />
+						<Contactenos />
+					</Route>
+					<Route exact path="/landing">
+						<Landing />
 					</Route>
 					{/*Ruta del 404*/}
 					<Route>
