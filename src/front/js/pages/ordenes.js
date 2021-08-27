@@ -43,7 +43,7 @@ export const Ordenes = props => {
 						<Listastotal
 							status="bg-warning"
 							id_nombre={ordene.id_nombre}
-							url_info={"datos_orden"}
+							url_info={`datos_orden/${ordene.id}`}
 							textbutton2="Acreditar"
 							url_orden="Editar"
 							key={ordene.id} //llave necesaria para que no se tumbe react y poder iterar

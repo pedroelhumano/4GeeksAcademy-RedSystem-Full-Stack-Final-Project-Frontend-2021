@@ -123,6 +123,10 @@ const Layout = () => {
 						<Menusup />
 						<Ordenes />
 					</Route>
+					<Route exact path="/ordenes/datos_orden/:id">
+						<Menusup />
+						<Datos_orden />
+					</Route>
 					<Route exact path="/datos_orden">
 						<Menusup />
 						<Datos_orden />

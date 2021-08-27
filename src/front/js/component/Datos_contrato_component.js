@@ -74,6 +74,10 @@ export const Datos_contrato_component = props => {
 							<td>{props.fecha_registro}</td>
 						</tr>
 						<tr>
+							<td>Tecnicos asignados</td>
+							<td>{props.tecnicos}</td>
+						</tr>
+						<tr>
 							<td>Comentarios</td>
 							<td>{props.comentario}</td>
 						</tr>
@@ -91,6 +95,7 @@ Datos_contrato_component.propTypes = {
 	sector: PropTypes.string,
 	obra_descripcion: PropTypes.string,
 	planta_matriz: PropTypes.string,
+	tecnicos: PropTypes.string,
 	comentario: PropTypes.string,
 	fecha_registro: PropTypes.string
 };
