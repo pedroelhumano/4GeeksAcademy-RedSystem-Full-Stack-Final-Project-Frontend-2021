@@ -87,9 +87,9 @@ Datos_orden_component.propTypes = {
 	descripcion: PropTypes.string,
 	status: PropTypes.string,
 	tecnicos_asignados: PropTypes.string,
+	direccion: PropTypes.string,
 	//del contrato
 	region: PropTypes.string,
 	comuna: PropTypes.string,
-	sector: PropTypes.string,
-	direccion: PropTypes.string
+	sector: PropTypes.string
 };

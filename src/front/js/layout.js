@@ -25,6 +25,7 @@ import { Datosuser } from "./pages/pages_usuarios/Datosuser";
 import { Editaruser } from "./pages/pages_usuarios/edicionuser";
 import { Crearordentrabajo } from "./pages/crearordentrabajo";
 import { Editarcontrato } from "./pages/pages_contratos/editar_contrato";
+import { Editarorden } from "./pages/editar_orden";
 
 //Nuestros componentes importados
 //import { Listatrabajo } from "./component/listatrabajo";
@@ -126,6 +127,10 @@ const Layout = () => {
 					<Route exact path="/ordenes/datos_orden/:id">
 						<Menusup />
 						<Datos_orden />
+					</Route>
+					<Route exact path="/ordenes/crear_orden/:id">
+						<Menusup />
+						<Editarorden />
 					</Route>
 					<Route exact path="/datos_orden">
 						<Menusup />
