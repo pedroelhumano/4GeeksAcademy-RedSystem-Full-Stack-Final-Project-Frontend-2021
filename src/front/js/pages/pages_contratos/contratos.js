@@ -1,14 +1,14 @@
 import React, { useState, useEffect, useCallback } from "react";
 import { Link } from "react-router-dom";
-import "../../styles/app.scss";
+import "../../../styles/app.scss";
 //Componentes importados
-import { Listastotal } from "../component/listastotal.js";
+import { Listastotal } from "../../component/listastotal.js";
 //react-bootstrap
 import { Button } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
 //Importamos la libreria axios previamente instalada
 import axios from "axios";
-import { URL } from "../config";
+import { URL } from "../../config";
 
 export const Contratos = props => {
 	//Generamos primero el uso de useState

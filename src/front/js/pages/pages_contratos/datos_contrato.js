@@ -1,29 +1,29 @@
-import React, { useState, useCallback, useEffect } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import { Link, useParams } from "react-router-dom";
+import "../../../styles/app.scss";
+//Importamos la libreria axios previamente instalada
 import axios from "axios";
-
 //react-bootstrap
-import { Container, Row, Col, Form, Button } from "react-bootstrap";
+import { Container, Form, Button } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
-//Componentes importados
-import { CrearcontratoComponent } from "../component/crear_contrato_component";
-
 //Aqui colocar la URL de la API por favor
-import { URL } from "../config";
+import { URL } from "../../config";
 
-export const Editarcontrato = () => {
+//Componente importado
+import { Datos_contrato_component } from "../../component/Datos_contrato_component.js";
+
+export const Datos_contrato = props => {
 	const [contrato, setContrato] = useState(null);
 	const { id } = useParams();
-
 	const fetchContrato = useCallback(
 		async () => {
 			try {
 				const { data } = await axios.get(`${URL}lista_contratos/${id}`);
-				// console.log("user", data);
+				// console.log("users", data.Lista_de_usuarios);
 				setContrato(data);
 			} catch (error) {
 				console.error(error);
-				alert("Error en la api: No pude traer los datos");
+				alert("Error en la api: No se pudo recibir informacion del contrato");
 			}
 		},
 		[setContrato]
@@ -31,16 +31,17 @@ export const Editarcontrato = () => {
 
 	useEffect(
 		() => {
+			// console.log("id", id);
 			fetchContrato();
 		},
 		[fetchContrato]
 	);
-
 	return (
-		<Container>
+		<>
 			{contrato ? (
-				<Form>
-					<CrearcontratoComponent
+				<>
+					<Datos_contrato_component
+						id={Number(id)}
 						id_project={contrato.id_project}
 						region={contrato.region}
 						comuna={contrato.comuna}
@@ -53,14 +54,16 @@ export const Editarcontrato = () => {
 					<Container>
 						<Form>
 							<Button className="my-3" variant="primary">
-								<Link className="text-light">Enviar</Link>
+								<Link className="text-light" to={`../editar_contrato/${Number(id)}`}>
+									Editar
+								</Link>
 							</Button>{" "}
 						</Form>
 					</Container>
-				</Form>
+				</>
 			) : (
-				<h2>Cargando</h2>
+				<h2>Cargando...</h2>
 			)}
-		</Container>
+		</>
 	);
 };
