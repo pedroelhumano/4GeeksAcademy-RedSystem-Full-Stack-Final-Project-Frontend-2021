@@ -23,6 +23,7 @@ import { VerFotosOrden } from "./pages/ver_fotos_orden";
 import { Listausuarios } from "./pages/pages_usuarios/listausers";
 import { Datosuser } from "./pages/pages_usuarios/Datosuser";
 import { Editaruser } from "./pages/pages_usuarios/edicionuser";
+import { Landing } from "./pages/landing";
 import { Crearordentrabajo } from "./pages/crearordentrabajo";
 import { Editarcontrato } from "./pages/pages_contratos/editar_contrato";
 import { Editarorden } from "./pages/editar_orden";
@@ -139,6 +140,13 @@ const Layout = () => {
 					<Route exact path="/ver_fotos_orden">
 						<Menusup />
 						<VerFotosOrden />
+					</Route>
+					<Route exact path="/contacto">
+						<Menusup />
+						<Contactenos />
+					</Route>
+					<Route exact path="/landing">
+						<Landing />
 					</Route>
 					{/*Ruta del 404*/}
 					<Route>
