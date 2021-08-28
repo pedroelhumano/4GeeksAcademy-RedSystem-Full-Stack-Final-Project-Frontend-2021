@@ -1,11 +1,11 @@
 import React, { useContext, useEffect, useState } from "react";
-import { Context } from "../store/appContext";
-import redSystemLogo from "../../img/red-system-logo.png";
-import "../../styles/login.scss";
-import { InputGroup } from "../component/inputGroup";
+import { Context } from "../../store/appContext";
+import redSystemLogo from "../../../img/red-system-logo.png";
+import "../../../styles/login.scss";
+import { InputGroup } from "../../component/inputGroup";
 import { Link, useParams } from "react-router-dom";
 
-export const CambiarContrasena = () => {
+export const RestablecerContrasena = () => {
 	const { store, actions } = useContext(Context);
 
 	const [recuperar, setRecuperar] = useState(false);
@@ -16,25 +16,18 @@ export const CambiarContrasena = () => {
 	}; */
 
 	return (
-		<div className="container d-flex flex-column align-items-center justify-content-center w-100 fadeInDown pt-2">
+		<div className="container d-flex flex-column align-items-center justify-content-center w-100 fadeInDown pt-5">
 			<div id="formContent" className="my-3">
 				<div className="fadeIn first container d-flex justify-content-center align-items-center my-4">
 					<img src={redSystemLogo} id="icon" alt="Business icon" />
 					<h1 className="align-self-center mb-0">RedSystem</h1>
 				</div>
-				<div className="alert alert-warning mx-4" role="alert">
+				<div className="alert alert-danger mx-4" role="alert">
 					<h4 className="alert-heading">
-						<i className="fas fa-sync-alt" /> Cambiar Contraseña
+						<i className="fas fa-user-lock" /> Restablecer Contraseña
 					</h4>
 				</div>
 				<form className="container d-flex flex-column align-items-center">
-					<InputGroup
-						label="Introduce tu contraseña actual"
-						icon="fas fa-lock"
-						type="password"
-						placeholder="Contraseña"
-						name="acontrasena"
-					/>
 					<InputGroup
 						label="Introduce tu nueva contraseña"
 						icon="fas fa-lock"
@@ -71,14 +64,9 @@ export const CambiarContrasena = () => {
 							</h6>
 						</div>
 					</div>
-					<div className="d-flex flex-row align-items-between my-3">
-						<button type="submit" className="fadeIn first btn btn-danger text-white m-2">
-							CANCELAR
-						</button>
-						<button type="submit" className="fadeIn first btn btn-primary text-white m-2">
-							CAMBIAR CONTRASEÑA
-						</button>
-					</div>
+					<button type="submit" className="fadeIn first btn bg-primary text-white my-4 px-5">
+						CAMBIAR CONTRASEÑA
+					</button>
 				</form>
 			</div>
 		</div>

@@ -1,87 +1,71 @@
-import React, { useState, useEffect, useContext } from "react";
-import PropTypes from "prop-types";
+import React, { useState, useEffect, useCallback } from "react";
 import { Link, useParams } from "react-router-dom";
-import { Context } from "../store/appContext";
 import "../../styles/app.scss";
+//Importamos la libreria axios previamente instalada
+import axios from "axios";
+//react-bootstrap
+import { Container, Form, Button } from "react-bootstrap";
+import "bootstrap/dist/css/bootstrap.min.css";
+//Aqui colocar la URL de la API por favor
+import { URL } from "../config";
+//Componente importado
+import { Datos_orden_component } from "../component/datos_orden_component";
 
 export const Datos_orden = props => {
-	const { store, actions } = useContext(Context);
-	const params = useParams();
+	const [orden, setOrden] = useState(null);
+	const { id } = useParams();
+	const fetchOrden = useCallback(
+		async () => {
+			try {
+				const { data } = await axios.get(`${URL}order/${id}`);
+				// console.log("users", data.Lista_de_usuarios);
+				setOrden(data);
+			} catch (error) {
+				console.error(error);
+				alert("Error en la api: No se pudo recibir informacion de la orden");
+			}
+		},
+		[setOrden]
+	);
 
+	useEffect(
+		() => {
+			// console.log("id", id);
+			fetchOrden();
+		},
+		[fetchOrden]
+	);
 	return (
-		<div className="container">
-			<div className="row">
-				<table className="table table-bordered ">
-					<tbody>
-						<tr>
-							<th scope="row">ID:</th>
-							<td>MFF-01</td>
-						</tr>
-						<tr>
-							<td>Región</td>
-							<td>Metropolitana</td>
-						</tr>
-						<tr>
-							<td>Comuna</td>
-							<td>Peñalolen</td>
-						</tr>
-						<tr>
-							<td>Sector</td>
-							<td>La Victoria</td>
-						</tr>
-						<tr>
-							<td>Dirección</td>
-							<td>Calle San Vicente 2945</td>
-						</tr>
-						<tr>
-							<td>Obras</td>
-							<td>Construccion de mufa 48F</td>
-						</tr>
-						<tr>
-							<td>Planta Matriz</td>
-							<td>Peñalolen central VTR</td>
-						</tr>
-						<tr>
-							<td>GEO</td>
-							<td>
-								<button type="button" className="btn btn-secondary col-md-4 col-lg-3 m-1">
-									Enviar Geo
-								</button>
-								<button type="button" className="btn btn-secondary col-md-4 col-lg-3 m-1">
-									Ver Geo
-								</button>
-							</td>
-						</tr>
-						<tr>
-							<td>Fotografias</td>
-							<td>
-								<button type="button" className="btn btn-secondary col-md-4 col-lg-3 m-1">
-									Cargar Fotografias
-								</button>
-								<button type="button" className="btn btn-secondary col-md-4 col-lg-3 m-1">
-									Ver Fotografias
-								</button>
-							</td>
-						</tr>
-						<tr>
-							<td>Plano</td>
-							<td>
-								<button type="button" className="btn btn-secondary col-md-4 col-lg-3">
-									Descargar
-								</button>
-							</td>
-						</tr>
-						<tr>
-							<td>Tecnico</td>
-							<td>Pedro Yanez</td>
-						</tr>
-						<tr>
-							<td>Comentarios</td>
-							<td>-</td>
-						</tr>
-					</tbody>
-				</table>
-			</div>
-		</div>
+		<>
+			{orden ? (
+				<>
+					<Datos_orden_component
+						id={Number(id)}
+						id_nombre={orden.id_nombre}
+						tipo={orden.tipo}
+						descripcion={orden.descripcion}
+						direccion={orden.direccion}
+						status={orden.status}
+						tecnicos_asignados={orden.tecnicos_asignados}
+						//De la tabla contrato deberia extraer:
+						// region={orden.planta_matriz}
+						// comuna={orden.comentario}
+						// sector={orden.fecha_registro}
+						// direccion={orden.fecha_registro}
+					/>
+					<Container>
+						<Form>
+							<Button className="my-3" variant="primary">
+								<Link className="text-light" to={`../crear_orden/${Number(id)}`}>
+									Editar
+								</Link>
+							</Button>{" "}
+						</Form>
+					</Container>
+				</>
+			) : (
+				<h2>Cargando...</h2>
+			)}
+		</>
 	);
 };

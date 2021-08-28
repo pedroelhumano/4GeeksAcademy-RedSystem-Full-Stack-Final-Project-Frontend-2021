@@ -1,16 +1,11 @@
 import React, { useState, useEffect, useCallback } from "react";
-import "../../styles/app.scss";
+import "../../../styles/app.scss";
 //Componentes importados
-import { Listastotal } from "../component/listastotal.js";
-//react-bootstrap
-//import { Button } from "react-bootstrap";
-//import "bootstrap/dist/css/bootstrap.min.css";
-
+import { Listastotal } from "../../component/listastotal.js";
 //Importamos la libreria axios previamente instalada
 import axios from "axios";
-
 //Aqui colocar la URL de la API por favor
-const URL = "https://3001-aquamarine-junglefowl-vjqddwwz.ws-us15.gitpod.io/api/";
+import { URL } from "../../config";
 
 export const Listausuarios = () => {
 	//Generamos primero el uso de useState

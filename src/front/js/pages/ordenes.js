@@ -1,53 +1,57 @@
-import React, { useState, useEffect, useContext } from "react";
-import PropTypes from "prop-types";
+import React, { useState, useEffect, useCallback } from "react";
 import { Link, useParams } from "react-router-dom";
-import { Context } from "../store/appContext";
 import "../../styles/app.scss";
 import { Listastotal } from "../component/listastotal.js";
-
 //react-bootstrap
 import { Button } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
+//Importamos la libreria axios previamente instalada
+import axios from "axios";
+//Aqui colocar la URL de la API por favor
+import { URL } from "../config";
 
 export const Ordenes = props => {
+	//Generamos primero el uso de useState
+	const [ordenes, setOrdenes] = useState([]);
+	const { id } = useParams();
+
+	const fetchOrdenes = useCallback(
+		async () => {
+			try {
+				const { data } = await axios.get(`${URL}order_trabajo/${id}`);
+				// console.log("users", data.Lista_de_usuarios);
+				setOrdenes(data);
+			} catch (error) {
+				console.error(error);
+				alert("Error en la api: No se pudo recibir la lista de Ordenes");
+			}
+		},
+		[setOrdenes]
+	);
+
+	useEffect(
+		() => {
+			fetchOrdenes();
+		},
+		[fetchOrdenes]
+	);
 	return (
 		<div className="container">
 			<ul className="list-group container-fluid">
-				<Listastotal
-					status="bg-warning"
-					id_nombre="MUFA-01"
-					url_info="datos_orden"
-					textbutton2="Acreditar"
-					url_orden="Editar"
-				/>
-				<Listastotal
-					status="bg-warning"
-					id_nombre="MUFA-02"
-					url_info="datos_orden"
-					textbutton2="Acreditar"
-					url_orden="Editar"
-				/>
-				<Listastotal
-					status="bg-warning"
-					id_nombre="NAP-01"
-					url_info="datos_orden"
-					textbutton2="Acreditar"
-					url_orden="Editar"
-				/>
-				<Listastotal
-					status="bg-warning"
-					id_nombre="NAP-02"
-					url_info="datos_orden"
-					textbutton2="Acreditar"
-					url_orden="Editar"
-				/>
-				<Listastotal
-					status="bg-warning"
-					id_nombre="NAP-03"
-					url_info="datos_orden"
-					textbutton2="Acreditar"
-					url_orden="Editar"
-				/>
+				{ordenes.length > 0 ? (
+					ordenes.map(ordene => (
+						<Listastotal
+							status="bg-warning"
+							id_nombre={ordene.id_nombre}
+							url_info={`datos_orden/${ordene.id}`}
+							textbutton2="Acreditar"
+							url_orden="Editar"
+							key={ordene.id} //llave necesaria para que no se tumbe react y poder iterar
+						/>
+					))
+				) : (
+					<h2>Cargando...</h2>
+				)}
 			</ul>
 			<div className="row justify-content-md-center mt-3">
 				<div className="col-md-auto ">

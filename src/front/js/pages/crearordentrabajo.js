@@ -21,7 +21,7 @@ export const Crearordentrabajo = props => {
 				<Form className="ml-5">
 					<Crearordeninv />
 					<Button className="my-3" variant="primary">
-						Crear
+						Editar
 					</Button>{" "}
 				</Form>
 			</div>
