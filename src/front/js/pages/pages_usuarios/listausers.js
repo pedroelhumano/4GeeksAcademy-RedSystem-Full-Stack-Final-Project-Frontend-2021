@@ -19,9 +19,9 @@ export const Listausuarios = () => {
 	const fetchUsers = useCallback(
 		async () => {
 			try {
-				const { data } = await axios.get(`${URL}lista_users`);
+				const { data } = await axios.get(`${URL}users`);
 				// console.log("users", data.Lista_de_usuarios);
-				setUsers(data.Lista_de_usuarios);
+				setUsers(data.users);
 			} catch (error) {
 				console.error(error);
 				alert("Error en la api: No se pudo recibir la lista de usuarios");

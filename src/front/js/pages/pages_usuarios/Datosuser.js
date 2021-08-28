@@ -25,7 +25,7 @@ export const Datosuser = () => {
 	const fetchUser = useCallback(
 		async () => {
 			try {
-				const { data } = await axios.get(`${URL}lista_users/${id}`);
+				const { data } = await axios.get(`${URL}user/${id}`);
 				setUser(data);
 				// console.log("user", data);
 			} catch (error) {

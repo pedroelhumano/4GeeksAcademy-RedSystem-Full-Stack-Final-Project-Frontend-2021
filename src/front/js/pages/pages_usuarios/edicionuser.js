@@ -21,7 +21,7 @@ export const Editaruser = props => {
 	const fetchUser = useCallback(
 		async () => {
 			try {
-				const { data } = await axios.get(`${URL}lista_users/${id}`);
+				const { data } = await axios.get(`${URL}user/${id}`);
 				// console.log("user", data);
 				setUser(data);
 			} catch (error) {
@@ -44,6 +44,7 @@ export const Editaruser = props => {
 			{user ? (
 				<>
 					<EditaruserCompont
+						id={id}
 						perfil={user.perfil}
 						nombre={user.name}
 						apellido={user.lastname}
@@ -53,13 +54,6 @@ export const Editaruser = props => {
 						fechanacimiento={user.fecha_nacimiento}
 						fecharegistro={user.fecha_registro}
 					/>
-					<Container>
-						<Form>
-							<Button className="my-3" variant="primary">
-								<Link className="text-light">Enviar</Link>
-							</Button>{" "}
-						</Form>
-					</Container>
 				</>
 			) : (
 				<h2>Cargando</h2>

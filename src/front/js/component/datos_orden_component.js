@@ -17,22 +17,6 @@ export const Datos_orden_component = props => {
 							<td>{props.tipo}</td>
 						</tr>
 						<tr>
-							<td>Estado</td>
-							<td>{props.status}</td>
-						</tr>
-						<tr>
-							<td>Región</td>
-							<td>{props.region}</td>
-						</tr>
-						<tr>
-							<td>Comuna</td>
-							<td>{props.comuna}</td>
-						</tr>
-						<tr>
-							<td>Sector</td>
-							<td>{props.sector}</td>
-						</tr>
-						<tr>
 							<td>Dirección</td>
 							<td>{props.direccion}</td>
 						</tr>
@@ -87,9 +71,6 @@ Datos_orden_component.propTypes = {
 	descripcion: PropTypes.string,
 	status: PropTypes.string,
 	tecnicos_asignados: PropTypes.string,
-	direccion: PropTypes.string,
+	direccion: PropTypes.string
 	//del contrato
-	region: PropTypes.string,
-	comuna: PropTypes.string,
-	sector: PropTypes.string
 };
