@@ -10,7 +10,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import { URL } from "../../config";
 
 //Componente importado
-import { Datos_contrato_component } from "../../component/Datos_contrato_component.js";
+import { Datos_contrato_component } from "../../component/Datos_contrato_component";
 
 export const Datos_contrato = props => {
 	const [contrato, setContrato] = useState(null);
@@ -37,7 +37,7 @@ export const Datos_contrato = props => {
 		[fetchContrato]
 	);
 	return (
-		<>
+		<Container>
 			{contrato ? (
 				<>
 					<Datos_contrato_component
@@ -53,19 +53,15 @@ export const Datos_contrato = props => {
 						// ordenes=""
 						//tecnicos={contrato.tecnicos}
 					/>
-					<Container>
-						<Form>
-							<Button className="my-3" variant="primary">
-								<Link className="text-light" to={`../editar_contrato/${Number(id)}`}>
-									Editar
-								</Link>
-							</Button>{" "}
-						</Form>
-					</Container>
+					<Button className="my-3" variant="primary">
+						<Link className="text-light" to={`../editar_contrato/${Number(id)}`}>
+							Editar
+						</Link>
+					</Button>{" "}
 				</>
 			) : (
 				<h2>Cargando...</h2>
 			)}
-		</>
+		</Container>
 	);
 };

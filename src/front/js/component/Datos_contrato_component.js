@@ -2,6 +2,8 @@ import React from "react";
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 import "../../styles/app.scss";
+import { Button } from "react-bootstrap";
+import "bootstrap/dist/css/bootstrap.min.css";
 
 export const Datos_contrato_component = props => {
 	return (
@@ -12,16 +14,6 @@ export const Datos_contrato_component = props => {
 						<tr>
 							<th scope="row">ID PROJECT:</th>
 							<td>{props.id_project}</td>
-						</tr>
-						<tr>
-							<th scope="row">Trabajos</th>
-							<td>
-								<Link to={props.ordenes}>
-									<button type="button" className="btn btn-secondary">
-										Acceder
-									</button>
-								</Link>
-							</td>
 						</tr>
 						<tr>
 							<td>Región</td>
@@ -83,6 +75,9 @@ export const Datos_contrato_component = props => {
 						</tr>
 					</tbody>
 				</table>
+				<Button className="my-2 bg-danger" variant="primary">
+					Eliminar
+				</Button>{" "}
 			</div>
 		</div>
 	);

@@ -9,7 +9,6 @@ export const CrearcontratoComponent = props => {
 	return (
 		<div>
 			<h2>Crear contrato</h2>
-
 			<Row>
 				<Col lg={2} md={1} sm={2}>
 					<Form.Label>Nombre del proyecto</Form.Label>
@@ -81,6 +80,9 @@ export const CrearcontratoComponent = props => {
 					<Form.Control as="textarea" defaultValue={props.comentario} rows={3} />
 				</Col>
 			</Row>
+			<Button className="my-3" variant="primary">
+				Crear
+			</Button>{" "}
 		</div>
 	);
 };

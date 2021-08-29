@@ -6,7 +6,7 @@ import axios from "axios";
 import { Container, Row, Col, Form, Button } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
 //Componentes importados
-import { CrearcontratoComponent } from "../../component/crear_contrato_component";
+import { EditarcontratoComponent } from "../../component/editar_contrato_component";
 
 //Aqui colocar la URL de la API por favor
 import { URL } from "../../config";
@@ -39,8 +39,9 @@ export const Editarcontrato = () => {
 	return (
 		<Container>
 			{contrato ? (
-				<Form>
-					<CrearcontratoComponent
+				<>
+					<EditarcontratoComponent
+						id={id}
 						id_project={contrato.id_project}
 						region={contrato.region}
 						comuna={contrato.comuna}
@@ -50,14 +51,7 @@ export const Editarcontrato = () => {
 						comentario={contrato.comentario}
 						fecha_registro={contrato.fecha_registro}
 					/>
-					<Container>
-						<Form>
-							<Button className="my-3" variant="primary">
-								<Link className="text-light">Enviar</Link>
-							</Button>{" "}
-						</Form>
-					</Container>
-				</Form>
+				</>
 			) : (
 				<h2>Cargando</h2>
 			)}

@@ -45,7 +45,7 @@ export const Datosuser = () => {
 	);
 
 	return (
-		<>
+		<Container className="border pl-3">
 			{user ? (
 				<>
 					<Usuario
@@ -59,19 +59,15 @@ export const Datosuser = () => {
 						fechanacimiento={user.fecha_nacimiento}
 						fecharegistro={user.fecha_registro}
 					/>
-					<Container>
-						<Form>
-							<Button className="my-3" variant="primary">
-								<Link className="text-light" to={`../editar_user/${Number(id)}`}>
-									Editar
-								</Link>
-							</Button>{" "}
-						</Form>
-					</Container>
+					<Button className="my-3" variant="primary">
+						<Link className="text-light" to={`../editar_user/${Number(id)}`}>
+							Editar
+						</Link>
+					</Button>{" "}
 				</>
 			) : (
 				<h2>Cargando...</h2>
 			)}
-		</>
+		</Container>
 	);
 };
