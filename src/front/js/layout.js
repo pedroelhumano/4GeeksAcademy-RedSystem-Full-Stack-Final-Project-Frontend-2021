@@ -28,6 +28,7 @@ import { Datosuser } from "./pages/Datosuser";
 import { Editaruser } from "./pages/edicionuser";
 import { Crearordentrabajo } from "./pages/crearordentrabajo";
 import { Editarcontrato } from "./pages/editar_contrato";
+import { Formulariocontacto } from "./pages/formulario_contacto";
 
 //Nuestros componentes importados
 //import { Listatrabajo } from "./component/listatrabajo";
@@ -136,6 +137,9 @@ const Layout = () => {
 					</Route>
 					<Route exact path="/landing">
 						<Landing />
+					</Route>
+					<Route exact path="/formulario_contacto">
+						<Formulariocontacto />
 					</Route>
 					{/*Ruta del 404*/}
 					<Route>
