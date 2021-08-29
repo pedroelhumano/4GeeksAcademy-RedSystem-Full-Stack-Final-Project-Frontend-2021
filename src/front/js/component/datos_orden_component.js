@@ -1,6 +1,8 @@
 import React from "react";
 import PropTypes from "prop-types";
 import "../../styles/app.scss";
+import { Button } from "react-bootstrap";
+import "bootstrap/dist/css/bootstrap.min.css";
 
 export const Datos_orden_component = props => {
 	return (
@@ -15,6 +17,10 @@ export const Datos_orden_component = props => {
 						<tr>
 							<td>Tipo de trabajo</td>
 							<td>{props.tipo}</td>
+						</tr>
+						<tr>
+							<td>Status</td>
+							<td>{props.status}</td>
 						</tr>
 						<tr>
 							<td>Dirección</td>
@@ -60,6 +66,9 @@ export const Datos_orden_component = props => {
 						</tr>
 					</tbody>
 				</table>
+				<Button className="my-2 bg-danger" variant="primary">
+					Eliminar
+				</Button>{" "}
 			</div>
 		</div>
 	);
@@ -72,5 +81,4 @@ Datos_orden_component.propTypes = {
 	status: PropTypes.string,
 	tecnicos_asignados: PropTypes.string,
 	direccion: PropTypes.string
-	//del contrato
 };

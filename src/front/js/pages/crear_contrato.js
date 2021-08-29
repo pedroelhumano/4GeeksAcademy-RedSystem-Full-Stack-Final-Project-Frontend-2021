@@ -12,13 +12,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 export const Crearcontrato = () => {
 	return (
 		<Container className="mb-3">
-			<Form className="ml-5 border">
-				<CrearcontratoComponent />
-				<Crearordeninv />
-				<Button className="my-3" variant="primary">
-					Crear
-				</Button>{" "}
-			</Form>
+			<CrearcontratoComponent />
 		</Container>
 	);
 };

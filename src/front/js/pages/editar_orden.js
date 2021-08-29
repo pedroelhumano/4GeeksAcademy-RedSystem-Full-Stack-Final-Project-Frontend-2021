@@ -41,17 +41,13 @@ export const Editarorden = () => {
 			{orden ? (
 				<Form>
 					<Crearordeninv
+						id={id}
 						id_nombre={orden.id_nombre}
 						tipo={orden.tipo}
 						descripcion={orden.descripcion}
 						direccion={orden.direccion}
 						status={orden.status}
 					/>
-					<Container>
-						<Button className="my-3" variant="primary">
-							<Link className="text-light">Enviar</Link>
-						</Button>{" "}
-					</Container>
 				</Form>
 			) : (
 				<h2>Cargando</h2>
