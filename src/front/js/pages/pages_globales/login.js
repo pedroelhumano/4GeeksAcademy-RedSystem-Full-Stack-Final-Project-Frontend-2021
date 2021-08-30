@@ -1,4 +1,5 @@
 import React, { useContext, useEffect, useState } from "react";
+import injectContext from "../../store/appContext";
 import { Context } from "../../store/appContext";
 import redSystemLogo from "../../../img/red-system-logo.png";
 import "../../../styles/login.scss";
@@ -9,6 +10,24 @@ export const Login = () => {
 	const { store, actions } = useContext(Context);
 
 	const [recuperar, setRecuperar] = useState(false);
+	const [campoEmail, setCampoEmail] = useState("");
+	const [campoPassword, setCampoPassword] = useState("");
+
+	const logearse = e => {
+		e.preventDefault();
+
+		actions.hacerLogin({
+			email: campoEmail,
+			password: campoPassword
+		});
+	};
+
+	const handleChangeEmail = cambio => {
+		setCampoEmail(cambio);
+	};
+	const handleChangePassword = cambio => {
+		setCampoPassword(cambio);
+	};
 
 	if (!recuperar) {
 		return (
@@ -24,20 +43,28 @@ export const Login = () => {
 							icon="fas fa-user"
 							type="email"
 							placeholder="Correo@ejemplo.com"
+							valor={campoEmail}
+							valorChange={handleChangeEmail}
 						/>
 						<InputGroup
 							label="Introduce tu contraseña"
 							icon="fas fa-key"
 							type="password"
 							placeholder="Contraseña"
+							valor={campoPassword}
+							valorChange={handleChangePassword}
 						/>
+						<p className="text-danger">{store.message}</p>
 						<button
 							type="button"
 							className="btn btn-link underlineHover"
 							onClick={() => setRecuperar(true)}>
 							¿Olvidaste tu contraseña?
 						</button>
-						<button type="submit" className="fadeIn first btn bg-primary text-white my-4 px-5">
+						<button
+							type="submit"
+							className="fadeIn first btn bg-primary text-white my-4 px-5"
+							onClick={e => logearse(e)}>
 							INGRESAR
 						</button>
 					</form>

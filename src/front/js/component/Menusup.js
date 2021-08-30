@@ -1,11 +1,14 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Link, useParams } from "react-router-dom";
+import { Context } from "../store/appContext";
+import injectContext from "../store/appContext";
 
 //react-bootstrap
 import { Navbar, Nav } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
 
 export const Menusup = () => {
+	const { store, actions } = useContext(Context);
 	return (
 		<header>
 			<Navbar collapseOnSelect expand="lg" bg="light" variant="light" className="mb-3">
@@ -60,14 +63,21 @@ export const Menusup = () => {
 							</Link>
 						</Nav>
 						<Nav>
-							<Link className="nav-link" to="/">
+							<Link className="nav-link" to="/cambiar_contrasena">
 								Cambiar Contraseña
 							</Link>
 						</Nav>
 					</Nav>
 					<Nav>
 						<Nav>
-							<Link className="btn btn-outline-success" to="login">
+							<Link
+								className="btn btn-outline-success"
+								to="login"
+								/* onClick={() => {
+									actions.borrarToken();
+									localStorage.removeItem("token");
+								}} */
+							>
 								Cerrar Sesion
 							</Link>
 						</Nav>

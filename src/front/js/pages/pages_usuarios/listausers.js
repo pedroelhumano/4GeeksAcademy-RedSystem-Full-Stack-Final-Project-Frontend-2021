@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback } from "react";
+import React, { useState, useEffect, useCallback, useContext } from "react";
 import "../../../styles/app.scss";
 //Componentes importados
 import { Listastotal } from "../../component/listastotal.js";
@@ -6,10 +6,13 @@ import { Listastotal } from "../../component/listastotal.js";
 import axios from "axios";
 //Aqui colocar la URL de la API por favor
 import { URL } from "../../config";
+import { Context } from "../../store/appContext";
+import injectContext from "../../store/appContext";
 
 export const Listausuarios = () => {
 	//Generamos primero el uso de useState
 	const [users, setUsers] = useState([]);
+	const { store, actions } = useContext(Context);
 
 	/**
 	 * La funcion a cotinuacion nos trae la lista de usuarios y despues de
@@ -19,7 +22,11 @@ export const Listausuarios = () => {
 	const fetchUsers = useCallback(
 		async () => {
 			try {
-				const { data } = await axios.get(`${URL}users`);
+				const { data } = await axios.get(`${URL}users`, {
+					Headers: {
+						Authorization: `Bearer ${store.user.token}`
+					}
+				});
 				// console.log("users", data.Lista_de_usuarios);
 				setUsers(data.users);
 			} catch (error) {

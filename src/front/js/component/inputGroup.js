@@ -5,7 +5,6 @@ import "../../styles/login.scss";
 import { PropTypes } from "prop-types";
 
 export const InputGroup = props => {
-	const [palabra, setPalabra] = useState("");
 	return (
 		<div className="container-fluid d-flex flex-column align-items-center p-2 mb-0 bg-white">
 			<h6 className="text-left align-self-start">{props.label}</h6>
@@ -20,8 +19,8 @@ export const InputGroup = props => {
 					className="form-control"
 					placeholder={props.placeholder}
 					id={props.name}
-					onChange={e => setPalabra(e.target.value)}
-					value={palabra}
+					onChange={e => props.valorChange(e.target.value)}
+					value={props.valor}
 				/>
 			</div>
 		</div>
@@ -33,5 +32,7 @@ InputGroup.propTypes = {
 	icon: PropTypes.string,
 	type: PropTypes.string,
 	placeholder: PropTypes.string,
-	name: PropTypes.string
+	name: PropTypes.string,
+	valor: PropTypes.string,
+	valorChange: PropTypes.func
 };
