@@ -3,8 +3,23 @@ import PropTypes from "prop-types";
 import "../../styles/app.scss";
 import { Button } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
+import axios from "axios";
+import { URL } from "../config";
 
 export const Datos_orden_component = props => {
+	const eliminar = async event => {
+		try {
+			event.preventDefault();
+			console.log("eliminando...");
+			const res = await axios.delete(`${URL}order/${props.id}`);
+			// const res = await axios.del(`${URL}order/${props.id}`, datos);
+			alert("Orden de trabajo eliminada");
+			console.log("res", res);
+		} catch (error) {
+			alert("Ocurrió un error al eliminar la orden de trabajo");
+			console.error("error en la orden", error);
+		}
+	};
 	return (
 		<div className="container">
 			<div className="row">
@@ -66,7 +81,7 @@ export const Datos_orden_component = props => {
 						</tr>
 					</tbody>
 				</table>
-				<Button className="my-2 bg-danger" variant="primary">
+				<Button className="my-2 bg-danger" variant="primary" onClick={eliminar}>
 					Eliminar
 				</Button>{" "}
 			</div>
@@ -75,6 +90,7 @@ export const Datos_orden_component = props => {
 };
 Datos_orden_component.propTypes = {
 	//de las ordenes
+	id: PropTypes.string,
 	id_nombre: PropTypes.string,
 	tipo: PropTypes.string,
 	descripcion: PropTypes.string,

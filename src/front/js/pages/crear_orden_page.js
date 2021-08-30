@@ -6,52 +6,42 @@ import axios from "axios";
 import { Container, Row, Col, Form, Button } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
 //Componentes importados
-import { EditarcontratoComponent } from "../../component/editar_contrato_component";
+import { Crear_orden_basecontrato } from "../component/crear_orden_basecontrato";
 
 //Aqui colocar la URL de la API por favor
-import { URL } from "../../config";
+import { URL } from "../config";
 
-export const Editarcontrato = () => {
-	const [contrato, setContrato] = useState(null);
+export const Crear_orden_page = () => {
+	const [orden, setOrden] = useState(null);
 	const { id } = useParams();
 
-	const fetchContrato = useCallback(
+	const fetchIDContrato = useCallback(
 		async () => {
 			try {
 				const { data } = await axios.get(`${URL}contrato/${id}`);
 				// console.log("user", data);
-				setContrato(data);
+				setOrden(data);
 			} catch (error) {
 				console.error(error);
 				alert("Error en la api: No pude traer los datos");
 			}
 		},
-		[setContrato]
+		[setOrden]
 	);
 
 	useEffect(
 		() => {
-			fetchContrato();
+			fetchIDContrato();
 		},
-		[fetchContrato]
+		[fetchIDContrato]
 	);
 
 	return (
 		<Container>
-			{contrato ? (
-				<>
-					<EditarcontratoComponent
-						id={id}
-						id_project={contrato.id_project}
-						region={contrato.region}
-						comuna={contrato.comuna}
-						sector={contrato.sector}
-						obra_descripcion={contrato.obra_descripcion}
-						planta_matriz={contrato.planta_matriz}
-						comentario={contrato.comentario}
-						fecha_registro={contrato.fecha_registro}
-					/>
-				</>
+			{orden ? (
+				<Form>
+					<Crear_orden_basecontrato id={id} id_nombre="" tipo="" descripcion="" direccion="" status="" />
+				</Form>
 			) : (
 				<h2>Cargando</h2>
 			)}

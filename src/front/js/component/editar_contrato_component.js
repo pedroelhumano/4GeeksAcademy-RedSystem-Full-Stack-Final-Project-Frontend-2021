@@ -31,7 +31,7 @@ export const EditarcontratoComponent = props => {
 		try {
 			event.preventDefault();
 			console.log("enviando datos...", datos);
-			const res = await axios.put(`${URL}lista_contratos/${props.id}`, datos);
+			const res = await axios.put(`${URL}contrato/${props.id}`, datos);
 			alert("Contrato actualizado exitosamente");
 			console.log("res", res);
 		} catch (error) {

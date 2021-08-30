@@ -18,7 +18,7 @@ export const Datos_contrato = props => {
 	const fetchContrato = useCallback(
 		async () => {
 			try {
-				const { data } = await axios.get(`${URL}lista_contratos/${id}`);
+				const { data } = await axios.get(`${URL}contrato/${id}`);
 				// console.log("users", data.Lista_de_usuarios);
 				setContrato(data);
 			} catch (error) {
