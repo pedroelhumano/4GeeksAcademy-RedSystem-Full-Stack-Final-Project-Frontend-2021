@@ -15,6 +15,7 @@ export const Login = () => {
 	const [campoPassword, setCampoPassword] = useState("");
 	const [campoRecuperar, setCampoRecuperar] = useState("");
 	const [respuesta, setRespuesta] = useState("");
+	const [contrasenaNueva, setContrasenaNueva] = useState("");
 
 	const recuperarContrasena = e => {
 		e.preventDefault();
@@ -34,7 +35,8 @@ export const Login = () => {
 			.then(data => {
 				setRespuesta(data.msg);
 				if (data.msg == "Contraseña restablecida. Revisa tu correo electrónico") {
-					setCampoRecuperar(data.contrasena);
+					setCampoRecuperar("");
+					setContrasenaNueva(data.contrasena);
 				}
 			});
 	};
@@ -142,6 +144,7 @@ export const Login = () => {
 						) : (
 							<p className="text-danger mb-3">{respuesta}</p>
 						)}
+						<p className="text-info mb-3">{contrasenaNueva}</p>
 						<div className="container px-2 d-flex justify-content-between">
 							<button
 								type="submit"
