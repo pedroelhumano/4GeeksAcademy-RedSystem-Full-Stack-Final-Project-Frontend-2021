@@ -5,6 +5,7 @@ import redSystemLogo from "../../../img/red-system-logo.png";
 import "../../../styles/login.scss";
 import { InputGroup } from "../../component/inputGroup";
 import { Link, useParams } from "react-router-dom";
+import { URL } from "../../config/index";
 
 export const Login = () => {
 	const { store, actions } = useContext(Context);
@@ -12,6 +13,31 @@ export const Login = () => {
 	const [recuperar, setRecuperar] = useState(false);
 	const [campoEmail, setCampoEmail] = useState("");
 	const [campoPassword, setCampoPassword] = useState("");
+	const [campoRecuperar, setCampoRecuperar] = useState("");
+	const [respuesta, setRespuesta] = useState("");
+
+	const recuperarContrasena = e => {
+		e.preventDefault();
+
+		let cambio = {
+			email: campoRecuperar
+		};
+
+		fetch(URL + "recuperarc", {
+			method: "PUT",
+			headers: {
+				"Content-Type": "application/json;charset=UTF-8"
+			},
+			body: JSON.stringify(cambio)
+		})
+			.then(res => res.json())
+			.then(data => {
+				setRespuesta(data.msg);
+				if (data.msg == "Contraseña restablecida. Revisa tu correo electrónico") {
+					setCampoRecuperar(data.contrasena);
+				}
+			});
+	};
 
 	const logearse = e => {
 		e.preventDefault();
@@ -22,6 +48,9 @@ export const Login = () => {
 		});
 	};
 
+	const handleRecuperar = cambio => {
+		setCampoRecuperar(cambio);
+	};
 	const handleChangeEmail = cambio => {
 		setCampoEmail(cambio);
 	};
@@ -105,7 +134,14 @@ export const Login = () => {
 							icon="fas fa-envelope"
 							type="email"
 							placeholder="Correo@ejemplo.com"
+							valor={campoRecuperar}
+							valorChange={handleRecuperar}
 						/>
+						{respuesta == "Contraseña restablecida. Revisa tu correo electrónico" ? (
+							<p className="text-success mb-3">{respuesta}</p>
+						) : (
+							<p className="text-danger mb-3">{respuesta}</p>
+						)}
 						<div className="container px-2 d-flex justify-content-between">
 							<button
 								type="submit"
@@ -113,16 +149,14 @@ export const Login = () => {
 								onClick={() => setRecuperar(false)}>
 								<i className="fas fa-undo" /> Volver al inicio de sesión
 							</button>
-							<Link to="restablecer_contrasena">
-								<button
-									/* type="submit" */
-									type="link"
-									className="btn bg-success text-white btn-sm mb-4 mt-0">
-									{" "}
-									{/* Aquí debería ir la conexión a la API para mandar correo electrónico de recuperación de contraseña */}
-									ENVIAR
-								</button>
-							</Link>
+							<button
+								type="submit"
+								className="btn bg-success text-white btn-sm mb-4 mt-0"
+								onClick={e => recuperarContrasena(e)}
+								disabled={campoRecuperar == ""}>
+								{" "}
+								ENVIAR
+							</button>
 						</div>
 					</form>
 					<div id="formFooter" className="p-3">
