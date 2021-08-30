@@ -113,7 +113,7 @@ export const Login = () => {
 	} else {
 		return (
 			<div className="container d-flex flex-column align-items-center justify-content-center w-100 fadeInDown pt-5">
-				<div id="formContent" className="mb-3">
+				<div id="formContent" className="my-3">
 					<div className="fadeIn first container d-flex justify-content-center align-items-center my-4">
 						<img src={redSystemLogo} id="icon" alt="Business icon" />
 						<h1 className="align-self-center mb-0">RedSystem</h1>
