@@ -18,7 +18,7 @@ export const Ordenes = props => {
 	const fetchOrdenes = useCallback(
 		async () => {
 			try {
-				const { data } = await axios.get(`${URL}order_trabajo/${id}`);
+				const { data } = await axios.get(`${URL}orders/${id}`);
 				// console.log("users", data.Lista_de_usuarios);
 				setOrdenes(data);
 			} catch (error) {
@@ -56,7 +56,9 @@ export const Ordenes = props => {
 			<div className="row justify-content-md-center mt-3">
 				<div className="col-md-auto ">
 					<Button variant="primary">
-						<Link className="text-light" to="/crear_orden">
+						{/* URL de crear orden basado en un contrato en especifico}
+						{/* <Link className="text-light" to={`crear_orden/${contrato.id}`}></Link> */}
+						<Link className="text-light" to={`crear_orden/${id}`}>
 							Crear Orden de trabajo
 						</Link>
 					</Button>{" "}

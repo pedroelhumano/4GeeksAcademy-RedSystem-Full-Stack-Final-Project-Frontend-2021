@@ -4,8 +4,24 @@ import { Link } from "react-router-dom";
 import "../../styles/app.scss";
 import { Button } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
+import axios from "axios";
+import { URL } from "../config";
 
 export const Datos_contrato_component = props => {
+	const eliminar = async event => {
+		try {
+			event.preventDefault();
+			console.log("eliminando...");
+			const res = await axios.delete(`${URL}contrato/${props.id}`);
+			// const res = await axios.del(`${URL}order/${props.id}`, datos);
+			alert("Contrato eliminado");
+			console.log("res", res);
+		} catch (error) {
+			alert("Ocurrió un error al eliminar el contrato");
+			console.error("error en la contrato", error);
+		}
+	};
+
 	return (
 		<div className="container">
 			<div className="row">
@@ -75,7 +91,7 @@ export const Datos_contrato_component = props => {
 						</tr>
 					</tbody>
 				</table>
-				<Button className="my-2 bg-danger" variant="primary">
+				<Button className="my-2 bg-danger" variant="primary" onClick={eliminar}>
 					Eliminar
 				</Button>{" "}
 			</div>
@@ -84,6 +100,7 @@ export const Datos_contrato_component = props => {
 };
 Datos_contrato_component.propTypes = {
 	//general
+	id: PropTypes.string,
 	id_project: PropTypes.string,
 	region: PropTypes.string,
 	comuna: PropTypes.string,

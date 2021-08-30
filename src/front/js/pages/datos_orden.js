@@ -56,7 +56,7 @@ export const Datos_orden = props => {
 					<Container>
 						<Form>
 							<Button className="my-3" variant="primary">
-								<Link className="text-light" to={`../crear_orden/${Number(id)}`}>
+								<Link className="text-light" to={`../editar_orden/${Number(id)}`}>
 									Editar
 								</Link>
 							</Button>{" "}

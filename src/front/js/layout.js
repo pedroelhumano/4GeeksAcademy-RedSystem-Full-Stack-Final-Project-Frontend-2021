@@ -27,6 +27,7 @@ import { Landing } from "./pages/landing";
 import { Crearordentrabajo } from "./pages/crearordentrabajo";
 import { Editarcontrato } from "./pages/pages_contratos/editar_contrato";
 import { Editarorden } from "./pages/editar_orden";
+import { Crear_orden_page } from "./pages/crear_orden_page";
 
 //Nuestros componentes importados
 //import { Listatrabajo } from "./component/listatrabajo";
@@ -129,9 +130,16 @@ const Layout = () => {
 						<Menusup />
 						<Datos_orden />
 					</Route>
-					<Route exact path="/ordenes/crear_orden/:id">
+					{/* Ruta para editar una orden de trabajo */}
+					<Route exact path="/ordenes/editar_orden/:id">
 						<Menusup />
 						<Editarorden />
+					</Route>
+					{/* ruta para CREAR una orden de trabajo basada en un contrato */}
+					<Route exact path="/ordenes/crear_orden/:id">
+						{/* crear_orden */}
+						<Menusup />
+						<Crear_orden_page />
 					</Route>
 					<Route exact path="/datos_orden">
 						<Menusup />
