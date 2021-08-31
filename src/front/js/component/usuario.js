@@ -53,14 +53,14 @@ export const Usuario = props => {
 						<div>{props.contact}</div>
 					</Col>
 				</Row>
-				<Row>
+				{/* <Row>
 					<Col lg={2} md={1} sm={2}>
 						<div>Fecha de nacimiento:</div>
 					</Col>
 					<Col lg={10} md={11} sm={10}>
 						<div>{props.fechanacimiento}</div>
 					</Col>
-				</Row>
+				</Row> */}
 				<Row>
 					<Col lg={2} md={1} sm={2}>
 						<div>Fecha de registro:</div>
@@ -82,6 +82,6 @@ Usuario.propTypes = {
 	rut: PropTypes.string,
 	email: PropTypes.string,
 	contact: PropTypes.string,
-	fechanacimiento: PropTypes.string,
+	//fechanacimiento: PropTypes.string,
 	fecharegistro: PropTypes.string
 };

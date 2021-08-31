@@ -17,7 +17,7 @@ export const EditaruserCompont = props => {
 		email: "",
 		password: "",
 		contact: "",
-		fecha_nacimiento: "",
+		//fecha_nacimiento: "",
 		fecharegistro: ""
 	});
 
@@ -52,7 +52,7 @@ export const EditaruserCompont = props => {
 				rut: props.rut,
 				email: props.email,
 				contact: props.contact,
-				fecha_nacimiento: props.fechanacimiento,
+				//fecha_nacimiento: props.fechanacimiento,
 				fecharegistro: props.fecharegistro
 			});
 		},
@@ -163,7 +163,7 @@ export const EditaruserCompont = props => {
 							/>
 						</Col>
 					</Row>
-					<Row>
+					{/* <Row>
 						<Col lg={2} md={1} sm={2}>
 							<div>Fecha de nacimiento:</div>
 						</Col>
@@ -176,7 +176,7 @@ export const EditaruserCompont = props => {
 								name="fecha_nacimiento"
 							/>
 						</Col>
-					</Row>
+					</Row> */}
 					{/* <Row>
 						<Col lg={2} md={1} sm={2}>
 							<div>Fecha de registro:</div>
