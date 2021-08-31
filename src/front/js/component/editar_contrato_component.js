@@ -21,6 +21,7 @@ export const EditarcontratoComponent = props => {
 		obra_descripcion: "",
 		planta_matriz: "",
 		comentario: "",
+		tecnicos: "",
 		fecha_registro: ""
 	});
 	const handleInputChange = event => {
@@ -52,6 +53,7 @@ export const EditarcontratoComponent = props => {
 				sector: props.sector,
 				obra_descripcion: props.obra_descripcion,
 				planta_matriz: props.planta_matriz,
+				tecnicos: props.tecnicos,
 				comentario: props.comentario,
 				fecha_registro: props.fecha_registro
 			});
@@ -144,6 +146,20 @@ export const EditarcontratoComponent = props => {
 							value={datos.planta_matriz}
 							onChange={handleInputChange}
 							name="planta_matriz"
+						/>
+					</Col>
+				</Row>
+				<Row>
+					<Col lg={2} md={1} sm={2}>
+						<Form.Label>Tecnicos</Form.Label>
+					</Col>
+					<Col lg={10} md={11} sm={10}>
+						<Form.Control
+							className="text-left"
+							type="text"
+							value={datos.tecnicos}
+							onChange={handleInputChange}
+							name="tecnicos"
 						/>
 					</Col>
 				</Row>
@@ -240,5 +256,6 @@ EditarcontratoComponent.propTypes = {
 	planta_matriz: PropTypes.string,
 	comentario: PropTypes.string,
 	status: PropTypes.string,
+	tecnicos: PropTypes.string,
 	fecha_registro: PropTypes.string
 };

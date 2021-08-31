@@ -45,6 +45,7 @@ export const Datos_contrato = props => {
 						id_project={contrato.id_project}
 						status={contrato.status}
 						region={contrato.region}
+						tecnicos={contrato.tecnicos}
 						comuna={contrato.comuna}
 						sector={contrato.sector}
 						obra_descripcion={contrato.obra_descripcion}
@@ -52,7 +53,6 @@ export const Datos_contrato = props => {
 						comentario={contrato.comentario}
 						fecha_registro={contrato.fecha_registro}
 						// ordenes=""
-						tecnicos={contrato.tecnicos}
 					/>
 					<Button className="my-3" variant="primary">
 						<Link className="text-light" to={`../editar_contrato/${Number(id)}`}>

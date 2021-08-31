@@ -79,7 +79,7 @@ export const Datos_orden_component = props => {
 						</tr> */}
 						<tr>
 							<td>Tecnicos</td>
-							<td>{props.tecnicos_asignados}</td>
+							<td>{props.tecnicos}</td>
 						</tr>
 						<tr>
 							<td>Descripcion</td>
@@ -120,6 +120,6 @@ Datos_orden_component.propTypes = {
 	tipo: PropTypes.string,
 	descripcion: PropTypes.string,
 	status: PropTypes.string,
-	tecnicos_asignados: PropTypes.string,
+	tecnicos: PropTypes.string,
 	direccion: PropTypes.string
 };

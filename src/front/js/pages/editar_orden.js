@@ -45,6 +45,7 @@ export const Editarorden = () => {
 						id_nombre={orden.id_nombre}
 						tipo={orden.tipo}
 						descripcion={orden.descripcion}
+						tecnicos={orden.tecnicos}
 						direccion={orden.direccion}
 						status={orden.status}
 					/>

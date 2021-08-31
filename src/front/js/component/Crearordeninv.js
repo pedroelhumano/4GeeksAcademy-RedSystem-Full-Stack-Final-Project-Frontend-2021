@@ -47,6 +47,7 @@ export const Crearordeninv = props => {
 				direccion: props.direccion,
 				descripcion: props.descripcion,
 				status: props.status,
+				tecnicos: props.tecnicos,
 				id_nombre: props.id_nombre
 			});
 		},
@@ -95,6 +96,20 @@ export const Crearordeninv = props => {
 							type="text"
 							value={datos.tipo}
 							name="tipo"
+							onChange={handleInputChange}
+						/>
+					</Col>
+				</Row>
+				<Row>
+					<Col lg={2} md={1} sm={2}>
+						<Form.Label>Tecnicos</Form.Label>
+					</Col>
+					<Col lg={10} md={11} sm={10}>
+						<Form.Control
+							className="text-left"
+							type="text"
+							value={datos.tecnicos}
+							name="tecnicos"
 							onChange={handleInputChange}
 						/>
 					</Col>
@@ -159,6 +174,7 @@ Crearordeninv.propTypes = {
 	id_nombre: PropTypes.string,
 	tipo: PropTypes.string,
 	direccion: PropTypes.string,
+	tecnicos: PropTypes.string,
 	descripcion: PropTypes.string,
 	status: PropTypes.string
 };
