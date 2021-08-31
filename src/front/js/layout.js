@@ -91,10 +91,6 @@ const Layout = () => {
 							<Menusup />
 							<Dashboard />
 						</Route>
-						<Route exact path="/contacto">
-							<Menusup />
-							<Contactenos />
-						</Route>
 						<Route exact path="/contratos">
 							<Menusup />
 							<Contratos />
@@ -173,7 +169,6 @@ const Layout = () => {
 							<VerFotosOrden />
 						</Route>
 						<Route exact path="/contacto">
-							<Menusup />
 							<Contactenos />
 						</Route>
 						<Route exact path="/landing">
