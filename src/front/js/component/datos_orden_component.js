@@ -1,19 +1,25 @@
-import React from "react";
+import React, { useState } from "react";
 import PropTypes from "prop-types";
 import "../../styles/app.scss";
-import { Button } from "react-bootstrap";
+import { Button, Modal } from "react-bootstrap";
+import { Link } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 import axios from "axios";
 import { URL } from "../config";
 
 export const Datos_orden_component = props => {
+	//MODAL
+	const [show, setShow] = useState(false);
+	const handleClose = () => setShow(false);
+	const handleShow = () => setShow(true);
+	//FIN MODAL
 	const eliminar = async event => {
 		try {
 			event.preventDefault();
 			console.log("eliminando...");
 			const res = await axios.delete(`${URL}order/${props.id}`);
 			// const res = await axios.del(`${URL}order/${props.id}`, datos);
-			alert("Orden de trabajo eliminada");
+			//alert("Orden de trabajo eliminada");
 			console.log("res", res);
 		} catch (error) {
 			alert("Ocurrió un error al eliminar la orden de trabajo");
@@ -81,9 +87,28 @@ export const Datos_orden_component = props => {
 						</tr>
 					</tbody>
 				</table>
-				<Button className="my-2 bg-danger" variant="primary" onClick={eliminar}>
+				{/* <Button className="my-2 bg-danger" variant="primary" onClick={eliminar}>
 					Eliminar
-				</Button>{" "}
+				</Button>{" "} */}
+				<Button className="my-2 bg-danger" variant="primary" onClick={handleShow}>
+					Eliminar
+				</Button>
+				<Modal show={show} onHide={handleClose}>
+					<Modal.Header closeButton>
+						<Modal.Title>Eliminar</Modal.Title>
+					</Modal.Header>
+					<Modal.Body>¿Seguro desea eliminar esta orden?</Modal.Body>
+					<Modal.Footer>
+						<Button variant="secondary" onClick={handleClose}>
+							No
+						</Button>
+						<Button variant="primary" onClick={eliminar}>
+							<Link className="text-light" to="/contratos">
+								SI
+							</Link>
+						</Button>
+					</Modal.Footer>
+				</Modal>
 			</div>
 		</div>
 	);

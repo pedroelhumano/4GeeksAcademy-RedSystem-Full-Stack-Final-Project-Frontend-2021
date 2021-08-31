@@ -52,7 +52,7 @@ export const Datos_contrato = props => {
 						comentario={contrato.comentario}
 						fecha_registro={contrato.fecha_registro}
 						// ordenes=""
-						//tecnicos={contrato.tecnicos}
+						tecnicos={contrato.tecnicos}
 					/>
 					<Button className="my-3" variant="primary">
 						<Link className="text-light" to={`../editar_contrato/${Number(id)}`}>

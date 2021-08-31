@@ -5,10 +5,14 @@ import { URL } from "../config";
 import "../../styles/app.scss";
 
 //react-bootstrap
-import { Container, Row, Col, Form, Button } from "react-bootstrap";
+import { Modal, Row, Col, Form, Button } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
 
 export const EditarcontratoComponent = props => {
+	const [show, setShow] = useState(false);
+	const handleClose = () => setShow(false);
+	const handleShow = () => setShow(true);
+	//FIN MODAL
 	const [datos, setDatos] = useState({
 		id_project: "",
 		comuna: "",
@@ -32,7 +36,7 @@ export const EditarcontratoComponent = props => {
 			event.preventDefault();
 			console.log("enviando datos...", datos);
 			const res = await axios.put(`${URL}contrato/${props.id}`, datos);
-			alert("Contrato actualizado exitosamente");
+			//alert("Contrato actualizado exitosamente");
 			console.log("res", res);
 		} catch (error) {
 			alert("Ocurrió un error al actualizar el contrato");
@@ -206,9 +210,21 @@ export const EditarcontratoComponent = props => {
 						</select>
 					</Col>
 				</Row>
-				<Button className="my-2" variant="primary" type="submit">
+				{/* <Button className="my-2" variant="primary" type="submit">
 					Enviar
-				</Button>{" "}
+				</Button>{" "} */}
+				<Button className="my-3" variant="primary" onClick={handleShow} type="submit">
+					Enviar
+				</Button>
+				<Modal show={show} onHide={handleClose}>
+					<Modal.Header closeButton />
+					<Modal.Body>Contrato actualizado exitosamente</Modal.Body>
+					<Modal.Footer>
+						<Button variant="secondary" onClick={handleClose}>
+							OK
+						</Button>
+					</Modal.Footer>
+				</Modal>
 			</Form>
 		</div>
 	);

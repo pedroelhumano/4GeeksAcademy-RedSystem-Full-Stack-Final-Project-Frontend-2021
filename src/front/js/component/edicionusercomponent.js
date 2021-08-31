@@ -5,10 +5,14 @@ import { URL } from "../config";
 import "../../styles/app.scss";
 
 //react-bootstrap
-import { Container, Row, Col, Form, Button } from "react-bootstrap";
+import { Container, Row, Col, Form, Button, Modal } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
 
 export const EditaruserCompont = props => {
+	const [show, setShow] = useState(false);
+	const handleClose = () => setShow(false);
+	const handleShow = () => setShow(true);
+	//FIN MODAL
 	const [datos, setDatos] = useState({
 		perfil: "",
 		name: "",
@@ -35,7 +39,7 @@ export const EditaruserCompont = props => {
 			event.preventDefault();
 			console.log("enviando datos...", datos);
 			const res = await axios.put(`${URL}user/${props.id}`, datos);
-			alert("Usuario actualizado exitosamente");
+			//alert("Usuario actualizado exitosamente");
 			console.log("res", res);
 		} catch (error) {
 			alert("Ocurrió un error al actualizar usuario");
@@ -191,9 +195,21 @@ export const EditaruserCompont = props => {
 							/>
 						</Col>
 					</Row> */}
-					<Button className="my-3" variant="primary" type="submit">
+					{/* <Button className="my-3" variant="primary" type="submit">
 						Enviar
-					</Button>{" "}
+					</Button>{" "} */}
+					<Button className="my-3" variant="primary" onClick={handleShow} type="submit">
+						Enviar
+					</Button>
+					<Modal show={show} onHide={handleClose}>
+						<Modal.Header closeButton />
+						<Modal.Body>Usuario actualizado exitosamente</Modal.Body>
+						<Modal.Footer>
+							<Button variant="secondary" onClick={handleClose}>
+								OK
+							</Button>
+						</Modal.Footer>
+					</Modal>
 				</Form>
 			</div>
 		</Container>

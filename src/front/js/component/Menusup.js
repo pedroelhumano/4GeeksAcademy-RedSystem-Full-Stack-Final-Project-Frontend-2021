@@ -13,7 +13,7 @@ export const Menusup = () => {
 		<header>
 			<Navbar collapseOnSelect expand="lg" bg="light" variant="light" className="mb-3">
 				<Navbar.Brand>
-					<Link to="/contratos">
+					<Link to="/dashboard">
 						<img
 							src="https://freepikpsd.com/media/2019/11/eagle-icon-png-1-Transparent-Images.png"
 							width="40"
@@ -23,7 +23,7 @@ export const Menusup = () => {
 					</Link>
 				</Navbar.Brand>
 				<Nav>
-					<Link className="nav-link" to="/contratos">
+					<Link className="nav-link" to="/dashboard">
 						RedSystem
 					</Link>
 				</Nav>

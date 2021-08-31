@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 import "../../styles/app.scss";
@@ -6,15 +6,22 @@ import { Button } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
 import axios from "axios";
 import { URL } from "../config";
+import { Modal } from "react-bootstrap";
+import "bootstrap/dist/css/bootstrap.min.css";
 
 export const Datos_contrato_component = props => {
+	//MODAL
+	const [show, setShow] = useState(false);
+	const handleClose = () => setShow(false);
+	const handleShow = () => setShow(true);
+	//FIN MODAL
 	const eliminar = async event => {
 		try {
 			event.preventDefault();
 			console.log("eliminando...");
 			const res = await axios.delete(`${URL}contrato/${props.id}`);
 			// const res = await axios.del(`${URL}order/${props.id}`, datos);
-			alert("Contrato eliminado");
+			//alert("Contrato eliminado");
 			console.log("res", res);
 		} catch (error) {
 			alert("Ocurrió un error al eliminar el contrato");
@@ -95,9 +102,28 @@ export const Datos_contrato_component = props => {
 						</tr>
 					</tbody>
 				</table>
-				<Button className="my-2 bg-danger" variant="primary" onClick={eliminar}>
+				{/* <Button className="my-2 bg-danger" variant="primary" onClick={eliminar}>
 					Eliminar
-				</Button>{" "}
+				</Button>{" "} */}
+				<Button className="my-2 bg-danger" variant="primary" onClick={handleShow}>
+					Eliminar
+				</Button>
+				<Modal show={show} onHide={handleClose}>
+					<Modal.Header closeButton>
+						<Modal.Title>Eliminar contrato</Modal.Title>
+					</Modal.Header>
+					<Modal.Body>¿Seguro desea eliminar contrato?</Modal.Body>
+					<Modal.Footer>
+						<Button variant="secondary" onClick={handleClose}>
+							No
+						</Button>
+						<Button variant="primary" onClick={eliminar}>
+							<Link className="text-light" to="/dashboard">
+								SI
+							</Link>
+						</Button>
+					</Modal.Footer>
+				</Modal>
 			</div>
 		</div>
 	);

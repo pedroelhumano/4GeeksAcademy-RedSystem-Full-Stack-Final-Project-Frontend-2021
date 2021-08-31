@@ -4,10 +4,15 @@ import axios from "axios";
 import { URL } from "../config";
 
 //react-bootstrap
-import { Row, Col, Form, Button } from "react-bootstrap";
+import { Row, Col, Form, Button, Modal } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
 
 export const Crearordeninv = props => {
+	//MODAL
+	const [show, setShow] = useState(false);
+	const handleClose = () => setShow(false);
+	const handleShow = () => setShow(true);
+	//FIN MODAL
 	const [datos, setDatos] = useState({
 		id_nombre: "",
 		direccion: "",
@@ -28,7 +33,7 @@ export const Crearordeninv = props => {
 			event.preventDefault();
 			console.log("enviando datos...", datos);
 			const res = await axios.put(`${URL}order/${props.id}`, datos);
-			alert("Orden actualizada exitosamente");
+			//alert("Orden actualizada exitosamente");
 			console.log("res", res);
 		} catch (error) {
 			alert("Ocurrió un error al actualizar la orden de trabajo");
@@ -129,9 +134,21 @@ export const Crearordeninv = props => {
 						</Col>
 					</Row>
 				)}
-				<Button className="my-3" variant="primary" type="submit">
+				{/* <Button className="my-3" variant="primary" type="submit">
 					Enviar
-				</Button>{" "}
+				</Button>{" "} */}
+				<Button className="my-3" variant="primary" onClick={handleShow} type="submit">
+					Enviar
+				</Button>
+				<Modal show={show} onHide={handleClose}>
+					<Modal.Header closeButton />
+					<Modal.Body>Orden actualizada exitosamente</Modal.Body>
+					<Modal.Footer>
+						<Button variant="secondary" onClick={handleClose}>
+							OK
+						</Button>
+					</Modal.Footer>
+				</Modal>
 			</Form>
 		</>
 	);

@@ -30,6 +30,7 @@ import { Crearordentrabajo } from "./pages/crearordentrabajo";
 import { Editarcontrato } from "./pages/pages_contratos/editar_contrato";
 import { Editarorden } from "./pages/editar_orden";
 import { Crear_orden_page } from "./pages/crear_orden_page";
+import { Dashboard, dashboard } from "./pages/dashboard";
 
 //Nuestros componentes importados
 //import { Listatrabajo } from "./component/listatrabajo";
@@ -85,6 +86,10 @@ const Layout = () => {
 						<Route exact path="/cambiar_contrasena">
 							<Menusup />
 							<CambiarContrasena />
+						</Route>
+						<Route exact path="/dashboard">
+							<Menusup />
+							<Dashboard />
 						</Route>
 						<Route exact path="/contacto">
 							<Menusup />
