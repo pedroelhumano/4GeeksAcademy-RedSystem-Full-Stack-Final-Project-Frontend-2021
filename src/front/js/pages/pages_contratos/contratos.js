@@ -42,13 +42,40 @@ export const Contratos = props => {
 		[fetchContratos]
 	);
 
+	const verificarcolor = elestado => {
+		let color = "";
+		if (elestado == "Cancelado") {
+			color = "bg-danger";
+			return color;
+		} else if (elestado == "Pendiente") {
+			color = "bg-warning";
+			return color;
+		} else if (elestado == "Iniciado") {
+			color = "bg-success";
+			return color;
+		} else if (elestado == "Finalizado") {
+			color = "bg-info";
+			return color;
+		} else {
+			color = "bg-warning";
+			return color;
+		}
+	};
+
 	return (
 		<div className="container">
+			<h2>Contratos</h2>
 			<ul className="list-group container-fluid mb-3">
 				{contratos.length > 0 ? (
 					contratos.map(contrato => (
+						//  let color = "";
+						//  if (contrato.status == "Cancelado") {
+						//  	color = "bg-danger";
+						// }
 						<Listastotal
-							status="bg-warning"
+							//status={color}
+							// status={"bg-danger"}
+							status={verificarcolor(contrato.status)}
 							id_nombre={contrato.id_project}
 							url_info={`datos_contrato/${contrato.id}`}
 							textbutton2="Ordenes de trabajo"

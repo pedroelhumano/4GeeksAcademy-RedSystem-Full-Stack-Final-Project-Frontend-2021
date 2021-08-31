@@ -30,6 +30,7 @@ import { Crearordentrabajo } from "./pages/crearordentrabajo";
 import { Editarcontrato } from "./pages/pages_contratos/editar_contrato";
 import { Editarorden } from "./pages/editar_orden";
 import { Crear_orden_page } from "./pages/crear_orden_page";
+import { Dashboard, dashboard } from "./pages/dashboard";
 
 //Nuestros componentes importados
 //import { Listatrabajo } from "./component/listatrabajo";
@@ -38,7 +39,7 @@ const Wrapper = ({ children }) => {
 	const history = useHistory();
 	useEffect(
 		() => {
-			!store.user.token ? history.push("/login") : history.push("/contratos");
+			!store.user.token ? history.push("/") : history.push("/contratos");
 			/* actions.getToken(); */
 		},
 		[store.user.token]
@@ -63,8 +64,7 @@ const Layout = () => {
 				<Wrapper>
 					<Switch>
 						<Route exact path="/">
-							<Menusup />
-							<Contratos />
+							<Landing />
 						</Route>
 
 						{/* <Route exact path="/demo">
@@ -87,9 +87,9 @@ const Layout = () => {
 							<Menusup />
 							<CambiarContrasena />
 						</Route>
-						<Route exact path="/contacto">
+						<Route exact path="/dashboard">
 							<Menusup />
-							<Contactenos />
+							<Dashboard />
 						</Route>
 						<Route exact path="/contratos">
 							<Menusup />
@@ -169,7 +169,6 @@ const Layout = () => {
 							<VerFotosOrden />
 						</Route>
 						<Route exact path="/contacto">
-							<Menusup />
 							<Contactenos />
 						</Route>
 						<Route exact path="/landing">
@@ -177,7 +176,6 @@ const Layout = () => {
 						</Route>
 						{/*Ruta del 404*/}
 						<Route>
-							<Menusup />
 							<Cuatrocerocuatro />
 						</Route>
 					</Switch>

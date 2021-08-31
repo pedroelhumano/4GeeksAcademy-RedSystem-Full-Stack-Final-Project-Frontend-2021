@@ -50,6 +50,7 @@ export const Editarcontrato = () => {
 						id_project={contrato.id_project}
 						region={contrato.region}
 						comuna={contrato.comuna}
+						tecnicos={contrato.tecnicos}
 						sector={contrato.sector}
 						obra_descripcion={contrato.obra_descripcion}
 						planta_matriz={contrato.planta_matriz}

@@ -5,10 +5,14 @@ import { URL } from "../config";
 import "../../styles/app.scss";
 
 //react-bootstrap
-import { Container, Row, Col, Form, Button } from "react-bootstrap";
+import { Container, Row, Col, Form, Button, Modal } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
 
 export const EditaruserCompont = props => {
+	const [show, setShow] = useState(false);
+	const handleClose = () => setShow(false);
+	const handleShow = () => setShow(true);
+	//FIN MODAL
 	const [datos, setDatos] = useState({
 		perfil: "",
 		name: "",
@@ -17,7 +21,7 @@ export const EditaruserCompont = props => {
 		email: "",
 		password: "",
 		contact: "",
-		fecha_nacimiento: "",
+		//fecha_nacimiento: "",
 		fecharegistro: ""
 	});
 
@@ -39,7 +43,7 @@ export const EditaruserCompont = props => {
 					Authorization: `Bearer ${localStorage.getItem("token")}`
 				}
 			});
-			alert("Usuario actualizado exitosamente");
+			//alert("Usuario actualizado exitosamente");
 			console.log("res", res);
 		} catch (error) {
 			alert("Ocurrió un error al actualizar usuario");
@@ -56,7 +60,7 @@ export const EditaruserCompont = props => {
 				rut: props.rut,
 				email: props.email,
 				contact: props.contact,
-				fecha_nacimiento: props.fechanacimiento,
+				//fecha_nacimiento: props.fechanacimiento,
 				fecharegistro: props.fecharegistro
 			});
 		},
@@ -139,7 +143,7 @@ export const EditaruserCompont = props => {
 							/>
 						</Col>
 					</Row>
-					<Row>
+					{/* <Row>
 						<Col lg={2} md={1} sm={2}>
 							<div>Password:</div>
 						</Col>
@@ -152,7 +156,7 @@ export const EditaruserCompont = props => {
 								onChange={handleInputChange}
 							/>
 						</Col>
-					</Row>
+					</Row> */}
 					<Row>
 						<Col lg={2} md={1} sm={2}>
 							<div>Contact:</div>
@@ -167,7 +171,7 @@ export const EditaruserCompont = props => {
 							/>
 						</Col>
 					</Row>
-					<Row>
+					{/* <Row>
 						<Col lg={2} md={1} sm={2}>
 							<div>Fecha de nacimiento:</div>
 						</Col>
@@ -180,8 +184,8 @@ export const EditaruserCompont = props => {
 								name="fecha_nacimiento"
 							/>
 						</Col>
-					</Row>
-					<Row>
+					</Row> */}
+					{/* <Row>
 						<Col lg={2} md={1} sm={2}>
 							<div>Fecha de registro:</div>
 						</Col>
@@ -194,10 +198,22 @@ export const EditaruserCompont = props => {
 								name="fecharegistro"
 							/>
 						</Col>
-					</Row>
-					<Button className="my-3" variant="primary" type="submit">
+					</Row> */}
+					{/* <Button className="my-3" variant="primary" type="submit">
 						Enviar
-					</Button>{" "}
+					</Button>{" "} */}
+					<Button className="my-3" variant="primary" onClick={handleShow} type="submit">
+						Enviar
+					</Button>
+					<Modal show={show} onHide={handleClose}>
+						<Modal.Header closeButton />
+						<Modal.Body>Usuario actualizado exitosamente</Modal.Body>
+						<Modal.Footer>
+							<Button variant="secondary" onClick={handleClose}>
+								OK
+							</Button>
+						</Modal.Footer>
+					</Modal>
 				</Form>
 			</div>
 		</Container>

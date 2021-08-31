@@ -57,7 +57,7 @@ export const Editaruser = props => {
 						rut={user.rut}
 						email={user.email}
 						contact={user.contact}
-						fechanacimiento={user.fecha_nacimiento}
+						//fechanacimiento={user.fecha_nacimiento}
 						fecharegistro={user.fecha_registro}
 					/>
 				</>

@@ -3,12 +3,20 @@ import { Link, useParams } from "react-router-dom";
 import PropTypes from "prop-types";
 import axios from "axios";
 import { URL } from "../config";
+//react-bootstrap
+import { Modal } from "react-bootstrap";
+import "bootstrap/dist/css/bootstrap.min.css";
 
 //react-bootstrap
 import { Row, Col, Form, Button } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
 
 export const Crear_orden_basecontrato = props => {
+	//MODAL
+	const [show, setShow] = useState(false);
+	const handleClose = () => setShow(false);
+	const handleShow = () => setShow(true);
+	//FIN MODAL
 	const { id } = useParams();
 	const [datos, setDatos] = useState({
 		id_contrato: id,
@@ -35,7 +43,7 @@ export const Crear_orden_basecontrato = props => {
 					Authorization: `Bearer ${localStorage.getItem("token")}`
 				}
 			});
-			alert("Orden creada exitosamente");
+			//alert("Orden creada exitosamente");
 			console.log("res", res);
 		} catch (error) {
 			alert("Ocurrió un error al crear la orden de trabajo");
@@ -132,9 +140,21 @@ export const Crear_orden_basecontrato = props => {
 						</Col>
 					</Row>
 				)}
-				<Button className="my-3" variant="primary" type="submit">
+				<Button className="my-3" variant="primary" onClick={handleShow} type="submit">
+					Crear
+				</Button>
+				<Modal show={show} onHide={handleClose}>
+					<Modal.Header closeButton />
+					<Modal.Body>Orden creada exitosamente</Modal.Body>
+					<Modal.Footer>
+						<Button variant="secondary" onClick={handleClose}>
+							OK
+						</Button>
+					</Modal.Footer>
+				</Modal>
+				{/* <Button className="my-3" variant="primary" type="submit">
 					Enviar
-				</Button>{" "}
+				</Button>{" "} */}
 			</Form>
 		</>
 	);

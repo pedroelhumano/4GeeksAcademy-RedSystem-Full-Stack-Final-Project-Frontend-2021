@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 //import figure from "react-bootstrap/figure";
 import pedroyanezIMG from "../../../img/pedroyanez.jpg";
 import luissalgado from "../../../img/luissalgado.jpg";
@@ -6,13 +6,18 @@ import felipevalenzuela from "../../../img/felipevalenzuela.jpeg";
 import "../../../styles/app.scss";
 import "../../../styles/contactenos.scss";
 //Componentes importados
-import { Container, Row, Col, Card, Button, CardGroup, Image, Form } from "react-bootstrap";
+import { Container, Row, Col, Card, Button, CardGroup, Image, Form, Modal } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
 //Importamos emailJS
 import emailjs from "emailjs-com";
 import { init } from "emailjs-com";
 
 export const Contactenos = props => {
+	//MODAL
+	const [show, setShow] = useState(false);
+	const handleClose = () => setShow(false);
+	const handleShow = () => setShow(true);
+	//FIN MODAL
 	function sendEmail(e) {
 		e.preventDefault();
 		emailjs
@@ -24,76 +29,112 @@ export const Contactenos = props => {
 			.catch(err => console.log(err));
 	}
 	return (
-		<div className="container">
-			<div className="row mt-3">
-				<figure className="snip1336 col col-sm">
-					<img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/331810/sample87.jpg" alt="sample87" />
-					<figcaption>
-						<img src={pedroyanezIMG} alt="Pedro_Yanez" className="profile" />
-						<h2>
-							Pedro Yanez
-							<span>Tecnico Telecomunicaciones/FullStack Developer</span>
-						</h2>
-						<p>Apasionado por el desarrollo, zombie 2.0, futuro Jedi (actual padawan).</p>
-						<a href="https://github.com/wotanCode" className="follow">
-							Github
-						</a>
-						<a href="https://www.linkedin.com/in/pedro-yanez/" className="info">
-							Linkedin
-						</a>
-					</figcaption>
-				</figure>
-				<figure className="snip1336 col col-sm">
-					<img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/331810/sample74.jpg" alt="sample74" />
-					<figcaption>
-						<img src={luissalgado} alt="Luis_Salgado" className="profile" />
-						<h2>
-							Luis Salgado
-							<span>Ingeniero Informatico/FullStack Developer</span>
-						</h2>
-						<p>Un mundo que explorar y nada que perder. Los experimentos nunca fallan</p>
-						<a href="https://github.com/LuxSalgado" className="follow">
-							Github
-						</a>
-						<a href="https://www.linkedin.com/in/luxsalgado/" className="info">
-							Linkedin
-						</a>
-					</figcaption>
-				</figure>
-				<figure className="snip1336 col col-sm">
-					<img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/331810/sample69.jpg" alt="sample69" />
-					<figcaption>
-						<img src={felipevalenzuela} alt="Felipe_Valenzuela" className="profile" />
-						<h2>
-							Felipe Valenzuela
-							<span>Ingeniero Agronomo/FullStack Developer</span>
-						</h2>
-						<p>No se como llegue hasta aqui en el curso. Apoyador emocional en el trabajo final</p>
-						<a href="https://github.com/Felipe713" className="follow">
-							Github
-						</a>
-						<a href="https://www.linkedin.com/in/felipe-valenzuela-padilla-9a35ab70/" className="info">
-							Linkedin
-						</a>
-					</figcaption>
-				</figure>
-			</div>
-			<div>
-				<Container className="mt-4">
-					<h1>Formulario de Contacto</h1>
-					<form onSubmit={sendEmail}>
-						<label className="mt-4">Nombre Completo</label>
-						<input name="name" placeholder="Nombre y Apellido" />
-						<label lassName="mt-4">Email</label>
-						<input name="email" type="email" placeholder="name@example.com" />
-						<label className="mt-4">Comentarios</label>
-						<textarea name="message" rows={4} />
-						<button variant="success" value="Send" type="submit">
-							Enviar
-						</button>
-					</form>
-				</Container>
-			</div>
+		<div className="container mt-5 pt-5">
+			<Row>
+				<Col>
+					<div style={{ width: "440px" }} className="card mb-3">
+						<div className="row g-0">
+							<div className="col-md-4">
+								<img src={pedroyanezIMG} className="img-fluid rounded-start" alt="..." />
+							</div>
+							<div className="col-md-8">
+								<div className="card-body">
+									<h5 className="card-title">Pedro Yanez</h5>
+									<p className="card-text">
+										<small className="text-muted">
+											Tecnico Telecomunicaciones/FullStack Developer
+										</small>
+									</p>
+									<p className="card-text">Apasionado por el desarrollo, zombie 2.0, futuro Jedi.</p>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div style={{ width: "440px" }} className="card mb-3">
+						<div className="row g-0">
+							<div className="col-md-4">
+								<img src={luissalgado} className="img-fluid rounded-start" alt="..." />
+							</div>
+							<div className="col-md-8">
+								<div className="card-body">
+									<h5 className="card-title">Luis Salgado</h5>
+									<p className="card-text">
+										<small className="text-muted">Ingeniero Informatico/FullStack Developer</small>
+									</p>
+									<p className="card-text">
+										Un mundo que explorar y nada que perder. Los experimentos nunca fallan.
+									</p>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div style={{ width: "440px" }} className="card mb-3">
+						<div className="row g-0">
+							<div className="col-md-4">
+								<img src={felipevalenzuela} className="img-fluid rounded-start" alt="..." />
+							</div>
+							<div className="col-md-8">
+								<div className="card-body">
+									<h5 className="card-title">Felipe Valenzuela</h5>
+									<p className="card-text">
+										<small className="text-muted">Ingeniero Agronomo/FullStack Developer</small>
+									</p>
+									<p className="card-text">
+										No se como llegue hasta aqui en el curso. Apoyador emocional en el trabajo
+										final.
+									</p>
+								</div>
+							</div>
+						</div>
+					</div>
+				</Col>
+				<Col>
+					<div>
+						<Container className="mt-4">
+							<h1>Formulario de Contacto</h1>
+							<form onSubmit={sendEmail}>
+								<div className="form-group">
+									<label className="mt-4">Nombre Completo</label>
+									<input name="name" className="form-control" placeholder="Nombre y Apellido" />
+								</div>
+								<div className="form-group">
+									<label lassName="mt-4">Email</label>
+									<input
+										name="email"
+										className="form-control"
+										type="email"
+										placeholder="name@example.com"
+									/>
+								</div>
+								<div className="form-group">
+									<label className="mt-4">Comentarios</label>
+									<textarea name="message" className="form-control" rows={4} />
+								</div>
+								{/* <button variant="success" className="btn btn-success" value="Send" type="submit">
+									Enviar
+								</button> */}
+								<button
+									className="btn btn-success my-3"
+									value="Send"
+									variant="primary"
+									onClick={handleShow}
+									type="submit">
+									Enviar
+								</button>
+								<Modal show={show} onHide={handleClose}>
+									<Modal.Header closeButton />
+									<Modal.Body>Correo enviado exitosamente</Modal.Body>
+									<Modal.Footer>
+										<Button variant="secondary" onClick={handleClose}>
+											OK
+										</Button>
+									</Modal.Footer>
+								</Modal>
+							</form>
+						</Container>
+					</div>
+				</Col>
+			</Row>
 		</div>
 	);
 };

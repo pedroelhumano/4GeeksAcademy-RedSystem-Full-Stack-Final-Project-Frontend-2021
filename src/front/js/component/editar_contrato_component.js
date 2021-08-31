@@ -5,10 +5,14 @@ import { URL } from "../config";
 import "../../styles/app.scss";
 
 //react-bootstrap
-import { Container, Row, Col, Form, Button } from "react-bootstrap";
+import { Modal, Row, Col, Form, Button } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
 
 export const EditarcontratoComponent = props => {
+	const [show, setShow] = useState(false);
+	const handleClose = () => setShow(false);
+	const handleShow = () => setShow(true);
+	//FIN MODAL
 	const [datos, setDatos] = useState({
 		id_project: "",
 		comuna: "",
@@ -17,6 +21,7 @@ export const EditarcontratoComponent = props => {
 		obra_descripcion: "",
 		planta_matriz: "",
 		comentario: "",
+		tecnicos: "",
 		fecha_registro: ""
 	});
 	const handleInputChange = event => {
@@ -36,7 +41,7 @@ export const EditarcontratoComponent = props => {
 					Authorization: `Bearer ${localStorage.getItem("token")}`
 				}
 			});
-			alert("Contrato actualizado exitosamente");
+			//alert("Contrato actualizado exitosamente");
 			console.log("res", res);
 		} catch (error) {
 			alert("Ocurrió un error al actualizar el contrato");
@@ -52,6 +57,7 @@ export const EditarcontratoComponent = props => {
 				sector: props.sector,
 				obra_descripcion: props.obra_descripcion,
 				planta_matriz: props.planta_matriz,
+				tecnicos: props.tecnicos,
 				comentario: props.comentario,
 				fecha_registro: props.fecha_registro
 			});
@@ -149,6 +155,20 @@ export const EditarcontratoComponent = props => {
 				</Row>
 				<Row>
 					<Col lg={2} md={1} sm={2}>
+						<Form.Label>Tecnicos</Form.Label>
+					</Col>
+					<Col lg={10} md={11} sm={10}>
+						<Form.Control
+							className="text-left"
+							type="text"
+							value={datos.tecnicos}
+							onChange={handleInputChange}
+							name="tecnicos"
+						/>
+					</Col>
+				</Row>
+				{/* <Row>
+					<Col lg={2} md={1} sm={2}>
 						<Form.Label>Plano</Form.Label>
 					</Col>
 					<Col lg={10} md={11} sm={10}>
@@ -156,7 +176,7 @@ export const EditarcontratoComponent = props => {
 							<Form.Control type="file" />
 						</Form.Group>
 					</Col>
-				</Row>
+				</Row> */}
 				<Row>
 					<Col lg={2} md={1} sm={2}>
 						<Form.Label>Comentario</Form.Label>
@@ -171,7 +191,7 @@ export const EditarcontratoComponent = props => {
 						/>
 					</Col>
 				</Row>
-				<Row>
+				{/* <Row>
 					<Col lg={2} md={1} sm={2}>
 						<Form.Label>Fecha registro</Form.Label>
 					</Col>
@@ -183,10 +203,48 @@ export const EditarcontratoComponent = props => {
 							name="fecha_registro"
 						/>
 					</Col>
+				</Row> */}
+				<Row>
+					<Col lg={2} md={1} sm={2}>
+						<Form.Label>Status</Form.Label>
+					</Col>
+					<Col lg={10} md={11} sm={10}>
+						{/* <Form.Select className="me-sm-2" id="inlineFormCustomSelect">
+							<option value="Pendiente">Pendiente</option>
+							<option value="Iniciado">Iniciado</option>
+							<option value="Finalizado">Finalizado</option>
+							<option value="Cancelado">Cancelado</option>
+						</Form.Select> */}
+
+						<select
+							id="status"
+							name="status"
+							form="statusform"
+							onChange={handleInputChange}
+							value={datos.status}>
+							<option value="">Seleccionar</option>
+							<option value="Pendiente">Pendiente</option>
+							<option value="Iniciado">Iniciado</option>
+							<option value="Finalizado">Finalizado</option>
+							<option value="Cancelado">Cancelado</option>
+						</select>
+					</Col>
 				</Row>
-				<Button className="my-2" variant="primary" type="submit">
+				{/* <Button className="my-2" variant="primary" type="submit">
 					Enviar
-				</Button>{" "}
+				</Button>{" "} */}
+				<Button className="my-3" variant="primary" onClick={handleShow} type="submit">
+					Enviar
+				</Button>
+				<Modal show={show} onHide={handleClose}>
+					<Modal.Header closeButton />
+					<Modal.Body>Contrato actualizado exitosamente</Modal.Body>
+					<Modal.Footer>
+						<Button variant="secondary" onClick={handleClose}>
+							OK
+						</Button>
+					</Modal.Footer>
+				</Modal>
 			</Form>
 		</div>
 	);
@@ -201,5 +259,7 @@ EditarcontratoComponent.propTypes = {
 	obra_descripcion: PropTypes.string,
 	planta_matriz: PropTypes.string,
 	comentario: PropTypes.string,
+	status: PropTypes.string,
+	tecnicos: PropTypes.string,
 	fecha_registro: PropTypes.string
 };

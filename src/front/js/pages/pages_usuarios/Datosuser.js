@@ -62,7 +62,7 @@ export const Datosuser = () => {
 						rut={user.rut}
 						email={user.email}
 						contact={user.contact}
-						fechanacimiento={user.fecha_nacimiento}
+						//fechanacimiento={user.fecha_nacimiento}
 						fecharegistro={user.fecha_registro}
 					/>
 					<Button className="my-3" variant="primary">

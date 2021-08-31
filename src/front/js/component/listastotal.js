@@ -18,11 +18,14 @@ export const Listastotal = props => {
 						Información
 					</button>
 				</Link>
-				<Link to={props.url_orden}>
-					<button type="button" className="btn btn-secondary mx-1">
-						{props.textbutton2}
-					</button>
-				</Link>
+
+				{props.url_orden && (
+					<Link to={props.url_orden}>
+						<button type="button" className="btn btn-secondary mx-1">
+							{props.textbutton2}
+						</button>
+					</Link>
+				)}
 			</div>
 		</li>
 	);

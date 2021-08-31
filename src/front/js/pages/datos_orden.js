@@ -50,7 +50,7 @@ export const Datos_orden = props => {
 						descripcion={orden.descripcion}
 						direccion={orden.direccion}
 						status={orden.status}
-						tecnicos_asignados={orden.tecnicos_asignados}
+						tecnicos={orden.tecnicos}
 						//De la tabla contrato deberia extraer:
 						// region={orden.planta_matriz}
 						// comuna={orden.comentario}
