@@ -43,6 +43,7 @@ export const Datos_contrato = props => {
 					<Datos_contrato_component
 						id={Number(id)}
 						id_project={contrato.id_project}
+						status={contrato.status}
 						region={contrato.region}
 						comuna={contrato.comuna}
 						sector={contrato.sector}
