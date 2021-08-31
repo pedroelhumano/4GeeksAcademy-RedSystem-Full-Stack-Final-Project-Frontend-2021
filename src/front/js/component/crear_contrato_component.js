@@ -41,10 +41,12 @@ export const CrearcontratoComponent = props => {
 		try {
 			event.preventDefault();
 			console.log("enviando datos...", datos);
-			const res = await axios.post(`${URL}contrato`, datos);
-			//MODAL
+			const res = await axios.post(`${URL}contrato`, datos, {
+				headers: {
+					Authorization: `Bearer ${localStorage.getItem("token")}`
+				}
+			});
 			//alert("Contrato creado exitosamente");
-			//FIN MODAL
 			console.log("res", res);
 		} catch (error) {
 			alert("Ocurrió un error al crear el contrato");

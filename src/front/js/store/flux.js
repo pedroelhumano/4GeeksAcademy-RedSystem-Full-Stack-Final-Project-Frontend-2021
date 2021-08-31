@@ -34,8 +34,8 @@ const getState = ({ getStore, getActions, setStore }) => {
 						user: userLocal
 					}
 				});
-				console.log("__Token__", tokenLocal);
-				console.log("__User__", JSON.stringify(userLocal));
+				/* console.log("__Token__", tokenLocal);
+				console.log("__User__", JSON.stringify(userLocal)); */
 			},
 			hacerLogin: user => {
 				fetch(URL + "login", {
@@ -47,7 +47,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 				})
 					.then(res => res.json())
 					.then(data => {
-						console.log("__Data__", data);
+						/* console.log("__Data__", data); */
 						if (data.hasOwnProperty("token")) {
 							const dataUser = {
 								email: data.email,
@@ -77,6 +77,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 						user: ""
 					}
 				});
+				localStorage.removeItem("token");
 			},
 			exampleFunction: () => {
 				getActions().changeColor(0, "green");
@@ -84,10 +85,10 @@ const getState = ({ getStore, getActions, setStore }) => {
 
 			getMessage: () => {
 				// fetching data from the backend
-				fetch(process.env.BACKEND_URL + "/api/hello")
+				/* fetch(`${URL}hello`)
 					.then(resp => resp.json())
 					.then(data => setStore({ message: data.message }))
-					.catch(error => console.log("Error loading message from backend", error));
+					.catch(error => console.log("Error loading message from backend", error)); */
 			},
 			changeColor: (index, color) => {
 				//get the store

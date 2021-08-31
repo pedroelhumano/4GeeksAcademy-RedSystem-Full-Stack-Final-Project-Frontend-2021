@@ -73,11 +73,9 @@ export const Menusup = () => {
 							<Link
 								className="btn btn-outline-success"
 								to="/"
-								/* onClick={() => {
+								onClick={() => {
 									actions.borrarToken();
-									localStorage.removeItem("token");
-								}} */
-							>
+								}}>
 								Cerrar Sesion
 							</Link>
 						</Nav>

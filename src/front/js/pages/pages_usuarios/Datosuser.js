@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback } from "react";
+import React, { useState, useEffect, useCallback, useContext } from "react";
 import { useParams, Link } from "react-router-dom";
 import "../../../styles/app.scss";
 //Importamos la libreria axios
@@ -7,6 +7,7 @@ import axios from "axios";
 import { Usuario } from "../../component/usuario.js";
 //Aqui colocar la URL de la API por favor
 import { URL } from "../../config";
+import { Context } from "../../store/appContext";
 
 //react-bootstrap
 import { Container, Form, Button } from "react-bootstrap";
@@ -15,6 +16,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 export const Datosuser = () => {
 	const [user, setUser] = useState(null);
 	const { id } = useParams();
+	const { store, actions } = useContext(Context);
 
 	/**
 	 * Función para traernos la información del usuario mediante axios
@@ -25,7 +27,11 @@ export const Datosuser = () => {
 	const fetchUser = useCallback(
 		async () => {
 			try {
-				const { data } = await axios.get(`${URL}user/${id}`);
+				const { data } = await axios.get(`${URL}user/${id}`, {
+					headers: {
+						Authorization: `Bearer ${localStorage.getItem("token")}`
+					}
+				});
 				setUser(data);
 				// console.log("user", data);
 			} catch (error) {

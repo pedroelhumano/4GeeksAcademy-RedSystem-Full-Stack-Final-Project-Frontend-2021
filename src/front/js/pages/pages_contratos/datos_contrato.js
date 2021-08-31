@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback } from "react";
+import React, { useState, useEffect, useCallback, useContext } from "react";
 import { Link, useParams } from "react-router-dom";
 import "../../../styles/app.scss";
 //Importamos la libreria axios previamente instalada
@@ -8,17 +8,23 @@ import { Container, Form, Button } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
 //Aqui colocar la URL de la API por favor
 import { URL } from "../../config";
+import { Context } from "../../store/appContext";
 
 //Componente importado
 import { Datos_contrato_component } from "../../component/Datos_contrato_component";
 
 export const Datos_contrato = props => {
 	const [contrato, setContrato] = useState(null);
+	const { store, actions } = useContext(Context);
 	const { id } = useParams();
 	const fetchContrato = useCallback(
 		async () => {
 			try {
-				const { data } = await axios.get(`${URL}contrato/${id}`);
+				const { data } = await axios.get(`${URL}contrato/${id}`, {
+					headers: {
+						Authorization: `Bearer ${localStorage.getItem("token")}`
+					}
+				});
 				// console.log("users", data.Lista_de_usuarios);
 				setContrato(data);
 			} catch (error) {

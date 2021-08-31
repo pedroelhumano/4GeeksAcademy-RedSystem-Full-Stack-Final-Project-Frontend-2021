@@ -23,8 +23,8 @@ export const Listausuarios = () => {
 		async () => {
 			try {
 				const { data } = await axios.get(`${URL}users`, {
-					Headers: {
-						Authorization: `Bearer ${store.user.token}`
+					headers: {
+						Authorization: `Bearer ${localStorage.getItem("token")}`
 					}
 				});
 				// console.log("users", data.Lista_de_usuarios);

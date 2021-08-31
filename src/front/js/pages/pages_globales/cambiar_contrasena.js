@@ -24,7 +24,8 @@ export const CambiarContrasena = () => {
 		fetch(URL + "cambiarc/" + String(store.user.id), {
 			method: "PUT",
 			headers: {
-				"Content-Type": "application/json;charset=UTF-8"
+				"Content-Type": "application/json;charset=UTF-8",
+				Authorization: `Bearer ${localStorage.getItem("token")}`
 			},
 			body: JSON.stringify(cambio)
 		})

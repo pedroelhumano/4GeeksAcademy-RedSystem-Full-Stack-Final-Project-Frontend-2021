@@ -17,7 +17,11 @@ export const Datos_orden_component = props => {
 		try {
 			event.preventDefault();
 			console.log("eliminando...");
-			const res = await axios.delete(`${URL}order/${props.id}`);
+			const res = await axios.delete(`${URL}order/${props.id}`, {
+				headers: {
+					Authorization: `Bearer ${localStorage.getItem("token")}`
+				}
+			});
 			// const res = await axios.del(`${URL}order/${props.id}`, datos);
 			//alert("Orden de trabajo eliminada");
 			console.log("res", res);

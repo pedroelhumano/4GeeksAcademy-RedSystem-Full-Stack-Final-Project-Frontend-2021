@@ -38,7 +38,11 @@ export const Crear_orden_basecontrato = props => {
 		try {
 			event.preventDefault();
 			console.log("enviando datos...", datos);
-			const res = await axios.post(`${URL}order`, datos);
+			const res = await axios.post(`${URL}order`, datos, {
+				headers: {
+					Authorization: `Bearer ${localStorage.getItem("token")}`
+				}
+			});
 			//alert("Orden creada exitosamente");
 			console.log("res", res);
 		} catch (error) {
