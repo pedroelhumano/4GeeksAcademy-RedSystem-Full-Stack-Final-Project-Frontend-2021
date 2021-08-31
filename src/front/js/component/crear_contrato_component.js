@@ -5,10 +5,16 @@ import axios from "axios";
 import { URL } from "../config";
 
 //react-bootstrap
-import { Container, Row, Col, Form, Button } from "react-bootstrap";
+import { Container, Row, Col, Form, Button, Modal } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
 
 export const CrearcontratoComponent = props => {
+	//MODAL
+	const [show, setShow] = useState(false);
+	const handleClose = () => setShow(false);
+	const handleShow = () => setShow(true);
+	//FIN MODAL
+
 	//const { id } = useParams();
 	const [datos, setDatos] = useState({
 		//id_contrato: id,
@@ -36,7 +42,9 @@ export const CrearcontratoComponent = props => {
 			event.preventDefault();
 			console.log("enviando datos...", datos);
 			const res = await axios.post(`${URL}contrato`, datos);
-			alert("Contrato creado exitosamente");
+			//MODAL
+			//alert("Contrato creado exitosamente");
+			//FIN MODAL
 			console.log("res", res);
 		} catch (error) {
 			alert("Ocurrió un error al crear el contrato");
@@ -150,16 +158,6 @@ export const CrearcontratoComponent = props => {
 				</Row>
 				<Row>
 					<Col lg={2} md={1} sm={2}>
-						<Form.Label>Plano</Form.Label>
-					</Col>
-					<Col lg={10} md={11} sm={10}>
-						<Form.Group controlId="formFile">
-							<Form.Control type="file" />
-						</Form.Group>
-					</Col>
-				</Row>
-				<Row>
-					<Col lg={2} md={1} sm={2}>
 						<Form.Label>Comentario</Form.Label>
 					</Col>
 					<Col lg={10} md={11} sm={10}>
@@ -172,9 +170,21 @@ export const CrearcontratoComponent = props => {
 						/>
 					</Col>
 				</Row>
-				<Button className="my-3" variant="primary" type="submit">
+				<Button className="my-3" variant="primary" onClick={handleShow} type="submit">
 					Crear
-				</Button>{" "}
+				</Button>
+				<Modal show={show} onHide={handleClose}>
+					<Modal.Header closeButton />
+					<Modal.Body>Contrato creado exitosamente</Modal.Body>
+					<Modal.Footer>
+						<Button variant="secondary" onClick={handleClose}>
+							Ok
+						</Button>
+					</Modal.Footer>
+				</Modal>
+				;{/* <Button className="my-3" variant="primary" type="submit">
+					Crear
+				</Button>{" "} */}
 			</Form>
 		</div>
 	);

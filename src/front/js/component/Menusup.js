@@ -13,7 +13,7 @@ export const Menusup = () => {
 		<header>
 			<Navbar collapseOnSelect expand="lg" bg="light" variant="light" className="mb-3">
 				<Navbar.Brand>
-					<Link to="/">
+					<Link to="/dashboard">
 						<img
 							src="https://freepikpsd.com/media/2019/11/eagle-icon-png-1-Transparent-Images.png"
 							width="40"
@@ -23,12 +23,12 @@ export const Menusup = () => {
 					</Link>
 				</Navbar.Brand>
 				<Nav>
-					<Link className="nav-link" to="/">
+					<Link className="nav-link" to="/dashboard">
 						RedSystem
 					</Link>
 				</Nav>
 
-				<Navbar.Brand>
+				{/* <Navbar.Brand>
 					<form className="form-inline my-2 my-lg-0">
 						<input
 							className="form-control mr-sm-2"
@@ -37,13 +37,13 @@ export const Menusup = () => {
 							aria-label="Search"
 						/>
 					</form>
-				</Navbar.Brand>
+				</Navbar.Brand> */}
 
 				<Navbar.Toggle aria-controls="responsive-navbar-nav" />
 				<Navbar.Collapse id="responsive-navbar-nav">
 					<Nav className="me-auto">
 						<Nav>
-							<Link className="nav-link" to="/">
+							<Link className="nav-link" to="/contratos">
 								Contratos
 							</Link>
 						</Nav>
@@ -57,11 +57,11 @@ export const Menusup = () => {
 								Administrar Usuarios
 							</Link>
 						</Nav>
-						<Nav>
+						{/* <Nav>
 							<Link className="nav-link" to="/configuracion">
 								Configuracion
 							</Link>
-						</Nav>
+						</Nav> */}
 						<Nav>
 							<Link className="nav-link" to="/cambiar_contrasena">
 								Cambiar Contraseña
@@ -72,7 +72,7 @@ export const Menusup = () => {
 						<Nav>
 							<Link
 								className="btn btn-outline-success"
-								to="login"
+								to="/"
 								/* onClick={() => {
 									actions.borrarToken();
 									localStorage.removeItem("token");
