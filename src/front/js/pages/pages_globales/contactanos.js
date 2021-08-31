@@ -25,74 +25,94 @@ export const Contactenos = props => {
 	}
 	return (
 		<div className="container">
-			<div>
-				<Container className="mt-4">
-					<h1>Formulario de Contacto</h1>
-					<form onSubmit={sendEmail}>
-						<label className="mt-4">Nombre Completo</label>
-						<input name="name" placeholder="Nombre y Apellido" />
-						<label lassName="mt-4">Email</label>
-						<input name="email" type="email" placeholder="name@example.com" />
-						<label className="mt-4">Comentarios</label>
-						<textarea name="message" rows={4} />
-						<button variant="success" value="Send" type="submit">
-							Enviar
-						</button>
-					</form>
-				</Container>
-			</div>
-			<div style={{ width: "440px" }} className="card mb-3">
-				<div className="row g-0">
-					<div className="col-md-4">
-						<img src={pedroyanezIMG} className="img-fluid rounded-start" alt="..." />
-					</div>
-					<div className="col-md-8">
-						<div className="card-body">
-							<h5 className="card-title">Pedro Yanez</h5>
-							<p className="card-text">
-								<small className="text-muted">Tecnico Telecomunicaciones/FullStack Developer</small>
-							</p>
-							<p className="card-text">Apasionado por el desarrollo, zombie 2.0, futuro Jedi.</p>
+			<Row>
+				<Col>
+					<div style={{ width: "440px" }} className="card mb-3">
+						<div className="row g-0">
+							<div className="col-md-4">
+								<img src={pedroyanezIMG} className="img-fluid rounded-start" alt="..." />
+							</div>
+							<div className="col-md-8">
+								<div className="card-body">
+									<h5 className="card-title">Pedro Yanez</h5>
+									<p className="card-text">
+										<small className="text-muted">
+											Tecnico Telecomunicaciones/FullStack Developer
+										</small>
+									</p>
+									<p className="card-text">Apasionado por el desarrollo, zombie 2.0, futuro Jedi.</p>
+								</div>
+							</div>
 						</div>
 					</div>
-				</div>
-			</div>
-			<div style={{ width: "440px" }} className="card mb-3">
-				<div className="row g-0">
-					<div className="col-md-4">
-						<img src={luissalgado} className="img-fluid rounded-start" alt="..." />
-					</div>
-					<div className="col-md-8">
-						<div className="card-body">
-							<h5 className="card-title">Luis Salgado</h5>
-							<p className="card-text">
-								<small className="text-muted">Ingeniero Informatico/FullStack Developer</small>
-							</p>
-							<p className="card-text">
-								Un mundo que explorar y nada que perder. Los experimentos nunca fallan.
-							</p>
+					<div style={{ width: "440px" }} className="card mb-3">
+						<div className="row g-0">
+							<div className="col-md-4">
+								<img src={luissalgado} className="img-fluid rounded-start" alt="..." />
+							</div>
+							<div className="col-md-8">
+								<div className="card-body">
+									<h5 className="card-title">Luis Salgado</h5>
+									<p className="card-text">
+										<small className="text-muted">Ingeniero Informatico/FullStack Developer</small>
+									</p>
+									<p className="card-text">
+										Un mundo que explorar y nada que perder. Los experimentos nunca fallan.
+									</p>
+								</div>
+							</div>
 						</div>
 					</div>
-				</div>
-			</div>
-			<div style={{ width: "440px" }} className="card mb-3">
-				<div className="row g-0">
-					<div className="col-md-4">
-						<img src={felipevalenzuela} className="img-fluid rounded-start" alt="..." />
-					</div>
-					<div className="col-md-8">
-						<div className="card-body">
-							<h5 className="card-title">Felipe Valenzuela</h5>
-							<p className="card-text">
-								<small className="text-muted">Ingeniero Agronomo/FullStack Developer</small>
-							</p>
-							<p className="card-text">
-								No se como llegue hasta aqui en el curso. Apoyador emocional en el trabajo final.
-							</p>
+					<div style={{ width: "440px" }} className="card mb-3">
+						<div className="row g-0">
+							<div className="col-md-4">
+								<img src={felipevalenzuela} className="img-fluid rounded-start" alt="..." />
+							</div>
+							<div className="col-md-8">
+								<div className="card-body">
+									<h5 className="card-title">Felipe Valenzuela</h5>
+									<p className="card-text">
+										<small className="text-muted">Ingeniero Agronomo/FullStack Developer</small>
+									</p>
+									<p className="card-text">
+										No se como llegue hasta aqui en el curso. Apoyador emocional en el trabajo
+										final.
+									</p>
+								</div>
+							</div>
 						</div>
 					</div>
-				</div>
-			</div>
+				</Col>
+				<Col>
+					<div>
+						<Container className="mt-4">
+							<h1>Formulario de Contacto</h1>
+							<form onSubmit={sendEmail}>
+								<div className="form-group">
+									<label className="mt-4">Nombre Completo</label>
+									<input name="name" className="form-control" placeholder="Nombre y Apellido" />
+								</div>
+								<div className="form-group">
+									<label lassName="mt-4">Email</label>
+									<input
+										name="email"
+										className="form-control"
+										type="email"
+										placeholder="name@example.com"
+									/>
+								</div>
+								<div className="form-group">
+									<label className="mt-4">Comentarios</label>
+									<textarea name="message" className="form-control" rows={4} />
+								</div>
+								<button variant="success" className="btn btn-success" value="Send" type="submit">
+									Enviar
+								</button>
+							</form>
+						</Container>
+					</div>
+				</Col>
+			</Row>
 		</div>
 	);
 };
