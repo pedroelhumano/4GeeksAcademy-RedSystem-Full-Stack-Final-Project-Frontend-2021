@@ -104,9 +104,11 @@ export const Login = () => {
 						<p className="mb-0">
 							{" "}
 							¿No tienes una cuenta?{" "}
-							<button type="button" className="btn btn-link underlineHover">
-								Regístrate en RedSystem
-							</button>
+							<Link to="/register">
+								<button type="button" className="btn btn-link underlineHover">
+									Regístrate en RedSystem
+								</button>
+							</Link>
 						</p>
 					</div>
 				</div>
@@ -166,9 +168,11 @@ export const Login = () => {
 						<p className="mb-0">
 							{" "}
 							¿No tienes una cuenta?{" "}
-							<button type="button" className="btn btn-link underlineHover">
-								Regístrate en RedSystem
-							</button>
+							<Link to="/register">
+								<button type="button" className="btn btn-link underlineHover">
+									Regístrate en RedSystem
+								</button>
+							</Link>
 						</p>
 					</div>
 				</div>

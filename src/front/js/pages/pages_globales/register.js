@@ -6,42 +6,55 @@ import { InputGroup } from "../../component/inputGroup";
 import { Link, useParams } from "react-router-dom";
 import { URL } from "../../config/index";
 
-export const CambiarContrasena = () => {
+export const Register = () => {
 	const { store, actions } = useContext(Context);
+
 	const [respuesta, setRespuesta] = useState("");
-	const [campoActual, setCampoActual] = useState("");
+	const [campoNombre, setCampoNombre] = useState("");
+	const [campoApellido, setCampoApellido] = useState("");
+	const [campoRut, setCampoRut] = useState("");
+	const [campoTelefono, setCampoTelefono] = useState("");
+	const [campoEmail, setCampoEmail] = useState("");
 	const [campoNueva, setCampoNueva] = useState("");
 	const [campoConfirma, setCampoConfirma] = useState("");
 
-	const cambiarcontrasena = e => {
+	const crearUsuario = e => {
 		e.preventDefault();
 
-		let cambio = {
-			actual: campoActual,
-			nueva: campoNueva
+		let entrada = {
+			email: campoEmail,
+			password: campoNueva,
+			rut: campoRut,
+			name: campoNombre,
+			lastname: campoApellido,
+			contact: campoTelefono
 		};
 
-		fetch(URL + "cambiarc/" + String(store.user.id), {
-			method: "PUT",
+		fetch(URL + "user", {
+			method: "POST",
 			headers: {
 				"Content-Type": "application/json;charset=UTF-8"
 			},
-			body: JSON.stringify(cambio)
+			body: JSON.stringify(entrada)
 		})
 			.then(res => res.json())
 			.then(data => {
 				setRespuesta(data.msg);
-				if (data.msg == "Contraseña cambiada exitosamente") {
-					alert("¡Contraseña cambiada exitosamente!");
-					setCampoActual("");
+				if (data.msg == "Usuario creado exitosamente") {
+					alert("¡Usuario creado exitosamente!");
+					setCampoNombre("");
+					setCampoApellido("");
+					setCampoRut("");
+					setCampoTelefono("");
 					setCampoNueva("");
+					setCampoEmail("");
 					setCampoConfirma("");
 				}
 			});
 	};
 
-	const handleChangeActual = cambio => {
-		setCampoActual(cambio);
+	const handleChangeEmail = cambio => {
+		setCampoEmail(cambio);
 	};
 	const handleChangeNueva = cambio => {
 		setCampoNueva(cambio);
@@ -50,48 +63,80 @@ export const CambiarContrasena = () => {
 		setCampoConfirma(cambio);
 	};
 
-	/* window.onload = function verificar() {
-		let x = "<i className='fas fa-check-circle text-success' /> La contraseña debe contener al menos un número";
-		document.getElementById("condicionu").innerHTML = x;
-	}; */
-
 	return (
-		<div className="container d-flex flex-column align-items-center justify-content-center w-100 fadeInDown pt-2">
+		<div className="container d-flex flex-column align-items-center justify-content-center w-100 fadeInDown pt-5">
 			<div id="formContent" className="my-3">
 				<div className="fadeIn first container d-flex justify-content-center align-items-center my-4">
 					<img src={redSystemLogo} id="icon" alt="Business icon" />
 					<h1 className="align-self-center mb-0">RedSystem</h1>
 				</div>
-				<div className="alert alert-warning mx-4" role="alert">
-					<h4 className="alert-heading">
-						<i className="fas fa-sync-alt" /> Cambiar Contraseña
+				<div className="alert alert-primary mx-4" role="alert">
+					<h4 className="alert-heading mb-0">
+						<i className="fas fa-file-signature" /> Registrarse
 					</h4>
 				</div>
 				<form className="container d-flex flex-column align-items-center">
+					<div className="container-fluid d-flex flex-row align-items-between my-2 px-2">
+						<h6 className="text-left align-self-center mb-0 mr-2">Nombre</h6>
+						<input
+							type=""
+							className="form-control"
+							placeholder="Escribe tu nombre"
+							onChange={e => setCampoNombre(e.target.value)}
+							value={campoNombre}
+						/>
+					</div>
+					<div className="container-fluid d-flex flex-row align-items-between my-2 px-2">
+						<h6 className="text-left align-self-center mb-0 mr-2">Apellido</h6>
+						<input
+							type=""
+							className="form-control"
+							placeholder="Escribe tu apellido"
+							onChange={e => setCampoApellido(e.target.value)}
+							value={campoApellido}
+						/>
+					</div>
+					<div className="container-fluid d-flex flex-row align-items-between my-2 px-2">
+						<h6 className="text-left align-self-center mb-0 mr-2">RUT</h6>
+						<input
+							type=""
+							className="form-control"
+							placeholder="Escribe tu RUT"
+							onChange={e => setCampoRut(e.target.value)}
+							value={campoRut}
+						/>
+					</div>
+					<div className="container-fluid d-flex flex-row align-items-between my-2 px-2">
+						<h6 className="text-left align-self-center mb-0 mr-2">Telefono de Contacto</h6>
+						<input
+							type="number"
+							className="form-control"
+							placeholder="Escribe tu teléfono"
+							onChange={e => setCampoTelefono(e.target.value)}
+							value={campoTelefono}
+						/>
+					</div>
 					<InputGroup
-						label="Introduce tu contraseña actual"
-						icon="fas fa-lock"
-						type="password"
-						placeholder="Contraseña"
-						name="acontrasena"
-						valor={campoActual}
-						valorChange={handleChangeActual}
+						label="Dirección de correo"
+						icon="fas fa-user"
+						type="email"
+						placeholder="Correo@ejemplo.com"
+						valor={campoEmail}
+						valorChange={handleChangeEmail}
 					/>
 					<InputGroup
-						label="Introduce tu nueva contraseña"
+						label="Introduce tu contraseña"
 						icon="fas fa-lock"
 						type="password"
 						placeholder="Contraseña"
-						name="ncontrasena"
 						valor={campoNueva}
 						valorChange={handleChangeNueva}
 					/>
 					<InputGroup
-						label="Confirma tu nueva contraseña"
+						label="Confirma tu contraseña"
 						icon="fas fa-lock"
 						type="password"
 						placeholder="Confirmar Contraseña"
-						name="rcontrasena"
 						valor={campoConfirma}
 						valorChange={handleChangeConfirma}
 					/>
@@ -161,26 +206,30 @@ export const CambiarContrasena = () => {
 								Las contraseñas deben de iguales
 							</h6>
 						</div>
+						{respuesta == "Usuario creado exitosamente" ? (
+							<p className="text-success mb-0">{respuesta}</p>
+						) : (
+							<p className="text-danger mb-0">{respuesta}</p>
+						)}
 					</div>
-					{respuesta == "Contraseña cambiada exitosamente" ? (
-						<p className="text-success mb-0">{respuesta}</p>
-					) : (
-						<p className="text-danger mb-0">{respuesta}</p>
-					)}
-					<div className="d-flex flex-row align-items-between my-3">
-						<Link to="/contratos">
-							<button type="submit" className="fadeIn first btn btn-warning text-white m-2">
-								<i className="fas fa-undo" /> REGRESAR
-							</button>
-						</Link>
-
+					<div className="d-flex flex-column align-items-between justify-content-center my-1">
 						<button
 							type="submit"
-							className="fadeIn first btn btn-primary text-white m-2"
-							onClick={e => cambiarcontrasena(e)}
-							disabled={campoActual == "" || campoNueva == "" || campoConfirma == ""}>
-							CAMBIAR CONTRASEÑA
+							className="fadeIn first btn bg-primary text-white my-3 px-5"
+							onClick={e => crearUsuario(e)}
+							disabled={
+								campoEmail == "" ||
+								campoNueva == "" ||
+								campoConfirma == "" ||
+								campoNueva != campoConfirma
+							}>
+							REGISTRARSE
 						</button>
+						<Link className="m-0 p-0" to="/login">
+							<button type="submit" className="btn btn-outline-primary btn-sm mb-2 mt-0">
+								<i className="fas fa-undo" /> Volver al inicio de sesión
+							</button>
+						</Link>
 					</div>
 				</form>
 			</div>
