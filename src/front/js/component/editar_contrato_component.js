@@ -191,7 +191,14 @@ export const EditarcontratoComponent = props => {
 							<option value="Finalizado">Finalizado</option>
 							<option value="Cancelado">Cancelado</option>
 						</Form.Select> */}
-						<select id="cars" name="carlist" form="carform">
+
+						<select
+							id="status"
+							name="status"
+							form="statusform"
+							onChange={handleInputChange}
+							value={datos.status}>
+							<option value="">Seleccionar</option>
 							<option value="Pendiente">Pendiente</option>
 							<option value="Iniciado">Iniciado</option>
 							<option value="Finalizado">Finalizado</option>
@@ -216,5 +223,6 @@ EditarcontratoComponent.propTypes = {
 	obra_descripcion: PropTypes.string,
 	planta_matriz: PropTypes.string,
 	comentario: PropTypes.string,
+	status: PropTypes.string,
 	fecha_registro: PropTypes.string
 };

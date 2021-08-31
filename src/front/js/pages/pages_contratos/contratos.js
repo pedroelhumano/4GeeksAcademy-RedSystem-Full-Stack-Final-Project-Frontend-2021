@@ -50,6 +50,9 @@ export const Contratos = props => {
 		} else if (elestado == "Finalizado") {
 			color = "bg-info";
 			return color;
+		} else {
+			color = "bg-warning";
+			return color;
 		}
 	};
 
