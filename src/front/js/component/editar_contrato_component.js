@@ -180,6 +180,25 @@ export const EditarcontratoComponent = props => {
 						/>
 					</Col>
 				</Row> */}
+				<Row>
+					<Col lg={2} md={1} sm={2}>
+						<Form.Label>Status</Form.Label>
+					</Col>
+					<Col lg={10} md={11} sm={10}>
+						{/* <Form.Select className="me-sm-2" id="inlineFormCustomSelect">
+							<option value="Pendiente">Pendiente</option>
+							<option value="Iniciado">Iniciado</option>
+							<option value="Finalizado">Finalizado</option>
+							<option value="Cancelado">Cancelado</option>
+						</Form.Select> */}
+						<select id="cars" name="carlist" form="carform">
+							<option value="Pendiente">Pendiente</option>
+							<option value="Iniciado">Iniciado</option>
+							<option value="Finalizado">Finalizado</option>
+							<option value="Cancelado">Cancelado</option>
+						</select>
+					</Col>
+				</Row>
 				<Button className="my-2" variant="primary" type="submit">
 					Enviar
 				</Button>{" "}
