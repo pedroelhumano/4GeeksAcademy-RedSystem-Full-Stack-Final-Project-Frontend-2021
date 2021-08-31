@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback } from "react";
+import React, { useState, useEffect, useCallback, useContext } from "react";
 import { useParams, Link } from "react-router-dom";
 import "../../../styles/app.scss";
 //Importamos axios
@@ -6,6 +6,7 @@ import axios from "axios";
 
 //Aqui colocar la URL de la API por favor
 import { URL } from "../../config";
+import { Context } from "../../store/appContext";
 
 //Componentes importados
 import { EditaruserCompont } from "../../component/edicionusercomponent.js";
@@ -17,11 +18,16 @@ import "bootstrap/dist/css/bootstrap.min.css";
 export const Editaruser = props => {
 	const [user, setUser] = useState(null);
 	const { id } = useParams();
+	const { store, actions } = useContext(Context);
 
 	const fetchUser = useCallback(
 		async () => {
 			try {
-				const { data } = await axios.get(`${URL}user/${id}`);
+				const { data } = await axios.get(`${URL}user/${id}`, {
+					headers: {
+						Authorization: `Bearer ${localStorage.getItem("token")}`
+					}
+				});
 				// console.log("user", data);
 				setUser(data);
 			} catch (error) {
