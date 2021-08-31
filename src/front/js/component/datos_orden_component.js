@@ -41,7 +41,7 @@ export const Datos_orden_component = props => {
 							<td>Dirección</td>
 							<td>{props.direccion}</td>
 						</tr>
-						<tr>
+						{/* <tr>
 							<td>GEO</td>
 							<td>
 								<button type="button" className="btn btn-secondary col-md-4 col-lg-3 m-1">
@@ -51,8 +51,8 @@ export const Datos_orden_component = props => {
 									Ver Geo
 								</button>
 							</td>
-						</tr>
-						<tr>
+						</tr> */}
+						{/* <tr>
 							<td>Fotografias</td>
 							<td>
 								<button type="button" className="btn btn-secondary col-md-4 col-lg-3 m-1">
@@ -62,17 +62,17 @@ export const Datos_orden_component = props => {
 									Ver Fotografias
 								</button>
 							</td>
-						</tr>
-						<tr>
+						</tr> */}
+						{/* <tr>
 							<td>Plano</td>
 							<td>
 								<button type="button" className="btn btn-secondary col-md-4 col-lg-3">
 									Descargar
 								</button>
 							</td>
-						</tr>
+						</tr> */}
 						<tr>
-							<td>Tecnico</td>
+							<td>Tecnicos</td>
 							<td>{props.tecnicos_asignados}</td>
 						</tr>
 						<tr>

@@ -38,6 +38,7 @@ export const Contratos = props => {
 
 	return (
 		<div className="container">
+			<h2>Contratos</h2>
 			<ul className="list-group container-fluid mb-3">
 				{contratos.length > 0 ? (
 					contratos.map(contrato => (

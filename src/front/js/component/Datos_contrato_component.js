@@ -51,23 +51,23 @@ export const Datos_contrato_component = props => {
 							<td>Planta Matriz</td>
 							<td>{props.planta_matriz}</td>
 						</tr>
-						<tr>
+						{/* <tr>
 							<td>GEO</td>
 							<td>
 								<button type="button" className="btn btn-secondary col-md-4 col-lg-2">
 									Ir
 								</button>
 							</td>
-						</tr>
-						<tr>
+						</tr> */}
+						{/* <tr>
 							<td>Plano</td>
 							<td>
 								<button type="button" className="btn btn-secondary col-md-4 col-lg-2">
 									Descargar
 								</button>
 							</td>
-						</tr>
-						<tr>
+						</tr> */}
+						{/* <tr>
 							<td>Ver fotografias</td>
 							<td>
 								<Link to="ver_fotos_orden">
@@ -76,7 +76,7 @@ export const Datos_contrato_component = props => {
 									</button>
 								</Link>
 							</td>
-						</tr>
+						</tr> */}
 						<tr>
 							<td>Fecha creacion</td>
 							<td>{props.fecha_registro}</td>

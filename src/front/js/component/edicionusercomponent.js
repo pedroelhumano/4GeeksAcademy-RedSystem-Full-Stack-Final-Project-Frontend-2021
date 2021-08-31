@@ -135,7 +135,7 @@ export const EditaruserCompont = props => {
 							/>
 						</Col>
 					</Row>
-					<Row>
+					{/* <Row>
 						<Col lg={2} md={1} sm={2}>
 							<div>Password:</div>
 						</Col>
@@ -148,7 +148,7 @@ export const EditaruserCompont = props => {
 								onChange={handleInputChange}
 							/>
 						</Col>
-					</Row>
+					</Row> */}
 					<Row>
 						<Col lg={2} md={1} sm={2}>
 							<div>Contact:</div>
@@ -177,7 +177,7 @@ export const EditaruserCompont = props => {
 							/>
 						</Col>
 					</Row>
-					<Row>
+					{/* <Row>
 						<Col lg={2} md={1} sm={2}>
 							<div>Fecha de registro:</div>
 						</Col>
@@ -190,7 +190,7 @@ export const EditaruserCompont = props => {
 								name="fecharegistro"
 							/>
 						</Col>
-					</Row>
+					</Row> */}
 					<Button className="my-3" variant="primary" type="submit">
 						Enviar
 					</Button>{" "}

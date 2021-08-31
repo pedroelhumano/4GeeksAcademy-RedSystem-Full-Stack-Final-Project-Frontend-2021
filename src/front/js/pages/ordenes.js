@@ -37,6 +37,7 @@ export const Ordenes = props => {
 	);
 	return (
 		<div className="container">
+			<h2>Ordenes de trabajo</h2>
 			<ul className="list-group container-fluid">
 				{ordenes.length > 0 ? (
 					ordenes.map(ordene => (
@@ -45,7 +46,7 @@ export const Ordenes = props => {
 							id_nombre={ordene.id_nombre}
 							url_info={`datos_orden/${ordene.id}`}
 							textbutton2="Acreditar"
-							url_orden="Editar"
+							//url_orden="Editar"
 							key={ordene.id} //llave necesaria para que no se tumbe react y poder iterar
 						/>
 					))

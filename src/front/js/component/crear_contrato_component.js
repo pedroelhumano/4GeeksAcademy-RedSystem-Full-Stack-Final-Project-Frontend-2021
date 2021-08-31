@@ -150,16 +150,6 @@ export const CrearcontratoComponent = props => {
 				</Row>
 				<Row>
 					<Col lg={2} md={1} sm={2}>
-						<Form.Label>Plano</Form.Label>
-					</Col>
-					<Col lg={10} md={11} sm={10}>
-						<Form.Group controlId="formFile">
-							<Form.Control type="file" />
-						</Form.Group>
-					</Col>
-				</Row>
-				<Row>
-					<Col lg={2} md={1} sm={2}>
 						<Form.Label>Comentario</Form.Label>
 					</Col>
 					<Col lg={10} md={11} sm={10}>

@@ -143,7 +143,7 @@ export const EditarcontratoComponent = props => {
 						/>
 					</Col>
 				</Row>
-				<Row>
+				{/* <Row>
 					<Col lg={2} md={1} sm={2}>
 						<Form.Label>Plano</Form.Label>
 					</Col>
@@ -152,7 +152,7 @@ export const EditarcontratoComponent = props => {
 							<Form.Control type="file" />
 						</Form.Group>
 					</Col>
-				</Row>
+				</Row> */}
 				<Row>
 					<Col lg={2} md={1} sm={2}>
 						<Form.Label>Comentario</Form.Label>
@@ -167,7 +167,7 @@ export const EditarcontratoComponent = props => {
 						/>
 					</Col>
 				</Row>
-				<Row>
+				{/* <Row>
 					<Col lg={2} md={1} sm={2}>
 						<Form.Label>Fecha registro</Form.Label>
 					</Col>
@@ -179,7 +179,7 @@ export const EditarcontratoComponent = props => {
 							name="fecha_registro"
 						/>
 					</Col>
-				</Row>
+				</Row> */}
 				<Button className="my-2" variant="primary" type="submit">
 					Enviar
 				</Button>{" "}
