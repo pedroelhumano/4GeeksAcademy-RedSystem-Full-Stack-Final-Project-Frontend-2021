@@ -8,8 +8,21 @@ import "../../../styles/contactenos.scss";
 //Componentes importados
 import { Container, Row, Col, Card, Button, CardGroup, Image, Form } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
+//Importamos emailJS
+import emailjs from "emailjs-com";
+import { init } from "emailjs-com";
 
 export const Contactenos = props => {
+	function sendEmail(e) {
+		e.preventDefault();
+		emailjs
+			// .sendForm("service_a7lauxf", "template_7mhf428", e.target, "user_IQLHNvSLvvs1yvAC048F1")
+			.sendForm("service_pc6libi", "template_7mhf428", e.target, "user_IQLHNvSLvvs1yvAC048F1")
+			.then(res => {
+				console.log(res);
+			})
+			.catch(err => console.log(err));
+	}
 	return (
 		<div className="container">
 			<div className="row mt-3">
@@ -67,25 +80,19 @@ export const Contactenos = props => {
 			</div>
 			<div>
 				<Container className="mt-4">
-					<Form>
-						<h1>Formulario de Contacto</h1>
-						<Form.Label className="mt-4">Nombre Completo</Form.Label>
-						<Form.Control placeholder="Nombre y Apellido" />
-						<Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
-							<Form.Label className="mt-4">Email</Form.Label>
-							<Form.Control type="email" placeholder="name@example.com" />
-						</Form.Group>
-						<Form.Group className="mb-3" controlId="exampleForm.ControlTextarea1">
-							<Form.Label className="mt-4">Comentarios</Form.Label>
-							<Form.Control as="textarea" rows={3} />
-						</Form.Group>
-					</Form>
+					<h1>Formulario de Contacto</h1>
+					<form onSubmit={sendEmail}>
+						<label className="mt-4">Nombre Completo</label>
+						<input name="name" placeholder="Nombre y Apellido" />
+						<label lassName="mt-4">Email</label>
+						<input name="email" type="email" placeholder="name@example.com" />
+						<label className="mt-4">Comentarios</label>
+						<textarea name="message" rows={4} />
+						<button variant="success" value="Send" type="submit">
+							Enviar
+						</button>
+					</form>
 				</Container>
-				<Row className="justify-content-md-center pb-3">
-					<Button variant="success" href="#">
-						Enviar
-					</Button>
-				</Row>
 			</div>
 		</div>
 	);
