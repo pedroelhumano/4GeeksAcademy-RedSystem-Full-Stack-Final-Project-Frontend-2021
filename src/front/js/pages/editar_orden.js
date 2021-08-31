@@ -18,7 +18,11 @@ export const Editarorden = () => {
 	const fetchOrden = useCallback(
 		async () => {
 			try {
-				const { data } = await axios.get(`${URL}order/${id}`);
+				const { data } = await axios.get(`${URL}order/${id}`, {
+					headers: {
+						Authorization: `Bearer ${localStorage.getItem("token")}`
+					}
+				});
 				// console.log("user", data);
 				setOrden(data);
 			} catch (error) {

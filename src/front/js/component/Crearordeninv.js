@@ -27,7 +27,11 @@ export const Crearordeninv = props => {
 		try {
 			event.preventDefault();
 			console.log("enviando datos...", datos);
-			const res = await axios.put(`${URL}order/${props.id}`, datos);
+			const res = await axios.put(`${URL}order/${props.id}`, datos, {
+				headers: {
+					Authorization: `Bearer ${localStorage.getItem("token")}`
+				}
+			});
 			alert("Orden actualizada exitosamente");
 			console.log("res", res);
 		} catch (error) {

@@ -18,7 +18,11 @@ export const Crear_orden_page = () => {
 	const fetchIDContrato = useCallback(
 		async () => {
 			try {
-				const { data } = await axios.get(`${URL}contrato/${id}`);
+				const { data } = await axios.get(`${URL}contrato/${id}`, {
+					headers: {
+						Authorization: `Bearer ${localStorage.getItem("token")}`
+					}
+				});
 				// console.log("user", data);
 				setOrden(data);
 			} catch (error) {

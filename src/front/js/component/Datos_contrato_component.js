@@ -12,7 +12,11 @@ export const Datos_contrato_component = props => {
 		try {
 			event.preventDefault();
 			console.log("eliminando...");
-			const res = await axios.delete(`${URL}contrato/${props.id}`);
+			const res = await axios.delete(`${URL}contrato/${props.id}`, {
+				headers: {
+					Authorization: `Bearer ${localStorage.getItem("token")}`
+				}
+			});
 			// const res = await axios.del(`${URL}order/${props.id}`, datos);
 			alert("Contrato eliminado");
 			console.log("res", res);

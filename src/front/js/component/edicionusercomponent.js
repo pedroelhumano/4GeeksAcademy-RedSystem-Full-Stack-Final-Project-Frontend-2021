@@ -34,7 +34,11 @@ export const EditaruserCompont = props => {
 		try {
 			event.preventDefault();
 			console.log("enviando datos...", datos);
-			const res = await axios.put(`${URL}user/${props.id}`, datos);
+			const res = await axios.put(`${URL}user/${props.id}`, datos, {
+				headers: {
+					Authorization: `Bearer ${localStorage.getItem("token")}`
+				}
+			});
 			alert("Usuario actualizado exitosamente");
 			console.log("res", res);
 		} catch (error) {

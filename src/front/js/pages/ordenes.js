@@ -18,7 +18,11 @@ export const Ordenes = props => {
 	const fetchOrdenes = useCallback(
 		async () => {
 			try {
-				const { data } = await axios.get(`${URL}orders/${id}`);
+				const { data } = await axios.get(`${URL}orders/${id}`, {
+					headers: {
+						Authorization: `Bearer ${localStorage.getItem("token")}`
+					}
+				});
 				// console.log("users", data.Lista_de_usuarios);
 				setOrdenes(data);
 			} catch (error) {
