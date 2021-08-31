@@ -35,6 +35,25 @@ export const Ordenes = props => {
 		},
 		[fetchOrdenes]
 	);
+	const verificarcolor = elestado => {
+		let color = "";
+		if (elestado == "Cancelado") {
+			color = "bg-danger";
+			return color;
+		} else if (elestado == "Pendiente") {
+			color = "bg-warning";
+			return color;
+		} else if (elestado == "Iniciado") {
+			color = "bg-success";
+			return color;
+		} else if (elestado == "Finalizado") {
+			color = "bg-info";
+			return color;
+		} else {
+			color = "bg-warning";
+			return color;
+		}
+	};
 	return (
 		<div className="container">
 			<h2>Ordenes de trabajo</h2>
@@ -42,7 +61,7 @@ export const Ordenes = props => {
 				{ordenes.length > 0 ? (
 					ordenes.map(ordene => (
 						<Listastotal
-							status="bg-warning"
+							status={verificarcolor(ordene.status)}
 							id_nombre={ordene.id_nombre}
 							url_info={`datos_orden/${ordene.id}`}
 							textbutton2="Acreditar"

@@ -114,13 +114,18 @@ export const Crearordeninv = props => {
 							<Form.Label>Status</Form.Label>
 						</Col>
 						<Col lg={10} md={11} sm={10}>
-							<Form.Control
-								className="text-left"
-								type="text"
-								value={datos.status}
+							<select
+								id="status"
 								name="status"
+								form="statusform"
 								onChange={handleInputChange}
-							/>
+								value={datos.status}>
+								<option value="">Seleccionar</option>
+								<option value="Pendiente">Pendiente</option>
+								<option value="Iniciado">Iniciado</option>
+								<option value="Finalizado">Finalizado</option>
+								<option value="Cancelado">Cancelado</option>
+							</select>
 						</Col>
 					</Row>
 				)}
