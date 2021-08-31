@@ -4,11 +4,51 @@ import redSystemLogo from "../../../img/red-system-logo.png";
 import "../../../styles/login.scss";
 import { InputGroup } from "../../component/inputGroup";
 import { Link, useParams } from "react-router-dom";
+import { URL } from "../../config/index";
 
 export const CambiarContrasena = () => {
 	const { store, actions } = useContext(Context);
+	const [respuesta, setRespuesta] = useState("");
+	const [campoActual, setCampoActual] = useState("");
+	const [campoNueva, setCampoNueva] = useState("");
+	const [campoConfirma, setCampoConfirma] = useState("");
 
-	const [recuperar, setRecuperar] = useState(false);
+	const cambiarcontrasena = e => {
+		e.preventDefault();
+
+		let cambio = {
+			actual: campoActual,
+			nueva: campoNueva
+		};
+
+		fetch(URL + "cambiarc/" + String(store.user.id), {
+			method: "PUT",
+			headers: {
+				"Content-Type": "application/json;charset=UTF-8"
+			},
+			body: JSON.stringify(cambio)
+		})
+			.then(res => res.json())
+			.then(data => {
+				setRespuesta(data.msg);
+				if (data.msg == "Contraseña cambiada exitosamente") {
+					alert("¡Contraseña cambiada exitosamente!");
+					setCampoActual("");
+					setCampoNueva("");
+					setCampoConfirma("");
+				}
+			});
+	};
+
+	const handleChangeActual = cambio => {
+		setCampoActual(cambio);
+	};
+	const handleChangeNueva = cambio => {
+		setCampoNueva(cambio);
+	};
+	const handleChangeConfirma = cambio => {
+		setCampoConfirma(cambio);
+	};
 
 	/* window.onload = function verificar() {
 		let x = "<i className='fas fa-check-circle text-success' /> La contraseña debe contener al menos un número";
@@ -34,6 +74,8 @@ export const CambiarContrasena = () => {
 						type="password"
 						placeholder="Contraseña"
 						name="acontrasena"
+						valor={campoActual}
+						valorChange={handleChangeActual}
 					/>
 					<InputGroup
 						label="Introduce tu nueva contraseña"
@@ -41,6 +83,8 @@ export const CambiarContrasena = () => {
 						type="password"
 						placeholder="Contraseña"
 						name="ncontrasena"
+						valor={campoNueva}
+						valorChange={handleChangeNueva}
 					/>
 					<InputGroup
 						label="Confirma tu nueva contraseña"
@@ -48,12 +92,29 @@ export const CambiarContrasena = () => {
 						type="password"
 						placeholder="Confirmar Contraseña"
 						name="rcontrasena"
+						valor={campoConfirma}
+						valorChange={handleChangeConfirma}
 					/>
 					<div className="d-flex flex-column justify-content-start">
 						<div className="d-flex flex-row align-items-start mb-0 p-2">
 							<h6 className="mb-0 font-italic text-left" id="condicionu">
-								<i className="fas fa-exclamation-circle text-danger" /> La contraseña debe contener al
-								menos un número
+								<i
+									className={
+										campoNueva.includes("1") ||
+										campoNueva.includes("2") ||
+										campoNueva.includes("3") ||
+										campoNueva.includes("4") ||
+										campoNueva.includes("5") ||
+										campoNueva.includes("6") ||
+										campoNueva.includes("7") ||
+										campoNueva.includes("8") ||
+										campoNueva.includes("9") ||
+										campoNueva.includes("0")
+											? "fas fa-check-circle text-success"
+											: "fas fa-exclamation-circle text-danger"
+									}
+								/>{" "}
+								La contraseña debe contener al menos un número
 							</h6>
 							{/* <button onClick={() => alert(document.getElementById("ncontrasena").value.includes("2"))}>
 								mosca
@@ -61,21 +122,60 @@ export const CambiarContrasena = () => {
 						</div>
 						<div className="d-flex flex-row align-items-start mb-0 p-2">
 							<h6 className="mb-0 font-italic text-left">
-								<i className="fas fa-check-circle text-success" /> La contraseña debe tener al menos un
-								caracter especial (%,$,#,*,!,.)
+								<i
+									className={
+										campoNueva.includes("%") ||
+										campoNueva.includes("$") ||
+										campoNueva.includes("#") ||
+										campoNueva.includes("*") ||
+										campoNueva.includes("!") ||
+										campoNueva.includes(".")
+											? "fas fa-check-circle text-success"
+											: "fas fa-exclamation-circle text-danger"
+									}
+								/>{" "}
+								La contraseña debe tener al menos un caracter especial (%,$,#,*,!,.)
 							</h6>
 						</div>
 						<div className="d-flex flex-row align-items-start mb-0 p-2">
 							<h6 className="mb-0 font-italic text-left">
-								<i className="fas fa-exclamation-circle text-danger" /> Las contraseñas deben de iguales
+								<i
+									className={
+										campoNueva.length > 5
+											? "fas fa-check-circle text-success"
+											: "fas fa-exclamation-circle text-danger"
+									}
+								/>{" "}
+								La contraseña debe tener al menos 6 caracteres
+							</h6>
+						</div>
+						<div className="d-flex flex-row align-items-start mb-0 p-2">
+							<h6 className="mb-0 font-italic text-left">
+								<i
+									className={
+										campoNueva == campoConfirma && campoNueva != ""
+											? "fas fa-check-circle text-success"
+											: "fas fa-exclamation-circle text-danger"
+									}
+								/>{" "}
+								Las contraseñas deben de iguales
 							</h6>
 						</div>
 					</div>
+					{respuesta == "Contraseña cambiada exitosamente" ? (
+						<p className="text-success mb-0">{respuesta}</p>
+					) : (
+						<p className="text-danger mb-0">{respuesta}</p>
+					)}
 					<div className="d-flex flex-row align-items-between my-3">
 						<button type="submit" className="fadeIn first btn btn-danger text-white m-2">
 							CANCELAR
 						</button>
-						<button type="submit" className="fadeIn first btn btn-primary text-white m-2">
+						<button
+							type="submit"
+							className="fadeIn first btn btn-primary text-white m-2"
+							onClick={e => cambiarcontrasena(e)}
+							disabled={campoActual == "" || campoNueva == "" || campoConfirma == ""}>
 							CAMBIAR CONTRASEÑA
 						</button>
 					</div>
