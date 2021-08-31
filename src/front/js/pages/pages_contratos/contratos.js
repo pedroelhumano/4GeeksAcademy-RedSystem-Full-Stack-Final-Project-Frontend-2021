@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback } from "react";
+import React, { useState, useEffect, useCallback, useContext } from "react";
 import { Link } from "react-router-dom";
 import "../../../styles/app.scss";
 //Componentes importados
@@ -9,16 +9,22 @@ import "bootstrap/dist/css/bootstrap.min.css";
 //Importamos la libreria axios previamente instalada
 import axios from "axios";
 import { URL } from "../../config";
+import { Context } from "../../store/appContext";
 
 export const Contratos = props => {
 	//Generamos primero el uso de useState
 	const [contratos, setContratos] = useState([]);
+	const { store, actions } = useContext(Context);
 
 	//AXIOS
 	const fetchContratos = useCallback(
 		async () => {
 			try {
-				const { data } = await axios.get(`${URL}contratos`);
+				const { data } = await axios.get(`${URL}contratos`, {
+					headers: {
+						Authorization: `Bearer ${localStorage.getItem("token")}`
+					}
+				});
 				// console.log("users", data.Lista_de_usuarios);
 				setContratos(data.Lista_de_contratos);
 			} catch (error) {

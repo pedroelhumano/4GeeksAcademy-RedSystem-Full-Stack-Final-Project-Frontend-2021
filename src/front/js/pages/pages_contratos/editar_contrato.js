@@ -1,4 +1,4 @@
-import React, { useState, useCallback, useEffect } from "react";
+import React, { useState, useCallback, useEffect, useContext } from "react";
 import { Link, useParams } from "react-router-dom";
 import axios from "axios";
 
@@ -10,15 +10,20 @@ import { EditarcontratoComponent } from "../../component/editar_contrato_compone
 
 //Aqui colocar la URL de la API por favor
 import { URL } from "../../config";
+import { Context } from "../../store/appContext";
 
 export const Editarcontrato = () => {
 	const [contrato, setContrato] = useState(null);
 	const { id } = useParams();
-
+	const { store, actions } = useContext(Context);
 	const fetchContrato = useCallback(
 		async () => {
 			try {
-				const { data } = await axios.get(`${URL}contrato/${id}`);
+				const { data } = await axios.get(`${URL}contrato/${id}`, {
+					headers: {
+						Authorization: `Bearer ${localStorage.getItem("token")}`
+					}
+				});
 				// console.log("user", data);
 				setContrato(data);
 			} catch (error) {

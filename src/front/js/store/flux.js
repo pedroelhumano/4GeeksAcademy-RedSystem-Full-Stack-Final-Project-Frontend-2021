@@ -77,6 +77,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 						user: ""
 					}
 				});
+				localStorage.removeItem("token");
 			},
 			exampleFunction: () => {
 				getActions().changeColor(0, "green");
