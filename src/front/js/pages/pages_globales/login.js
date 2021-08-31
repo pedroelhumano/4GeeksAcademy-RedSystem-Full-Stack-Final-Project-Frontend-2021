@@ -3,9 +3,11 @@ import injectContext from "../../store/appContext";
 import { Context } from "../../store/appContext";
 import redSystemLogo from "../../../img/red-system-logo.png";
 import "../../../styles/login.scss";
+//import "../../../styles/app.scss";
 import { InputGroup } from "../../component/inputGroup";
 import { Link, useParams } from "react-router-dom";
 import { URL } from "../../config/index";
+import emailjs from "emailjs-com";
 
 export const Login = () => {
 	const { store, actions } = useContext(Context);
@@ -19,6 +21,10 @@ export const Login = () => {
 
 	const recuperarContrasena = e => {
 		e.preventDefault();
+		let templateParams = {
+			email: campoRecuperar,
+			password: contrasenaNueva
+		};
 
 		let cambio = {
 			email: campoRecuperar
@@ -37,7 +43,25 @@ export const Login = () => {
 				if (data.msg == "Contraseña restablecida. Revisa tu correo electrónico") {
 					setCampoRecuperar("");
 					setContrasenaNueva(data.contrasena);
+					templateParams.password = data.contrasena;
+					//console.log("la contraseña nueva es: " + templateParams.password);
 				}
+			})
+			// setTimeout(() => { console.log("World!"); }, 2000);
+
+			.then(() => {
+				setTimeout(() => {
+					emailjs
+						.send("service_pc6libi", "template_m9r7dgj", templateParams, "user_IQLHNvSLvvs1yvAC048F1")
+						.then(
+							function(response) {
+								console.log("SUCCESS!", response.status, response.text);
+							},
+							function(error) {
+								console.log("FAILED...", error);
+							}
+						);
+				}, 10000);
 			});
 	};
 
@@ -144,7 +168,10 @@ export const Login = () => {
 						) : (
 							<p className="text-danger mb-3">{respuesta}</p>
 						)}
-						<p className="text-info mb-3">{contrasenaNueva}</p>
+						{/* Esto muestra la contraseña por si acaso :P */}
+						{/* <p className="text-info mb-3">{contrasenaNueva}</p> */}
+						{/* <InputGroup valor={contrasenaNueva} /> */}
+
 						<div className="container px-2 d-flex justify-content-between">
 							<button
 								type="submit"
