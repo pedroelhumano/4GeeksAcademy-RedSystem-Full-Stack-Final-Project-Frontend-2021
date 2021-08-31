@@ -38,7 +38,7 @@ const Wrapper = ({ children }) => {
 	const history = useHistory();
 	useEffect(
 		() => {
-			!store.user.token ? history.push("/login") : history.push("/contratos");
+			!store.user.token ? history.push("/") : history.push("/contratos");
 			/* actions.getToken(); */
 		},
 		[store.user.token]
@@ -63,8 +63,7 @@ const Layout = () => {
 				<Wrapper>
 					<Switch>
 						<Route exact path="/">
-							<Menusup />
-							<Contratos />
+							<Landing />
 						</Route>
 
 						{/* <Route exact path="/demo">
@@ -177,7 +176,6 @@ const Layout = () => {
 						</Route>
 						{/*Ruta del 404*/}
 						<Route>
-							<Menusup />
 							<Cuatrocerocuatro />
 						</Route>
 					</Switch>
