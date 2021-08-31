@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 //import figure from "react-bootstrap/figure";
 import pedroyanezIMG from "../../../img/pedroyanez.jpg";
 import luissalgado from "../../../img/luissalgado.jpg";
@@ -6,13 +6,18 @@ import felipevalenzuela from "../../../img/felipevalenzuela.jpeg";
 import "../../../styles/app.scss";
 import "../../../styles/contactenos.scss";
 //Componentes importados
-import { Container, Row, Col, Card, Button, CardGroup, Image, Form } from "react-bootstrap";
+import { Container, Row, Col, Card, Button, CardGroup, Image, Form, Modal } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
 //Importamos emailJS
 import emailjs from "emailjs-com";
 import { init } from "emailjs-com";
 
 export const Contactenos = props => {
+	//MODAL
+	const [show, setShow] = useState(false);
+	const handleClose = () => setShow(false);
+	const handleShow = () => setShow(true);
+	//FIN MODAL
 	function sendEmail(e) {
 		e.preventDefault();
 		emailjs
@@ -24,7 +29,7 @@ export const Contactenos = props => {
 			.catch(err => console.log(err));
 	}
 	return (
-		<div className="container">
+		<div className="container mt-5 pt-5">
 			<Row>
 				<Col>
 					<div style={{ width: "440px" }} className="card mb-3">
@@ -105,9 +110,26 @@ export const Contactenos = props => {
 									<label className="mt-4">Comentarios</label>
 									<textarea name="message" className="form-control" rows={4} />
 								</div>
-								<button variant="success" className="btn btn-success" value="Send" type="submit">
+								{/* <button variant="success" className="btn btn-success" value="Send" type="submit">
+									Enviar
+								</button> */}
+								<button
+									className="btn btn-success my-3"
+									value="Send"
+									variant="primary"
+									onClick={handleShow}
+									type="submit">
 									Enviar
 								</button>
+								<Modal show={show} onHide={handleClose}>
+									<Modal.Header closeButton />
+									<Modal.Body>Correo enviado exitosamente</Modal.Body>
+									<Modal.Footer>
+										<Button variant="secondary" onClick={handleClose}>
+											OK
+										</Button>
+									</Modal.Footer>
+								</Modal>
 							</form>
 						</Container>
 					</div>
