@@ -13,6 +13,11 @@ export const EditarcontratoComponent = props => {
 	const handleClose = () => setShow(false);
 	const handleShow = () => setShow(true);
 	//FIN MODAL
+	//Modal para negativo del axios
+	const [shownegative, setShownegative] = useState(false);
+	const handleCloses = () => setShownegative(false);
+	const handleShows = () => setShownegative(true);
+	//FIN modal
 	const [datos, setDatos] = useState({
 		id_project: "",
 		comuna: "",
@@ -43,8 +48,10 @@ export const EditarcontratoComponent = props => {
 			});
 			//alert("Contrato actualizado exitosamente");
 			console.log("res", res);
+			setShow(true);
 		} catch (error) {
-			alert("Ocurrió un error al actualizar el contrato");
+			setShownegative(true);
+			//alert("Ocurrió un error al actualizar el contrato");
 			console.error("error al actualizar contrato", error);
 		}
 	};
@@ -233,7 +240,10 @@ export const EditarcontratoComponent = props => {
 				{/* <Button className="my-2" variant="primary" type="submit">
 					Enviar
 				</Button>{" "} */}
-				<Button className="my-3" variant="primary" onClick={handleShow} type="submit">
+				{/* <Button className="my-3" variant="primary" onClick={handleShow} type="submit">
+					Enviar
+				</Button> */}
+				<Button className="my-3" variant="primary" type="submit">
 					Enviar
 				</Button>
 				<Modal show={show} onHide={handleClose}>
@@ -241,6 +251,15 @@ export const EditarcontratoComponent = props => {
 					<Modal.Body>Contrato actualizado exitosamente</Modal.Body>
 					<Modal.Footer>
 						<Button variant="success" onClick={handleClose}>
+							OK
+						</Button>
+					</Modal.Footer>
+				</Modal>
+				<Modal show={shownegative} onHide={handleCloses}>
+					<Modal.Header closeButton />
+					<Modal.Body>No se puede finalizar un contrato si no tiene técnicos asignados</Modal.Body>
+					<Modal.Footer>
+						<Button variant="danger" onClick={handleCloses}>
 							OK
 						</Button>
 					</Modal.Footer>

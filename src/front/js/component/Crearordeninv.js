@@ -8,11 +8,16 @@ import { Row, Col, Form, Button, Modal } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
 
 export const Crearordeninv = props => {
-	//MODAL
+	//MODAL para afirmativo
 	const [show, setShow] = useState(false);
 	const handleClose = () => setShow(false);
 	const handleShow = () => setShow(true);
-	//FIN MODAL
+	//FIN MODAL afirmativo
+	//Modal para negativo del axios
+	const [shownegative, setShownegative] = useState(false);
+	const handleCloses = () => setShownegative(false);
+	const handleShows = () => setShownegative(true);
+	//FIN modal
 	const [datos, setDatos] = useState({
 		id_nombre: "",
 		direccion: "",
@@ -32,6 +37,7 @@ export const Crearordeninv = props => {
 		try {
 			event.preventDefault();
 			console.log("enviando datos...", datos);
+
 			const res = await axios.put(`${URL}order/${props.id}`, datos, {
 				headers: {
 					Authorization: `Bearer ${localStorage.getItem("token")}`
@@ -39,8 +45,10 @@ export const Crearordeninv = props => {
 			});
 			//alert("Orden actualizada exitosamente");
 			console.log("res", res);
+			setShow(true);
 		} catch (error) {
-			alert("Ocurrió un error al actualizar la orden de trabajo");
+			setShownegative(true);
+			//alert("Ocurrió un error al actualizar la orden de trabajo");
 			console.error("error al la orden", error);
 		}
 	};
@@ -156,7 +164,10 @@ export const Crearordeninv = props => {
 				{/* <Button className="my-3" variant="primary" type="submit">
 					Enviar
 				</Button>{" "} */}
-				<Button className="my-3" variant="primary" onClick={handleShow} type="submit">
+				{/* <Button className="my-3" variant="primary" onClick={handleShow} type="submit">
+					Enviar
+				</Button> */}
+				<Button className="my-3" variant="primary" type="submit">
 					Enviar
 				</Button>
 				<Modal show={show} onHide={handleClose}>
@@ -164,6 +175,15 @@ export const Crearordeninv = props => {
 					<Modal.Body>Orden actualizada exitosamente</Modal.Body>
 					<Modal.Footer>
 						<Button variant="success" onClick={handleClose}>
+							OK
+						</Button>
+					</Modal.Footer>
+				</Modal>
+				<Modal show={shownegative} onHide={handleCloses}>
+					<Modal.Header closeButton />
+					<Modal.Body>No se puede finalizar una orden de trabajo si no tiene técnicos asignados</Modal.Body>
+					<Modal.Footer>
+						<Button variant="danger" onClick={handleCloses}>
 							OK
 						</Button>
 					</Modal.Footer>
