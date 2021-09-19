@@ -121,7 +121,7 @@ export const Datos_contrato_component = props => {
 						<Button variant="secondary" onClick={handleClose}>
 							No
 						</Button>
-						<Button variant="primary" onClick={eliminar}>
+						<Button variant="danger" onClick={eliminar}>
 							<Link className="text-light" to="/dashboard">
 								SI
 							</Link>

@@ -240,7 +240,7 @@ export const EditarcontratoComponent = props => {
 					<Modal.Header closeButton />
 					<Modal.Body>Contrato actualizado exitosamente</Modal.Body>
 					<Modal.Footer>
-						<Button variant="secondary" onClick={handleClose}>
+						<Button variant="success" onClick={handleClose}>
 							OK
 						</Button>
 					</Modal.Footer>

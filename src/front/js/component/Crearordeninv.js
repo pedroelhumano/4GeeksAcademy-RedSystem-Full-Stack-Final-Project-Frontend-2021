@@ -163,7 +163,7 @@ export const Crearordeninv = props => {
 					<Modal.Header closeButton />
 					<Modal.Body>Orden actualizada exitosamente</Modal.Body>
 					<Modal.Footer>
-						<Button variant="secondary" onClick={handleClose}>
+						<Button variant="success" onClick={handleClose}>
 							OK
 						</Button>
 					</Modal.Footer>
