@@ -60,11 +60,13 @@ export const Datos_contrato = props => {
 						fecha_registro={contrato.fecha_registro}
 						// ordenes=""
 					/>
-					<Button className="my-3" variant="primary">
-						<Link className="text-light" to={`../editar_contrato/${Number(id)}`}>
-							Editar
-						</Link>
-					</Button>{" "}
+					{store.user.perfil == "Admin" && (
+						<Button className="my-3" variant="primary">
+							<Link className="text-light" to={`../editar_contrato/${Number(id)}`}>
+								Editar
+							</Link>
+						</Button>
+					)}
 				</>
 			) : (
 				<h2>Cargando...</h2>

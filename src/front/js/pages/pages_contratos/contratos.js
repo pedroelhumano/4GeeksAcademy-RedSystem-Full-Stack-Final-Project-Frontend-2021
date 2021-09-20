@@ -88,15 +88,17 @@ export const Contratos = props => {
 				)}
 			</ul>
 
-			<div className="row justify-content-md-center">
-				<div className="col-md-auto ">
-					<Button variant="primary">
-						<Link className="text-light" to="/crear_contrato">
-							Crear contrato
-						</Link>
-					</Button>{" "}
+			{store.user.perfil == "Admin" && (
+				<div className="row justify-content-md-center">
+					<div className="col-md-auto ">
+						<Button variant="primary">
+							<Link className="text-light" to="/crear_contrato">
+								Crear contrato
+							</Link>
+						</Button>{" "}
+					</div>
 				</div>
-			</div>
+			)}
 		</div>
 	);
 };

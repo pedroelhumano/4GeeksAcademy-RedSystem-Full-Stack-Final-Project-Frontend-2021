@@ -20,9 +20,11 @@ export const Crearordentrabajo = props => {
 			<div className="border">
 				<Form className="ml-5">
 					<Crearordeninv />
-					<Button className="my-3" variant="primary">
-						Editar
-					</Button>{" "}
+					{store.user.perfil == "Admin" && (
+						<Button className="my-3" variant="primary">
+							Editar
+						</Button>
+					)}
 				</Form>
 			</div>
 		</Container>

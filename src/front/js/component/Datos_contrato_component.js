@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 import "../../styles/app.scss";
@@ -8,8 +8,10 @@ import axios from "axios";
 import { URL } from "../config";
 import { Modal } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
+import { Context } from "../store/appContext";
 
 export const Datos_contrato_component = props => {
+	const { store, actions } = useContext(Context);
 	//MODAL
 	const [show, setShow] = useState(false);
 	const handleClose = () => setShow(false);
@@ -109,9 +111,12 @@ export const Datos_contrato_component = props => {
 				{/* <Button className="my-2 bg-danger" variant="primary" onClick={eliminar}>
 					Eliminar
 				</Button>{" "} */}
-				<Button className="my-2 bg-danger" variant="primary" onClick={handleShow}>
-					Eliminar
-				</Button>
+				{store.user.perfil == "Admin" && (
+					<Button className="my-2 bg-danger" variant="primary" onClick={handleShow}>
+						Eliminar
+					</Button>
+				)}
+
 				<Modal show={show} onHide={handleClose}>
 					<Modal.Header closeButton>
 						<Modal.Title>Eliminar contrato</Modal.Title>

@@ -53,7 +53,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 								email: data.email,
 								expires: data.expires,
 								id: data.id,
-								perfil: data.administrador,
+								perfil: data.perfil,
 								token: data.token
 							};
 							setStore({ user: { ...dataUser } });
