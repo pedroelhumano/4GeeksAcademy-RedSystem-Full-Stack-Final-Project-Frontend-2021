@@ -24,3 +24,20 @@
  :-ms-input-placeholder {  /* Internet Explorer */
     text-align: left; 
  }
+ .transparencia{
+    color: rgb(146, 146, 146);
+    border: 1px solid rgba(151, 151, 151, 0.199);
+    text-align: center;
+ }
+ .bg-warning-transparente{
+background-color: #ffc1077e;
+ }
+.bg-success-transparente{
+   background-color: #28a74685;
+}
+.bg-danger-transparente{
+   background-color: #dc354685;
+}
+.bg-info-transparente{
+   background-color: #17a3b880;
+}
