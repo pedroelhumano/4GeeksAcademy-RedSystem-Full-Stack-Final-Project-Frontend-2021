@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback } from "react";
+import React, { useState, useEffect, useCallback, useContext } from "react";
 import { Link, useParams } from "react-router-dom";
 import "../../styles/app.scss";
 //Importamos la libreria axios previamente instalada
@@ -10,8 +10,10 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import { URL } from "../config";
 //Componente importado
 import { Datos_orden_component } from "../component/datos_orden_component";
+import { Context } from "../store/appContext";
 
 export const Datos_orden = props => {
+	const { store, actions } = useContext(Context);
 	const [orden, setOrden] = useState(null);
 	const { id } = useParams();
 	const fetchOrden = useCallback(
@@ -59,11 +61,13 @@ export const Datos_orden = props => {
 					/>
 					<Container>
 						<Form>
-							<Button className="my-3" variant="primary">
-								<Link className="text-light" to={`../editar_orden/${Number(id)}`}>
-									Editar
-								</Link>
-							</Button>{" "}
+							{store.user.perfil == "Admin" && (
+								<Button className="my-3" variant="primary">
+									<Link className="text-light" to={`../editar_orden/${Number(id)}`}>
+										Editar
+									</Link>
+								</Button>
+							)}
 						</Form>
 					</Container>
 				</>

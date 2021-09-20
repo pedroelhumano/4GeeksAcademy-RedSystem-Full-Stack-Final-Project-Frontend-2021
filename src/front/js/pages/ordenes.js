@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback } from "react";
+import React, { useState, useEffect, useCallback, useContext } from "react";
 import { Link, useParams } from "react-router-dom";
 import "../../styles/app.scss";
 import { Listastotal } from "../component/listastotal.js";
@@ -9,8 +9,10 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import axios from "axios";
 //Aqui colocar la URL de la API por favor
 import { URL } from "../config";
+import { Context } from "../store/appContext";
 
 export const Ordenes = props => {
+	const { store, actions } = useContext(Context);
 	//Generamos primero el uso de useState
 	const [ordenes, setOrdenes] = useState([]);
 	const { id } = useParams();
@@ -79,13 +81,15 @@ export const Ordenes = props => {
 			</ul>
 			<div className="row justify-content-md-center mt-3">
 				<div className="col-md-auto ">
-					<Button variant="primary">
-						{/* URL de crear orden basado en un contrato en especifico}
+					{store.user.perfil == "Admin" && (
+						<Button variant="primary">
+							{/* URL de crear orden basado en un contrato en especifico}
 						{/* <Link className="text-light" to={`crear_orden/${contrato.id}`}></Link> */}
-						<Link className="text-light" to={`crear_orden/${id}`}>
-							Crear Orden de trabajo
-						</Link>
-					</Button>{" "}
+							<Link className="text-light" to={`crear_orden/${id}`}>
+								Crear Orden de trabajo
+							</Link>
+						</Button>
+					)}
 				</div>
 			</div>
 		</div>

@@ -125,7 +125,7 @@ export const Contactenos = props => {
 									<Modal.Header closeButton />
 									<Modal.Body>Correo enviado exitosamente</Modal.Body>
 									<Modal.Footer>
-										<Button variant="secondary" onClick={handleClose}>
+										<Button variant="success" onClick={handleClose}>
 											OK
 										</Button>
 									</Modal.Footer>

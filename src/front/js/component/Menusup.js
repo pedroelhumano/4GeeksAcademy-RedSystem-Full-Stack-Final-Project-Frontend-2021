@@ -47,16 +47,21 @@ export const Menusup = () => {
 								Contratos
 							</Link>
 						</Nav>
-						<Nav>
-							<Link className="nav-link" to="/crear_contrato">
-								Crear Contratos
-							</Link>
-						</Nav>
-						<Nav>
-							<Link className="nav-link" to="/usuarios">
-								Administrar Usuarios
-							</Link>
-						</Nav>
+						{store.user.perfil == "Admin" && (
+							<Nav>
+								<Link className="nav-link" to="/crear_contrato">
+									Crear Contratos
+								</Link>
+							</Nav>
+						)}
+						{store.user.perfil == "Admin" && (
+							<Nav>
+								<Link className="nav-link" to="/usuarios">
+									Administrar Usuarios
+								</Link>
+							</Nav>
+						)}
+
 						{/* <Nav>
 							<Link className="nav-link" to="/configuracion">
 								Configuracion

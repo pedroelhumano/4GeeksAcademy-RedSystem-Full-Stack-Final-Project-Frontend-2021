@@ -147,7 +147,7 @@ export const Crear_orden_basecontrato = props => {
 					<Modal.Header closeButton />
 					<Modal.Body>Orden creada exitosamente</Modal.Body>
 					<Modal.Footer>
-						<Button variant="secondary" onClick={handleClose}>
+						<Button variant="success" onClick={handleClose}>
 							OK
 						</Button>
 					</Modal.Footer>
