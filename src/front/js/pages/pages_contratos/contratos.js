@@ -99,6 +99,20 @@ export const Contratos = props => {
 					</div>
 				</div>
 			)}
+			<div className="mt-5 row justify-content-md-center">
+				<div className="col-xl-2 col-lg-2 col-md-4 col-sm-6 col-md-auto  ">
+					<div className="transparencia">
+						<div className="float-left circle mx-1 bg-warning-transparente" />
+						<div className="mb-3">Pendiente</div>
+						<div className="float-left circle mx-1 bg-success-transparente" />
+						<div className="mb-3">Iniciado</div>
+						<div className="float-left circle mx-1 bg-info-transparente" />
+						<div className="mb-3">Finalizado</div>
+						<div className="float-left circle mx-1 bg-danger-transparente" />
+						<div className="mb-3">Cancelado</div>
+					</div>
+				</div>
+			</div>
 		</div>
 	);
 };
