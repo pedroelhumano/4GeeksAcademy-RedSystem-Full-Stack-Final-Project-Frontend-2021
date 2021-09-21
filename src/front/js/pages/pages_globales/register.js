@@ -18,6 +18,52 @@ export const Register = () => {
 	const [campoNueva, setCampoNueva] = useState("");
 	const [campoConfirma, setCampoConfirma] = useState("");
 
+	// FUNCION ALGORITMO PARA RUT
+	function validarrut(rut) {
+		//let elrut = campoRut.split(".");
+		let validador = campoRut.slice(-1);
+		if (validador == "k") {
+			validador = "K";
+		}
+		let numero = campoRut.substring(0, campoRut.length - 2);
+		let multiplicador = 2;
+		//let sindigito = elrut.split("-");
+		console.log("El numero validor es: " + validador);
+		console.log("El numero del rut es: " + numero);
+		let ultimodigito = 0;
+		let aux = numero;
+		let suma = 0;
+		for (let i = numero.length; i > 0; i--) {
+			ultimodigito = parseInt(aux.slice(-1));
+			console.log("El ultimo digito es: " + ultimodigito + " se multiplica por " + multiplicador);
+			suma = suma + ultimodigito * multiplicador;
+			console.log("La suma es: " + suma);
+			aux = aux.substring(0, aux.length - 1);
+			console.log("Lo que queda es: " + aux);
+			multiplicador++;
+			if (multiplicador == 8) {
+				multiplicador = 2;
+			}
+		}
+		let modulo = 11 - (suma % 11);
+		let resultado = "";
+		if (modulo == 11) {
+			resultado = "0";
+		} else if (modulo == 10) {
+			resultado = "K";
+		} else {
+			resultado = modulo.toString();
+		}
+		console.log("El validador es: " + modulo);
+		if (resultado == validador.toString()) {
+			console.log("El validador es correcto");
+			return true;
+		} else {
+			console.log("El validador NO es correcto");
+			return false;
+		}
+	}
+
 	const crearUsuario = e => {
 		e.preventDefault();
 
@@ -30,27 +76,32 @@ export const Register = () => {
 			contact: campoTelefono
 		};
 
-		fetch(URL + "user", {
-			method: "POST",
-			headers: {
-				"Content-Type": "application/json;charset=UTF-8"
-			},
-			body: JSON.stringify(entrada)
-		})
-			.then(res => res.json())
-			.then(data => {
-				setRespuesta(data.msg);
-				if (data.msg == "Usuario creado exitosamente") {
-					alert("¡Usuario creado exitosamente!");
-					setCampoNombre("");
-					setCampoApellido("");
-					setCampoRut("");
-					setCampoTelefono("");
-					setCampoNueva("");
-					setCampoEmail("");
-					setCampoConfirma("");
-				}
-			});
+		//Llamando a funcion verificadora
+		if (validarrut(campoRut) == true) {
+			fetch(URL + "user", {
+				method: "POST",
+				headers: {
+					"Content-Type": "application/json;charset=UTF-8"
+				},
+				body: JSON.stringify(entrada)
+			})
+				.then(res => res.json())
+				.then(data => {
+					setRespuesta(data.msg);
+					if (data.msg == "Usuario creado exitosamente") {
+						alert("¡Usuario creado exitosamente!");
+						setCampoNombre("");
+						setCampoApellido("");
+						setCampoRut("");
+						setCampoTelefono("");
+						setCampoNueva("");
+						setCampoEmail("");
+						setCampoConfirma("");
+					}
+				});
+		} else {
+			alert("Verifica el rut");
+		}
 	};
 
 	const handleChangeEmail = cambio => {
@@ -101,11 +152,14 @@ export const Register = () => {
 						<input
 							type=""
 							className="form-control"
-							placeholder="Escribe tu RUT"
+							placeholder="11222333-0"
 							onChange={e => setCampoRut(e.target.value)}
 							value={campoRut}
 						/>
 					</div>
+					<i className="legendadelrut">
+						<h6>Sin puntos con guion en codigo verificador</h6>
+					</i>
 					<div className="container-fluid d-flex flex-row align-items-between my-2 px-2">
 						<h6 className="text-left align-self-center mb-0 mr-2">Telefono de Contacto</h6>
 						<input
