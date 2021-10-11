@@ -19,8 +19,8 @@
 Este repositorio debe ejecutarse en conjunto con el repositorio `4GA-RedSystem-Full-Stack-Final-Project-Backend`
 - Ejecutar el proyecto desde gitpod.
 - Ingresar al archivo src/front/js/config/index.js y modificar la URL a la API a la cual se va a comunicar el aplicativo.
-- Ejecutar los comandos
+- Por defecto, gitpod ejecuta el comando `npm install` Por lo que no hace falta volverlo a usar.
+- Ejecutar  el comando para levantar el proyecto
 ```
-npm install
 npm run start
 ```
